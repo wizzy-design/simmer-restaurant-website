@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #1a1a1a;
+  --ghost-cream: #f9f8f4;
+  --onyx-black: #1a1a1a;
+  --gold: #985935;
+  --charcoal-grey: #4f4f44;
+}
+
+@theme {
+  --color-ghost-cream: var(--ghost-cream);
+  --color-onyx-black: var(--onyx-black);
+  --color-gold: var(--gold);
+  --color-charcoal-grey: var(--charcoal-grey);
+  --font-serif: "var(--font-playfair)", serif;
+  --font-sans: "var(--font-inter)", sans-serif;
+  --font-kaushan: "var(--font-kaushan)", cursive;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+.font-serif {
+  font-family: var(--font-playfair), serif;
+}
