@@ -1,0 +1,187 @@
+[
+  {
+    "category": "Coffee",
+    "items": [
+      { "name": "Double espresso", "description": "", "price": "₦4,500" },
+      { "name": "Cafe latte", "description": "", "price": "₦6,500" },
+      { "name": "Cappuccino", "description": "", "price": "₦6,500" },
+      { "name": "Affogato", "description": "", "price": "₦8,000" },
+      { "name": "Cafe mocha", "description": "", "price": "₦7,000" },
+      { "name": "Caramel latte", "description": "", "price": "₦7,000" },
+      { "name": "Dalgona coffee", "description": "", "price": "₦6,000" }
+    ]
+  },
+  {
+    "category": "Hot Beverage",
+    "items": [
+      { "name": "Black/ green tea", "description": "", "price": "₦4,500" },
+      { "name": "Floral tea", "description": "", "price": "₦6,500" },
+      { "name": "Simmer special blend", "description": "", "price": "₦8,500" },
+      { "name": "Hot chocolate", "description": "", "price": "₦7,500" },
+      { "name": "Hot vanilla milk", "description": "", "price": "₦6,500" }
+    ]
+  },
+  {
+    "category": "Cold Beverage",
+    "items": [
+      { "name": "Orange juice", "description": "", "price": "₦6,500" },
+      { "name": "Watermelon juice", "description": "", "price": "₦4,500" },
+      { "name": "Pineapple juice", "description": "", "price": "₦7,500" },
+      { "name": "Mixed fruit juice", "description": "", "price": "₦7,200" }
+    ]
+  },
+  {
+    "category": "Pet Drinks",
+    "items": [
+      { "name": "Coke", "description": "", "price": "₦1,500" },
+      { "name": "Fanta", "description": "", "price": "₦1,500" },
+      { "name": "Sprite", "description": "", "price": "₦1,500" },
+      { "name": "Malt", "description": "", "price": "₦2,000" },
+      { "name": "Chivita", "description": "", "price": "₦5,000" },
+      { "name": "Hollandia", "description": "", "price": "₦5,000" },
+      { "name": "Chi exotic", "description": "", "price": "₦5,000" },
+      { "name": "Water", "description": "", "price": "₦500" }
+    ]
+  },
+  {
+    "category": "Smoothies and Shakes",
+    "items": [
+      { "name": "Tropical smoothie", "description": "", "price": "₦7,000" },
+      { "name": "Frozen fruit smoothie", "description": "", "price": "₦7,700" },
+      {
+        "name": "Carrot banana smoothie",
+        "description": "",
+        "price": "₦6,600"
+      },
+      { "name": "Oreos Milkshake", "description": "", "price": "₦10,500" },
+      { "name": "Chocolate Milkshake", "description": "", "price": "₦10,500" },
+      { "name": "Vanilla Milkshake", "description": "", "price": "₦10,500" },
+      { "name": "Banana Milkshake", "description": "", "price": "₦10,500" }
+    ]
+  },
+  {
+    "category": "Cocktail",
+    "items": [
+      {
+        "name": "Old fashioned",
+        "description": "Simple syrup, bitters, whiskey",
+        "price": "₦7,000"
+      },
+      {
+        "name": "Clover club",
+        "description": "Gin, grenadine, foaming syrup, lemon juice",
+        "price": "₦8,000"
+      },
+      {
+        "name": "Sweet Manhattan",
+        "description": "Whiskey, vermouth, simple syrup, bitters",
+        "price": "₦8,000"
+      },
+      {
+        "name": "Tom collins",
+        "description": "Gin, lemon juice, simple syrup. Lime soda",
+        "price": "₦7,500"
+      },
+      {
+        "name": "Paloma",
+        "description": "Grape fruit juice, tequila, lime soda, simple syrup",
+        "price": "₦8,000"
+      },
+      {
+        "name": "Vodka blackberry",
+        "description": "Blackberry jam, lemon juice, vodka",
+        "price": "₦9,500"
+      },
+      {
+        "name": "Lemon drops",
+        "description": "Vodka, lemon juice, orange liquer, simple syrup",
+        "price": "₦9,000"
+      },
+      {
+        "name": "Margarita",
+        "description": "Tequila, orange liquer, lemon juice, simple syrup",
+        "price": "₦9,000"
+      },
+      {
+        "name": "Hurricane",
+        "description": "Rum, vodka, passion fruit puree, foaming syrup, grenadine",
+        "price": "₦10,700"
+      },
+      {
+        "name": "Campari sour",
+        "description": "Campari, gin, lemon juice, foaming syrup",
+        "price": "₦11,700"
+      },
+      {
+        "name": "Bahama Mama",
+        "description": "Orange juice, pineapple juice, rum, grenadine, malibu",
+        "price": "₦9,500"
+      }
+    ]
+  },
+  {
+    "category": "Mocktail",
+    "items": [
+      {
+        "name": "Cinderella",
+        "description": "Pineapple juice, orange juice, gingerale, lemon juice, fairy, grenadine",
+        "price": "₦9,000"
+      },
+      {
+        "name": "Virgin Colada",
+        "description": "Coconut milk, pineapple juice, simple syrup",
+        "price": "₦12,000"
+      },
+      {
+        "name": "Virgin Mohito",
+        "description": "Mint, fairy, lemon juice, simple syrup",
+        "price": "₦6,000"
+      },
+      {
+        "name": "Blue Lagoon",
+        "description": "Curaca lemon juice, fairy, mint leaves",
+        "price": "₦6,000"
+      },
+      {
+        "name": "Rainbow Paradise",
+        "description": "Pineapple juice, curacao, grenadine",
+        "price": "₦8,600"
+      },
+      {
+        "name": "Sunset",
+        "description": "Mint leaves, watermelon juice, orange juice, lemon juice",
+        "price": "₦8,600"
+      },
+      {
+        "name": "Roy Rogers",
+        "description": "Coke, lemon juice, grenadine",
+        "price": "₦7,000"
+      },
+      {
+        "name": "Shirley Temple",
+        "description": "Ginger ale, fairy, lemon juice, grenadine",
+        "price": "₦7,500"
+      }
+    ]
+  },
+  {
+    "category": "Signature Cocktail",
+    "items": [
+      {
+        "name": "Village chief",
+        "description": "A feeling of nostalgia, reminiscent of village gatherings and traditional night times. The village chief blends the ancestral spirit of palm wine with the warmth of spices and the subtleness of coconut cream. With the introduction of chilli pepper syrup, this cocktail offers a traditional yet modern harmony to your palette.",
+        "price": "₦13,000"
+      },
+      {
+        "name": "Up north",
+        "description": "This drink is a sophisticated cocktail that celebrates northern flavors, blending the sweetness of dates and tangy tamarind with the warmth of ginger, black pepper and cloves. This bold yet refreshing drink, is perfect for slow enjoyment with an exotic comforting twist.",
+        "price": "₦13,000"
+      },
+      {
+        "name": "Fire cracker",
+        "description": "The Fire Cracker is an electrifying cocktail that captivates with its fiery presentation, featuring a dramatic burst of flames. The bold, zesty flavors are elevated by a subtle spicy kick, creating a drink with both heat and excitement. Ideal for those who crave a visually stunning and adventurous experience.",
+        "price": "₦17,500"
+      }
+    ]
+  }
+]

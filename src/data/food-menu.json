@@ -1,0 +1,469 @@
+[
+  {
+    "category": "Breakfast (9:30am — 11:50am)",
+    "items": [
+      {
+        "name": "Potato Bowl",
+        "description": "A hearty breakfast bowl of cubed Irish potatoes, sauteed vegetables, pickled onions and eggs, bound with creamy yaji mayo.",
+        "price": "₦10,800"
+      },
+      {
+        "name": "French Toast",
+        "description": "Thick slices of bread dipped in cinnamon-spiced custard, grilled to perfection, and topped with banana slices, crushed oreo cookies and caramel and milk syrup.",
+        "price": "₦13,400"
+      },
+      {
+        "name": "English Breakfast",
+        "description": "A classic platter featuring eggs, sausages, crispy bacon, baked beans, grilled tomatoes, mushrooms, and toast served with your choice of juice, coffee or tea.",
+        "price": "₦17,500"
+      },
+      {
+        "name": "Pancakes",
+        "description": "Fluffy stacks of pancakes served with cream, syrup, and fresh exotic fruits compote.",
+        "price": "₦15,950"
+      },
+      {
+        "name": "Croissant breakfast Sandwich",
+        "description": "fresh Croissant with Egg, greens, tomato, bacon or ham, cheese and mayo mix for a satisfying start to the day.",
+        "price": "₦16,200"
+      }
+    ]
+  },
+  {
+    "category": "Sandwitches",
+    "items": [
+      {
+        "name": "Classic Beef Burger",
+        "description": "A juicy beef patty served with lettuce, tomatoes, cheese, pickled onions, crispy potato chips and a signature sauce.",
+        "price": "₦12,800"
+      },
+      {
+        "name": "Chicken Burger",
+        "description": "Smoked chicken patty served with lettuce, tomatoes, cheese, pickled onions, crispy potato chips and a signature sauce.",
+        "price": "₦18,400"
+      },
+      {
+        "name": "Open-Faced Chicken Sandwich",
+        "description": "Grilled chicken on lean bread, with cream, onions and greens with a side of crispy potato chips..",
+        "price": "₦14,450"
+      },
+      {
+        "name": "Tuna sandwich",
+        "description": "Lean toast topped with tuna, lettuce, labneh, onions, tomatoes and dill with a side of rispy potatoes. (GLUTEN, FISH, DAIRY)",
+        "price": "₦13,500"
+      }
+    ]
+  },
+  {
+    "category": "Starters",
+    "items": [
+      {
+        "name": "Samosa",
+        "description": "Light and flaky pastry pockets filled with spiced meat and vegetables, served with sweetened chilli sauce.",
+        "price": "₦8,950"
+      },
+      {
+        "name": "Vegetable Spring rolls",
+        "description": "Light and flaky pastry pockets filled with vegetables, served with sweetened chilli sauce.",
+        "price": "₦8,900"
+      },
+      {
+        "name": "Chicken Wings",
+        "description": "Juicy, tender chicken wings coated in your choice of BBQ, spicy, or honey glaze and served with a side of crispy potatoes and slaw.",
+        "price": "₦14,900"
+      },
+      {
+        "name": "Fish and Chips",
+        "description": "Classic battered white fish paired with potato fries and ranch sauce for a satisfying crunch.",
+        "price": "₦17,200"
+      },
+      {
+        "name": "Chicken Kebab",
+        "description": "Grilled chicken skewers wrapped in flatbread with veggies and mayo sauce.",
+        "price": "₦14,750"
+      },
+      {
+        "name": "Bao Buns",
+        "description": "Asian style steamed buns with pulled beef and vegetables and spicy dipping sauce.",
+        "price": "₦11,500"
+      },
+      {
+        "name": "Minced Beef Tacos",
+        "description": "Hard or soft shell tacos and minced beef with vegetable relish, topped with our house taco salad. (GLUTEN, SPICY, SOY)",
+        "price": "₦10,500"
+      }
+    ]
+  },
+  {
+    "category": "Soups",
+    "items": [
+      {
+        "name": "Goat Pepper Soup",
+        "description": "A fiery West African soup with tender goat meat simmered in spicy broth.",
+        "price": "₦11,850"
+      },
+      {
+        "name": "Chicken Pepper Soup",
+        "description": "A comforting bowl of spiced chicken broth with succulent chicken pieces.",
+        "price": "₦10,900"
+      },
+      {
+        "name": "Fish Pepper Soup",
+        "description": "Fresh fish in a hot, aromatic broth with herbs and spices.",
+        "price": "₦10,900"
+      }
+    ]
+  },
+  {
+    "category": "Salads",
+    "items": [
+      {
+        "name": "Waldorf Salad",
+        "description": "Crisp apples, celery, walnuts, and grapes in a creamy mayo dressing over fresh greens.",
+        "price": "₦12,400"
+      },
+      {
+        "name": "Greek Salad",
+        "description": "A refreshing mix of cucumbers, tomatoes, olives, Feta cheese, and fresh oregano olive oil vinaigrette.",
+        "price": "₦13,300"
+      },
+      {
+        "name": "Tuna Salad",
+        "description": "Tuna pieces on a bed of greens with onions, croutons, orange and a tangy balsamic vinaigrette. (FISH)",
+        "price": "₦12,800"
+      },
+      {
+        "name": "Roasted Chicken Salad",
+        "description": "Tender roasted chicken, mixed greens, nuts, coconut, grapes, tomatoes, dried fruit and mayo dressing.",
+        "price": "₦16,500"
+      },
+      {
+        "name": "Farmhouse Salad",
+        "description": "A rustic medley of fresh vegetables, quinoa, red kidney beans, tomatoes, sweet corn, smoked beef, and a creamy dressing.",
+        "price": "₦14,800"
+      }
+    ]
+  },
+  {
+    "category": "Pasta, Rice & Noodles",
+    "items": [
+      {
+        "name": "Alfredo Pasta",
+        "description": "Creamy penne pasta tossed in buttery and creamy sauce, finished with a sprinkle of parsley, cheese and a protein of choice.",
+        "price": "₦19,800"
+      },
+      {
+        "name": "Simmer Special Pasta",
+        "description": "Asian style tossed pasta with, fresh herbs, seasonal vegetables and mixed protein.",
+        "price": "₦22,100"
+      },
+      {
+        "name": "Spaghetti Bolognese",
+        "description": "Classic Italian spaghetti topped with slow-cooked minced beef in a rich marinara sauce and topped with parmesan cheese with crusty bread..",
+        "price": "₦13,500"
+      },
+      {
+        "name": "Seafood Pasta",
+        "description": "Mixed seafood (shrimp, calamari, mussels or clams) tossed in a decadent butter and white wine sauce.",
+        "price": "₦21,600"
+      },
+      {
+        "name": "Veggie Pasta",
+        "description": "spaghettini Pasta and fresh vegetables in olive oil, parsley and garlic.",
+        "price": "₦11,800"
+      },
+      {
+        "name": "Penne Arabiatta",
+        "description": "Penne pasta in a spicy tomato sauce with garlic and chili flakes, garnished with cheese shavings and toasted bread.",
+        "price": "₦15,500"
+      },
+      {
+        "name": "Beef Teriyaki Pasta",
+        "description": "Stir-fried pasta with teriyaki-marinated beef, vegetables, and sesame seeds.",
+        "price": "₦28,850"
+      },
+      {
+        "name": "Seafood Rice",
+        "description": "Fragrant rice mixed with shrimp, calamari, and fish, lightly spiced.",
+        "price": "₦22,800"
+      },
+      {
+        "name": "Carnivore Rice",
+        "description": "A meat lover's delight with spiced rice, kidney beans, shredded beef, and chunks of chicken.",
+        "price": "₦18,500"
+      }
+    ]
+  },
+  {
+    "category": "Chicken and Game Birds",
+    "items": [
+      {
+        "name": "Spicy Half Chicken",
+        "description": "Spicy marinated half chicken marinated in our house sauce and grilled to perfection.",
+        "price": "₦21,400"
+      },
+      {
+        "name": "Honey Lemon Chicken",
+        "description": "Juicy chicken glazed with honey and a hint of lemon zest.",
+        "price": "₦15,200"
+      },
+      {
+        "name": "Sizzling Smoked Chicken Sauce",
+        "description": "Smoked chicken in a rich, spicy sauce with herbs and vegetables.",
+        "price": "₦15,200"
+      },
+      {
+        "name": "Coconut Curry Chicken",
+        "description": "Chicken simmered in a creamy coconut curry sauce.",
+        "price": "₦13,650"
+      },
+      {
+        "name": "Veggie chicken Stir Fry",
+        "description": "Sauteed chicken strips with broccoli, cauliflower, bell peppers and carrots in a soy-based sauce.",
+        "price": "₦15,300"
+      },
+      {
+        "name": "Game Fowl Stew",
+        "description": "Guinea fowl braised in red wine with herbs and root vegetables.",
+        "price": "₦20,500"
+      }
+    ]
+  },
+  {
+    "category": "Beef, Lamb and other Meats",
+    "items": [
+      {
+        "name": "Sizzling Smoked Beef Sauce",
+        "description": "Tender smoked beef chunks simmered in a flavorful, spicy sauce.",
+        "price": "₦13,000"
+      },
+      {
+        "name": "Beef Ribs",
+        "description": "Slow-cooked beef ribs glazed with a tangy BBQ sauce.",
+        "price": "₦22,800"
+      },
+      {
+        "name": "Peppered Beef",
+        "description": "Spicy sauteed beef strips with onions and bell peppers.",
+        "price": "₦11,800"
+      },
+      {
+        "name": "Crispy chilli beef",
+        "description": "Tender beef stir-fried in a sweet and savory soy-based sauce.",
+        "price": "₦27,150"
+      },
+      {
+        "name": "Lamb stew",
+        "description": "Lamb slow-cooked in tomato and red wine with vegetables.",
+        "price": "₦24,600"
+      },
+      {
+        "name": "Lamb Chops",
+        "description": "Grilled lamb chops crusted with breadcrumbs, cheese and herbs.",
+        "price": "₦28,400"
+      },
+      {
+        "name": "Veggie Beef Stir Fry",
+        "description": "Sautéed beef strips with broccoli, cauliflower, and carrots in a soy-based sauce.",
+        "price": "₦13,500"
+      },
+      {
+        "name": "Coconut lamb curry",
+        "description": "Lamb meat simmered in a creamy coconut curry sauce.",
+        "price": "₦20,100"
+      }
+    ]
+  },
+  {
+    "category": "African",
+    "note": "Please note all African soups are served a choice of EBA, SEMO or POUNDO YAM and also with protein of choice.",
+    "items": [
+      {
+        "name": "Native Rice",
+        "description": "Flavored rice cooked with local spices, palm oil, and vegetables.",
+        "price": "₦16,850"
+      },
+      {
+        "name": "Ofada Rice",
+        "description": "Locally grown rice served with a spicy Ayamase sauce.",
+        "price": "₦15,850"
+      },
+      {
+        "name": "Fisherman Soup",
+        "description": "Traditional seafood soup with fish, prawns, and crab in a rich broth.",
+        "price": "₦27,500"
+      },
+      {
+        "name": "Vegetable Soup",
+        "description": "Nutritious soup with assorted leafy greens and meat.",
+        "price": "₦17,900"
+      },
+      {
+        "name": "Okro Soup",
+        "description": "Slimy, flavorful soup made with fresh okra and proteins.",
+        "price": "₦17,150"
+      },
+      {
+        "name": "Egusi Soup",
+        "description": "A savory melon seed soup cooked with vegetables and assorted meats. (served with choice of EBA, SEMO or POUNDO YAM and protein of choice)",
+        "price": "₦15,000"
+      }
+    ]
+  },
+  {
+    "category": "Messy Fries",
+    "items": [
+      {
+        "name": "Minced beef",
+        "description": "Crispy golden fries loaded with minced beef BBQ topped with melted cheese and a variety of bold flavours.",
+        "price": "₦13,550"
+      },
+      {
+        "name": "BBQ chicken",
+        "description": "Crispy golden fries loaded with your choice of BBQ chicken, topped with melted cheese and a variety of bold flavours.",
+        "price": "₦14,500"
+      }
+    ]
+  },
+  {
+    "category": "Extras",
+    "items": [
+      {
+        "name": "Swallow",
+        "price": "₦2,000"
+      },
+      {
+        "name": "Eggs",
+        "price": "₦1,000"
+      },
+      {
+        "name": "Cheese",
+        "price": "₦2,000"
+      },
+      {
+        "name": "Seafood",
+        "price": "₦6,000"
+      }
+    ]
+  },
+  {
+    "category": "Desert",
+    "items": [
+      {
+        "name": "Sizzling Brownies and Cream",
+        "description": "Warm, gooey brownies served on a hot plate with a dollop of fresh cream.",
+        "price": "₦13,900"
+      },
+      {
+        "name": "Rum buns",
+        "description": "A dramatic dessert of soaked rum baba cake and ice cream.",
+        "price": "₦11,500"
+      },
+      {
+        "name": "Smoked Malva Pudding",
+        "description": "A rich, spongy pudding with a unique smoky flavor, served with custard.",
+        "price": "₦12,600"
+      }
+    ]
+  },
+  {
+    "category": "Pizza (ONE SIZE) (Tuesdays and Saturdays only)",
+    "items": [
+      {
+        "name": "Margherita",
+        "description": "Classic mozzarella & tomato blend.",
+        "price": "₦16,900"
+      },
+      {
+        "name": "BBQ Beef",
+        "description": "Smoky, tender beef with rich BBQ sauce.",
+        "price": "₦18,900"
+      },
+      {
+        "name": "BBQ Chicken",
+        "description": "Succulent grilled chicken in tangy BBQ glaze.",
+        "price": "₦21,900"
+      },
+      {
+        "name": "Pepperoni",
+        "description": "Spiced beef pepperoni with cheesy goodness.",
+        "price": "₦19,900"
+      },
+      {
+        "name": "Simmer supreme Feast",
+        "description": "A delightful fusion of chicken, beef and pepperoni toppings.",
+        "price": "₦21,900"
+      }
+    ]
+  },
+  {
+    "category": "Sea Food",
+    "items": [
+      {
+        "name": "Grilled Prawns",
+        "description": "Juicy prawns marinated in garlic and herbs, grilled to perfection served with a side of slaw.",
+        "price": "₦20,500"
+      },
+      {
+        "name": "Whole Grilled Fish",
+        "description": "Fresh whole fish seasoned with herbs and spices, grilled and served with fries or plantain, coleslaw and lemon.",
+        "price": "₦22,700"
+      },
+      {
+        "name": "Seafood sauce",
+        "description": "Shrimps, fish bits, calamari and pineapple chunks, tossed in a pineapple-infused sweet and sour sauce.",
+        "price": "₦24,850"
+      },
+      {
+        "name": "Fish fillet",
+        "description": "Pan-seared Sole fish with garlic butter and herbs and served with a side of slaw.",
+        "price": "₦22,000"
+      }
+    ]
+  },
+  {
+    "category": "Sides",
+    "items": [
+      {
+        "name": "Jollof Rice",
+        "description": "Fragrant West African rice cooked in a spicy tomato base.",
+        "price": "₦7,740"
+      },
+      {
+        "name": "Simmer Fried Rice",
+        "description": "Stir-fried rice with vegetables, eggs, and a hint of soy sauce.",
+        "price": "₦12,500"
+      },
+      {
+        "name": "Herbed Rice",
+        "description": "Steamed rice infused with fresh herbs and butter.",
+        "price": "₦8,400"
+      },
+      {
+        "name": "Coconut Rice",
+        "description": "Creamy rice cooked with coconut milk and aromatic spices.",
+        "price": "₦10,800"
+      },
+      {
+        "name": "Yam Fingers",
+        "description": "Deep-fried yam strips served with a spicy dipping sauce.",
+        "price": "₦6,300"
+      },
+      {
+        "name": "Mashed Potatoes",
+        "description": "Creamy mashed potatoes blended with butter and cream.",
+        "price": "₦7,500"
+      },
+      {
+        "name": "Steamed Rice",
+        "description": "Plain steamed buttery basmati rice.",
+        "price": "₦6,500"
+      },
+      {
+        "name": "Potato wedges",
+        "description": "Well seasoned Pan seared potato wedges",
+        "price": "₦7,500"
+      }
+    ]
+  }
+]

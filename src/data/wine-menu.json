@@ -1,0 +1,116 @@
+[
+  {
+    "category": "Wine (Non Alcoholic)",
+    "items": [
+      { "name": "Eva gold", "description": "", "price": "₦15,000" },
+      { "name": "Chamdor", "description": "", "price": "₦15,000" },
+      { "name": "Eva wine", "description": "", "price": "₦15,000" },
+      { "name": "Casa Do nor", "description": "", "price": "₦15,000" },
+      { "name": "Casado Sparkling", "description": "", "price": "₦15,000" },
+      { "name": "Toma Nor", "description": "", "price": "₦15,000" },
+      { "name": "Toma Sparkling", "description": "", "price": "₦15,000" }
+    ]
+  },
+  {
+    "category": "Wine (Alcoholic)",
+    "items": [
+      { "name": "4 cousins", "description": "", "price": "₦20,000" },
+      { "name": "4 cousins Sparkling", "description": "", "price": "₦20,000" },
+      { "name": "Carlo rossi", "description": "", "price": "₦20,000" },
+      { "name": "Ballatore", "description": "", "price": "₦20,000" },
+      { "name": "Andre", "description": "", "price": "₦20,000" },
+      { "name": "Mateus", "description": "", "price": "₦20,000" },
+      { "name": "Martini rose", "description": "", "price": "₦20,000" },
+      { "name": "Agor", "description": "", "price": "₦20,000" },
+      { "name": "Rosato", "description": "", "price": "₦20,000" },
+      { "name": "Dornfelder", "description": "", "price": "₦20,000" },
+      { "name": "Baron de vals", "description": "", "price": "₦20,000" },
+      { "name": "Sarrion", "description": "", "price": "₦20,000" },
+      { "name": "Muscat", "description": "", "price": "₦20,000" },
+      { "name": "Vartley", "description": "", "price": "₦20,000" },
+      { "name": "Dominio", "description": "", "price": "₦20,000" },
+      { "name": "Frontera", "description": "", "price": "₦20,000" },
+      { "name": "Liria", "description": "", "price": "₦20,000" },
+      { "name": "Majesty", "description": "", "price": "₦20,000" }
+    ]
+  },
+  {
+    "category": "Vodka",
+    "items": [
+      { "name": "Absolute vodka", "description": "", "price": "₦25,000" },
+      { "name": "Kralska", "description": "", "price": "₦10,000" },
+      { "name": "Smirnoff vodka", "description": "", "price": "₦25,000" },
+      { "name": "Ciroc", "description": "", "price": "₦45,000" },
+      { "name": "Czar vodka", "description": "", "price": "₦10,000" },
+      { "name": "Grey goose", "description": "", "price": "₦60,000" }
+    ]
+  },
+  {
+    "category": "Other Spirits",
+    "items": [
+      { "name": "Barcardi", "description": "", "price": "₦35,000" },
+      { "name": "Tequila OLEM", "description": "", "price": "₦45,000" },
+      { "name": "Other tequila", "description": "", "price": "₦35,000" },
+      { "name": "Origin bitters", "description": "", "price": "₦10,000" },
+      { "name": "Rubis", "description": "", "price": "₦35,000" }
+    ]
+  },
+  {
+    "category": "Whiskey",
+    "items": [
+      { "name": "Jack Daniels", "description": "", "price": "₦75,000" },
+      { "name": "Jameson", "description": "", "price": "₦45,000" },
+      { "name": "Red Label", "description": "", "price": "₦40,000" }
+    ]
+  },
+  {
+    "category": "Energy Drinks",
+    "items": [
+      { "name": "Monster", "description": "", "price": "₦2,500" },
+      { "name": "Fearless", "description": "", "price": "₦1,500" },
+      { "name": "Climax", "description": "", "price": "₦1,500" },
+      { "name": "Black Bullet", "description": "", "price": "₦2,500" },
+      { "name": "Blue Bullet", "description": "", "price": "₦2,500" },
+      { "name": "Smirnoff (flavored)", "description": "", "price": "₦2,000" },
+      { "name": "Smirnoff double black", "description": "", "price": "₦2,000" }
+    ]
+  },
+  {
+    "category": "Beers and Lager",
+    "items": [
+      { "name": "Heineken", "description": "", "price": "₦2,500" },
+      { "name": "Budweiser", "description": "", "price": "₦2,000" },
+      { "name": "Origin", "description": "", "price": "₦2,000" },
+      { "name": "Tiger", "description": "", "price": "₦1,500" },
+      { "name": "Trophy", "description": "", "price": "₦1,500" },
+      { "name": "Star Radler", "description": "", "price": "₦1,500" },
+      { "name": "Desperado", "description": "", "price": "₦1,500" },
+      { "name": "Hero", "description": "", "price": "₦1,500" },
+      { "name": "Life", "description": "", "price": "₦1,500" },
+      { "name": "Legend", "description": "", "price": "₦2,000" },
+      { "name": "Guiness stout (med)", "description": "", "price": "₦2,000" },
+      { "name": "Guiness extra smooth", "description": "", "price": "₦2,000" },
+      { "name": "Castle lite", "description": "", "price": "₦2,000" },
+      { "name": "Goldberg", "description": "", "price": "₦2,000" }
+    ]
+  },
+  {
+    "category": "Other Specials",
+    "items": [
+      { "name": "Baileys", "description": "", "price": "₦40,000" },
+      {
+        "name": "Glenfiddich 12 years",
+        "description": "",
+        "price": "₦200,000"
+      },
+      { "name": "Moet", "description": "", "price": "₦180,000" }
+    ]
+  },
+  {
+    "category": "Shots",
+    "items": [
+      { "name": "Vodka shots", "description": "", "price": "₦3,000" },
+      { "name": "Tequila shot", "description": "", "price": "₦3,000" }
+    ]
+  }
+]
