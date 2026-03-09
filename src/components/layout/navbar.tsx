@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Menu as MenuIcon, X } from "lucide-react";
+import { Menu as MenuIcon, X, ChevronDown } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/src/lib/utils";
@@ -54,11 +54,35 @@ export default function Navbar() {
             <li
               key={link.name}
               className={cn(
-                "text-[11px] uppercase tracking-[0.25em] font-medium transition-colors hover:text-gold",
+                "group relative text-[11px] uppercase tracking-[0.25em] font-medium transition-colors",
                 showDarkText ? "text-onyx-black" : "text-white",
               )}
             >
-              <Link href={link.href}>{link.name}</Link>
+              <Link
+                href={link.href}
+                className="py-4 inline-flex items-center gap-1 hover:text-gold transition-colors"
+              >
+                {link.name}
+                {link.dropdown && (
+                  <ChevronDown className="w-3 h-3 group-hover:rotate-180 transition-transform duration-300" />
+                )}
+              </Link>
+
+              {link.dropdown && (
+                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 text-left">
+                  <div className="bg-white rounded-2xl shadow-xl shadow-onyx-black/10 border border-gray-100 py-3 w-64 flex flex-col">
+                    {link.dropdown.map((drop) => (
+                      <Link
+                        key={drop.name}
+                        href={drop.href}
+                        className="w-full px-6 py-2.5 text-onyx-black/80 hover:bg-gold/10 hover:text-gold hover:pl-8 transition-all duration-300 block"
+                      >
+                        {drop.name}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )}
             </li>
           ))}
         </ul>
@@ -107,17 +131,32 @@ export default function Navbar() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 top-[76px] bg-ghost-cream/98 backdrop-blur-xl z-40 flex flex-col items-center justify-center gap-10 md:hidden"
+            className="fixed inset-0 top-[76px] bg-ghost-cream/98 backdrop-blur-xl z-40 flex flex-col items-center justify-start gap-8 pt-12 pb-12 overflow-y-auto md:hidden"
           >
             {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className="text-3xl font-kaushan italic text-onyx-black hover:text-gold transition-colors"
-              >
-                {link.name}
-              </Link>
+              <div key={link.name} className="flex flex-col items-center gap-4">
+                <Link
+                  href={link.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="text-3xl font-kaushan italic text-onyx-black hover:text-gold transition-colors flex items-center gap-2"
+                >
+                  {link.name}
+                </Link>
+                {link.dropdown && (
+                  <div className="flex flex-col gap-4 items-center">
+                    {link.dropdown.map((drop) => (
+                      <Link
+                        key={drop.name}
+                        href={drop.href}
+                        onClick={() => setMobileMenuOpen(false)}
+                        className="text-[10px] uppercase tracking-[0.2em] text-onyx-black/60 hover:text-gold transition-colors font-sans font-medium"
+                      >
+                        {drop.name}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
             ))}
             <button
               onClick={() => {
@@ -142,7 +181,19 @@ export default function Navbar() {
 
 const navLinks = [
   { name: "Menu", href: "/menu" },
-  { name: "Services", href: "#services" },
+  {
+    name: "Services",
+    href: "/services",
+    dropdown: [
+      { name: "Catering Services", href: "/services/catering-services" },
+      { name: "Pastry School", href: "/services/pastry-school" },
+      {
+        name: "Restaurant Consultancy",
+        href: "/services/restaurant-consultancy",
+      },
+      { name: "Foodtopia Festival", href: "/services/food-festival" },
+    ],
+  },
   { name: "About Us", href: "/about" },
   { name: "Contact Us", href: "/contact" },
 ];
