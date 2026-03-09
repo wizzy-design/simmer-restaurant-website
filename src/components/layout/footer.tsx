@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import Image from "next/image";
 import {
   FaFacebook,
@@ -64,14 +65,19 @@ const Footer = () => {
               {/* Nav links */}
               <nav>
                 <ul className="flex flex-wrap gap-8 lg:gap-12 text-xs uppercase tracking-[0.2em] text-white/50">
-                  {["Home", "About", "Menu", "Contact"].map((item) => (
-                    <li key={item}>
-                      <a
-                        href={`#${item.toLowerCase()}`}
+                  {[
+                    { name: "Home", href: "/" },
+                    { name: "About", href: "/about" },
+                    { name: "Menu", href: "/menu" },
+                    { name: "Contact", href: "/contact" },
+                  ].map((item) => (
+                    <li key={item.name}>
+                      <Link
+                        href={item.href}
                         className="hover:text-gold transition-colors"
                       >
-                        {item}
-                      </a>
+                        {item.name}
+                      </Link>
                     </li>
                   ))}
                 </ul>

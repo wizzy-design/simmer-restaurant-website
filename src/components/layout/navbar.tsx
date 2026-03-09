@@ -144,5 +144,5 @@ const navLinks = [
   { name: "Menu", href: "/menu" },
   { name: "Services", href: "#services" },
   { name: "About Us", href: "/about" },
-  { name: "Contact Us", href: "#contact" },
+  { name: "Contact Us", href: "/contact" },
 ];
