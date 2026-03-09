@@ -194,6 +194,6 @@ const navLinks = [
       { name: "Foodtopia Festival", href: "/services/food-festival" },
     ],
   },
-  { name: "About Us", href: "/about" },
-  { name: "Contact Us", href: "/contact" },
+  { name: "About", href: "/about" },
+  { name: "Contact", href: "/contact" },
 ];
