@@ -1,13 +1,12 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import MenuItemCard from "../../../components/ui/menu-item-card";
 import { motion, AnimatePresence } from "motion/react";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import foodMenuData from "../../../data/food-menu.json";
 import drinksMenuData from "../../../data/drinks-menu.json";
-import NextImage from "next/image";
 
 const PopularMenu = () => {
   const [activeTab, setActiveTab] = useState("All");
@@ -115,68 +114,6 @@ const PopularMenu = () => {
             ))}
           </AnimatePresence>
         </div>
-
-        {/* Bonus minimal section for soups/extras */}
-        <div className="mt-32 grid grid-cols-1 lg:grid-cols-2 gap-16 px-4">
-          {/* Left side: A highlighted feature */}
-          <motion.div
-            {...fadeUp(0.3)}
-            className="relative aspect-square md:aspect-video lg:aspect-square overflow-hidden"
-          >
-            <NextImage
-              src="/dine.png"
-              alt="Dining interior"
-              fill
-              className="object-cover"
-            />
-            <div className="absolute inset-0 bg-black/20" />
-            <div className="absolute bottom-12 left-12 right-12 text-white">
-              <h3 className="text-4xl font-serif mb-4">
-                Unforgettable <br />
-                <span className="text-gold italic font-kaushan">
-                  Read & Dine
-                </span>{" "}
-                Vibes
-              </h3>
-              <p className="text-sm font-sans tracking-wide leading-relaxed opacity-80 max-w-md mb-8">
-                More than just a restaurant - we provide the serenity for you to
-                enjoy your meal alongside your favorite chapters.
-              </p>
-              <Link
-                href="/reservation"
-                className="inline-block relative text-[10px] uppercase tracking-[0.3em] font-medium border-b border-white hover:border-gold hover:text-gold pb-1.5 transition-all duration-300"
-              >
-                Reserve a sanctuary
-              </Link>
-            </div>
-          </motion.div>
-
-          {/* Right side: Mini menu highlights */}
-          <div className="flex flex-col justify-center">
-            <motion.span
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              className="text-[10px] uppercase tracking-[0.5em] text-gold mb-4"
-            >
-              Essentials
-            </motion.span>
-            <motion.h3
-              {...fadeUp(0.2)}
-              className="text-4xl md:text-5xl font-serif text-onyx-black mb-12"
-            >
-              Quick Bites <br />& Late Delights
-            </motion.h3>
-
-            <div className="space-y-4">
-              {allItems.slice(0, 6).map((item, idx) => (
-                <motion.div key={item.name} {...fadeUp(0.3 + idx * 0.1)}>
-                  <MenuItemCard item={item} variant="minimal" />
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );
@@ -194,7 +131,7 @@ const SIGNATURE_ITEMS = [
   {
     name: "Classic Beef Burger",
     image: "/food19.png",
-    category: "Sandwitches",
+    category: "Sandwiches",
   },
   {
     name: "Lamb Chops",
@@ -212,7 +149,7 @@ const SIGNATURE_ITEMS = [
     category: "Pizza (ONE SIZE) (Tuesdays and Saturdays only)",
   },
   {
-    name: "Native Rice",
+    name: "Egusi Soup",
     image: "/food3.png",
     category: "African",
   },

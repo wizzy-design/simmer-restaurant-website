@@ -69,7 +69,7 @@ const MenuItemCard = ({ item, variant = "detailed" }: MenuItemCardProps) => {
   if (variant === "compact") {
     return (
       <motion.div
-        className="group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-charcoal-grey/5"
+        className="group bg-white overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-charcoal-grey/5"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
