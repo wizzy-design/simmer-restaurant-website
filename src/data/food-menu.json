@@ -3,29 +3,34 @@
     "category": "Breakfast (9:30am — 11:50am)",
     "items": [
       {
-        "name": "Potato Bowl",
-        "description": "A hearty breakfast bowl of cubed Irish potatoes, sauteed vegetables, pickled onions and eggs, bound with creamy yaji mayo.",
-        "price": "₦10,800"
-      },
-      {
         "name": "French Toast",
         "description": "Thick slices of bread dipped in cinnamon-spiced custard, grilled to perfection, and topped with banana slices, crushed oreo cookies and caramel and milk syrup.",
-        "price": "₦13,400"
+        "price": "₦13,400",
+        "image": "/food26.png"
+      },
+      {
+        "name": "Potato Bowl",
+        "description": "A hearty breakfast bowl of cubed Irish potatoes, sauteed vegetables, pickled onions and eggs, bound with creamy yaji mayo.",
+        "price": "₦10,800",
+        "image": "/food7.png"
       },
       {
         "name": "English Breakfast",
         "description": "A classic platter featuring eggs, sausages, crispy bacon, baked beans, grilled tomatoes, mushrooms, and toast served with your choice of juice, coffee or tea.",
-        "price": "₦17,500"
+        "price": "₦17,500",
+        "image": "/food12.png"
       },
       {
         "name": "Pancakes",
         "description": "Fluffy stacks of pancakes served with cream, syrup, and fresh exotic fruits compote.",
-        "price": "₦15,950"
+        "price": "₦15,950",
+        "image": "/food10.png"
       },
       {
         "name": "Croissant breakfast Sandwich",
         "description": "fresh Croissant with Egg, greens, tomato, bacon or ham, cheese and mayo mix for a satisfying start to the day.",
-        "price": "₦16,200"
+        "price": "₦16,200",
+        "image": "/food17.png"
       }
     ]
   },
@@ -33,14 +38,16 @@
     "category": "Sandwitches",
     "items": [
       {
-        "name": "Classic Beef Burger",
-        "description": "A juicy beef patty served with lettuce, tomatoes, cheese, pickled onions, crispy potato chips and a signature sauce.",
-        "price": "₦12,800"
-      },
-      {
         "name": "Chicken Burger",
         "description": "Smoked chicken patty served with lettuce, tomatoes, cheese, pickled onions, crispy potato chips and a signature sauce.",
-        "price": "₦18,400"
+        "price": "₦18,400",
+        "image": "/food22.png"
+      },
+      {
+        "name": "Classic Beef Burger",
+        "description": "A juicy beef patty served with lettuce, tomatoes, cheese, pickled onions, crispy potato chips and a signature sauce.",
+        "price": "₦12,800",
+        "image": "/food19.png"
       },
       {
         "name": "Open-Faced Chicken Sandwich",
@@ -70,12 +77,14 @@
       {
         "name": "Chicken Wings",
         "description": "Juicy, tender chicken wings coated in your choice of BBQ, spicy, or honey glaze and served with a side of crispy potatoes and slaw.",
-        "price": "₦14,900"
+        "price": "₦14,900",
+        "image": "/food20.png"
       },
       {
         "name": "Fish and Chips",
         "description": "Classic battered white fish paired with potato fries and ranch sauce for a satisfying crunch.",
-        "price": "₦17,200"
+        "price": "₦17,200",
+        "image": "https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?auto=format&fit=crop&q=80&w=800"
       },
       {
         "name": "Chicken Kebab",
@@ -85,12 +94,14 @@
       {
         "name": "Bao Buns",
         "description": "Asian style steamed buns with pulled beef and vegetables and spicy dipping sauce.",
-        "price": "₦11,500"
+        "price": "₦11,500",
+        "image": "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?auto=format&fit=crop&q=80&w=800"
       },
       {
         "name": "Minced Beef Tacos",
         "description": "Hard or soft shell tacos and minced beef with vegetable relish, topped with our house taco salad. (GLUTEN, SPICY, SOY)",
-        "price": "₦10,500"
+        "price": "₦10,500",
+        "image": "/food6.png"
       }
     ]
   },
@@ -100,12 +111,14 @@
       {
         "name": "Goat Pepper Soup",
         "description": "A fiery West African soup with tender goat meat simmered in spicy broth.",
-        "price": "₦11,850"
+        "price": "₦11,850",
+        "image": "/food32.png"
       },
       {
         "name": "Chicken Pepper Soup",
         "description": "A comforting bowl of spiced chicken broth with succulent chicken pieces.",
-        "price": "₦10,900"
+        "price": "₦10,900",
+        "image": "/food31.png"
       },
       {
         "name": "Fish Pepper Soup",
@@ -125,7 +138,8 @@
       {
         "name": "Greek Salad",
         "description": "A refreshing mix of cucumbers, tomatoes, olives, Feta cheese, and fresh oregano olive oil vinaigrette.",
-        "price": "₦13,300"
+        "price": "₦13,300",
+        "image": "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&q=80&w=800"
       },
       {
         "name": "Tuna Salad",
@@ -153,14 +167,16 @@
         "price": "₦19,800"
       },
       {
-        "name": "Simmer Special Pasta",
-        "description": "Asian style tossed pasta with, fresh herbs, seasonal vegetables and mixed protein.",
-        "price": "₦22,100"
-      },
-      {
         "name": "Spaghetti Bolognese",
         "description": "Classic Italian spaghetti topped with slow-cooked minced beef in a rich marinara sauce and topped with parmesan cheese with crusty bread..",
-        "price": "₦13,500"
+        "price": "₦13,500",
+        "image": "/food11.png"
+      },
+      {
+        "name": "Simmer Special Pasta",
+        "description": "Asian style tossed pasta with, fresh herbs, seasonal vegetables and mixed protein.",
+        "price": "₦22,100",
+        "image": "/food4.png"
       },
       {
         "name": "Seafood Pasta",
@@ -185,7 +201,8 @@
       {
         "name": "Seafood Rice",
         "description": "Fragrant rice mixed with shrimp, calamari, and fish, lightly spiced.",
-        "price": "₦22,800"
+        "price": "₦22,800",
+        "image": "https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&q=80&w=800"
       },
       {
         "name": "Carnivore Rice",
@@ -240,7 +257,8 @@
       {
         "name": "Beef Ribs",
         "description": "Slow-cooked beef ribs glazed with a tangy BBQ sauce.",
-        "price": "₦22,800"
+        "price": "₦22,800",
+        "image": "/food8.png"
       },
       {
         "name": "Peppered Beef",
@@ -260,7 +278,8 @@
       {
         "name": "Lamb Chops",
         "description": "Grilled lamb chops crusted with breadcrumbs, cheese and herbs.",
-        "price": "₦28,400"
+        "price": "₦28,400",
+        "image": "/food13.png"
       },
       {
         "name": "Veggie Beef Stir Fry",
@@ -281,7 +300,8 @@
       {
         "name": "Native Rice",
         "description": "Flavored rice cooked with local spices, palm oil, and vegetables.",
-        "price": "₦16,850"
+        "price": "₦16,850",
+        "image": "/food3.png"
       },
       {
         "name": "Ofada Rice",
@@ -291,7 +311,8 @@
       {
         "name": "Fisherman Soup",
         "description": "Traditional seafood soup with fish, prawns, and crab in a rich broth.",
-        "price": "₦27,500"
+        "price": "₦27,500",
+        "image": "/food1.png"
       },
       {
         "name": "Vegetable Soup",
@@ -306,7 +327,8 @@
       {
         "name": "Egusi Soup",
         "description": "A savory melon seed soup cooked with vegetables and assorted meats. (served with choice of EBA, SEMO or POUNDO YAM and protein of choice)",
-        "price": "₦15,000"
+        "price": "₦15,000",
+        "image": "/food21.png"
       }
     ]
   },
@@ -352,12 +374,14 @@
       {
         "name": "Sizzling Brownies and Cream",
         "description": "Warm, gooey brownies served on a hot plate with a dollop of fresh cream.",
-        "price": "₦13,900"
+        "price": "₦13,900",
+        "image": "/food18.png"
       },
       {
         "name": "Rum buns",
         "description": "A dramatic dessert of soaked rum baba cake and ice cream.",
-        "price": "₦11,500"
+        "price": "₦11,500",
+        "image": "/food10.png"
       },
       {
         "name": "Smoked Malva Pudding",
@@ -372,7 +396,8 @@
       {
         "name": "Margherita",
         "description": "Classic mozzarella & tomato blend.",
-        "price": "₦16,900"
+        "price": "₦16,900",
+        "image": "/food14.png"
       },
       {
         "name": "BBQ Beef",
@@ -382,7 +407,8 @@
       {
         "name": "BBQ Chicken",
         "description": "Succulent grilled chicken in tangy BBQ glaze.",
-        "price": "₦21,900"
+        "price": "₦21,900",
+        "image": "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&q=80&w=800"
       },
       {
         "name": "Pepperoni",
@@ -402,12 +428,14 @@
       {
         "name": "Grilled Prawns",
         "description": "Juicy prawns marinated in garlic and herbs, grilled to perfection served with a side of slaw.",
-        "price": "₦20,500"
+        "price": "₦20,500",
+        "image": "https://images.unsplash.com/photo-1559742811-822873691df8?auto=format&fit=crop&q=80&w=800"
       },
       {
         "name": "Whole Grilled Fish",
         "description": "Fresh whole fish seasoned with herbs and spices, grilled and served with fries or plantain, coleslaw and lemon.",
-        "price": "₦22,700"
+        "price": "₦22,700",
+        "image": "/food24.png"
       },
       {
         "name": "Seafood sauce",
@@ -417,7 +445,8 @@
       {
         "name": "Fish fillet",
         "description": "Pan-seared Sole fish with garlic butter and herbs and served with a side of slaw.",
-        "price": "₦22,000"
+        "price": "₦22,000",
+        "image": "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&q=80&w=800"
       }
     ]
   },
@@ -427,7 +456,8 @@
       {
         "name": "Jollof Rice",
         "description": "Fragrant West African rice cooked in a spicy tomato base.",
-        "price": "₦7,740"
+        "price": "₦7,740",
+        "image": "/food33.png"
       },
       {
         "name": "Simmer Fried Rice",

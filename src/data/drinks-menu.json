@@ -2,61 +2,185 @@
   {
     "category": "Coffee",
     "items": [
-      { "name": "Double espresso", "description": "", "price": "₦4,500" },
-      { "name": "Cafe latte", "description": "", "price": "₦6,500" },
-      { "name": "Cappuccino", "description": "", "price": "₦6,500" },
-      { "name": "Affogato", "description": "", "price": "₦8,000" },
-      { "name": "Cafe mocha", "description": "", "price": "₦7,000" },
-      { "name": "Caramel latte", "description": "", "price": "₦7,000" },
-      { "name": "Dalgona coffee", "description": "", "price": "₦6,000" }
+      {
+        "name": "Double espresso",
+        "description": "",
+        "price": "₦4,500"
+      },
+      {
+        "name": "Cafe latte",
+        "description": "",
+        "price": "₦6,500"
+      },
+      {
+        "name": "Cappuccino",
+        "description": "",
+        "price": "₦6,500",
+        "image": "/food37.png"
+      },
+      {
+        "name": "Affogato",
+        "description": "",
+        "price": "₦8,000"
+      },
+      {
+        "name": "Cafe mocha",
+        "description": "",
+        "price": "₦7,000"
+      },
+      {
+        "name": "Caramel latte",
+        "description": "",
+        "price": "₦7,000"
+      },
+      {
+        "name": "Dalgona coffee",
+        "description": "",
+        "price": "₦6,000"
+      }
     ]
   },
   {
     "category": "Hot Beverage",
     "items": [
-      { "name": "Black/ green tea", "description": "", "price": "₦4,500" },
-      { "name": "Floral tea", "description": "", "price": "₦6,500" },
-      { "name": "Simmer special blend", "description": "", "price": "₦8,500" },
-      { "name": "Hot chocolate", "description": "", "price": "₦7,500" },
-      { "name": "Hot vanilla milk", "description": "", "price": "₦6,500" }
+      {
+        "name": "Black/ green tea",
+        "description": "",
+        "price": "₦4,500"
+      },
+      {
+        "name": "Floral tea",
+        "description": "",
+        "price": "₦6,500"
+      },
+      {
+        "name": "Simmer special blend",
+        "description": "",
+        "price": "₦8,500"
+      },
+      {
+        "name": "Hot chocolate",
+        "description": "",
+        "price": "₦7,500"
+      },
+      {
+        "name": "Hot vanilla milk",
+        "description": "",
+        "price": "₦6,500"
+      }
     ]
   },
   {
     "category": "Cold Beverage",
     "items": [
-      { "name": "Orange juice", "description": "", "price": "₦6,500" },
-      { "name": "Watermelon juice", "description": "", "price": "₦4,500" },
-      { "name": "Pineapple juice", "description": "", "price": "₦7,500" },
-      { "name": "Mixed fruit juice", "description": "", "price": "₦7,200" }
+      {
+        "name": "Orange juice",
+        "description": "",
+        "price": "₦6,500",
+        "image": "/food34.png"
+      },
+      {
+        "name": "Watermelon juice",
+        "description": "",
+        "price": "₦4,500"
+      },
+      {
+        "name": "Pineapple juice",
+        "description": "",
+        "price": "₦7,500"
+      },
+      {
+        "name": "Mixed fruit juice",
+        "description": "",
+        "price": "₦7,200",
+        "image": "/food16.png"
+      }
     ]
   },
   {
     "category": "Pet Drinks",
     "items": [
-      { "name": "Coke", "description": "", "price": "₦1,500" },
-      { "name": "Fanta", "description": "", "price": "₦1,500" },
-      { "name": "Sprite", "description": "", "price": "₦1,500" },
-      { "name": "Malt", "description": "", "price": "₦2,000" },
-      { "name": "Chivita", "description": "", "price": "₦5,000" },
-      { "name": "Hollandia", "description": "", "price": "₦5,000" },
-      { "name": "Chi exotic", "description": "", "price": "₦5,000" },
-      { "name": "Water", "description": "", "price": "₦500" }
+      {
+        "name": "Coke",
+        "description": "",
+        "price": "₦1,500"
+      },
+      {
+        "name": "Fanta",
+        "description": "",
+        "price": "₦1,500"
+      },
+      {
+        "name": "Sprite",
+        "description": "",
+        "price": "₦1,500"
+      },
+      {
+        "name": "Malt",
+        "description": "",
+        "price": "₦2,000"
+      },
+      {
+        "name": "Chivita",
+        "description": "",
+        "price": "₦5,000"
+      },
+      {
+        "name": "Hollandia",
+        "description": "",
+        "price": "₦5,000"
+      },
+      {
+        "name": "Chi exotic",
+        "description": "",
+        "price": "₦5,000"
+      },
+      {
+        "name": "Water",
+        "description": "",
+        "price": "₦500"
+      }
     ]
   },
   {
     "category": "Smoothies and Shakes",
     "items": [
-      { "name": "Tropical smoothie", "description": "", "price": "₦7,000" },
-      { "name": "Frozen fruit smoothie", "description": "", "price": "₦7,700" },
+      {
+        "name": "Tropical smoothie",
+        "description": "",
+        "price": "₦7,000",
+        "image": "/food35.png"
+      },
+      {
+        "name": "Frozen fruit smoothie",
+        "description": "",
+        "price": "₦7,700"
+      },
       {
         "name": "Carrot banana smoothie",
         "description": "",
         "price": "₦6,600"
       },
-      { "name": "Oreos Milkshake", "description": "", "price": "₦10,500" },
-      { "name": "Chocolate Milkshake", "description": "", "price": "₦10,500" },
-      { "name": "Vanilla Milkshake", "description": "", "price": "₦10,500" },
-      { "name": "Banana Milkshake", "description": "", "price": "₦10,500" }
+      {
+        "name": "Oreos Milkshake",
+        "description": "",
+        "price": "₦10,500"
+      },
+      {
+        "name": "Chocolate Milkshake",
+        "description": "",
+        "price": "₦10,500"
+      },
+      {
+        "name": "Vanilla Milkshake",
+        "description": "",
+        "price": "₦10,500"
+      },
+      {
+        "name": "Banana Milkshake",
+        "description": "",
+        "price": "₦10,500"
+      }
     ]
   },
   {
