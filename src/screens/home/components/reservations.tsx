@@ -344,7 +344,7 @@ export const Reservations = ({ isModal = false }: { isModal?: boolean }) => {
   }
 
   return (
-    <section className="relative py-24 lg:py-32 overflow-hidden flex items-center justify-center min-h-screen border-t border-onyx-black/5">
+    <section id="reservation-section" className="relative py-24 lg:py-32 overflow-hidden flex items-center justify-center min-h-screen border-t border-onyx-black/5">
       {/* Background Image / Overlay */}
       <div className="absolute inset-0 z-0">
         <Image

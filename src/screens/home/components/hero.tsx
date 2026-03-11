@@ -24,7 +24,7 @@ const Hero = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 1.2, ease: "easeInOut" }}
+          transition={{ duration: 0.4, ease: "easeInOut" }}
         >
           <video
             src={VIDEOS[current]}
@@ -41,31 +41,43 @@ const Hero = () => {
       <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/40 to-black/20" />
 
       {/* Hero content — left-weighted layout */}
-      <div className="absolute bottom-12 left-0 right-0 mx-auto container flex items-end justify-between gap-12">
+      <div className="absolute bottom-12 left-0 right-0 container mx-auto px-6 md:px-0">
         {/* Left: Brand + tagline */}
         <div className="max-w-2xl">
           {/* Main heading */}
           <motion.h1
             {...fadeUpAnimate(0.3)}
-            className="text-7xl md:text-8xl font-medium text-white leading-[1.1] tracking-wide mb-4"
+            className="text-4xl md:text-5xl lg:text-7xl font-medium text-white leading-[1.1] tracking-tight mb-6"
           >
-            <span className="font-kaushan text-white italic">Simm3r</span>
+            Refined Flavours,
             <br />
-            Restaurant
+            <span className="font-kaushan italic font-normal inline-block pr-4">
+              Simm3red
+            </span>{" "}
+            to Perfection
           </motion.h1>
 
           {/* Subtitle */}
           <motion.p
             {...fadeUpAnimate(0.45)}
-            className="text-sm text-[#C4C8C9] font-sans tracking-wide leading-relaxed max-w-md"
+            className="text-base text-[#C4C8C9] font-sans tracking-wide leading-relaxed max-w-lg mb-8"
           >
-            The ultimate culinary destination on the plateau.
-            <br />A unique blend of African and international flavours.
+            Born of Plateau soil and Nigeria’s bold Northern spirit, we craft a
+            global culinary experience that transcends borders. Heritage refined
+            with world-class flair.
           </motion.p>
 
           {/* CTA */}
           <motion.div {...fadeUpAnimate(0.6)} className="mt-8">
-            <button className="relative text-xs cursor-pointer uppercase tracking-[0.25em] text-white border border-gold bg-gold px-8 py-3.5 overflow-hidden group transition-colors duration-500 hover:text-onyx-black">
+            <button
+              className="relative text-xs cursor-pointer uppercase tracking-[0.25em] text-white border border-gold bg-gold px-8 py-3.5 overflow-hidden group transition-colors duration-500 hover:text-onyx-black"
+              id="hero-reserve-button"
+              onClick={() => {
+                document
+                  .getElementById("reservation-section")
+                  ?.scrollIntoView({ behavior: "smooth" });
+              }}
+            >
               <span className="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out" />
               <span className="relative">Reserve Your Table</span>
             </button>
