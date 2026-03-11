@@ -16,6 +16,18 @@ export interface MenuItem {
   category?: string;
 }
 
+export interface ReservationFormData {
+  guests: string;
+  type: string;
+  time: string;
+  date: string;
+  fullName: string;
+  email: string;
+  phone: string;
+  hasSpecialRequest: boolean;
+  specialRequests: string;
+}
+
 interface ReservationContextType {
   reservationItems: MenuItem[];
   addToReservation: (item: MenuItem) => void;
@@ -25,6 +37,11 @@ interface ReservationContextType {
   isSidebarOpen: boolean;
   openSidebar: () => void;
   closeSidebar: () => void;
+  isModalOpen: boolean;
+  openModal: () => void;
+  closeModal: () => void;
+  formData: ReservationFormData;
+  updateFormData: (data: Partial<ReservationFormData>) => void;
 }
 
 const ReservationContext = createContext<ReservationContextType | undefined>(
@@ -34,6 +51,18 @@ const ReservationContext = createContext<ReservationContextType | undefined>(
 export const ReservationProvider = ({ children }: { children: ReactNode }) => {
   const [reservationItems, setReservationItems] = useState<MenuItem[]>([]);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [formData, setFormData] = useState<ReservationFormData>({
+    guests: "2",
+    type: "Lunch",
+    time: "",
+    date: "",
+    fullName: "",
+    email: "",
+    phone: "",
+    hasSpecialRequest: false,
+    specialRequests: "",
+  });
 
   // Load from localStorage on mount
   useEffect(() => {
@@ -71,10 +100,27 @@ export const ReservationProvider = ({ children }: { children: ReactNode }) => {
 
   const clearReservation = () => {
     setReservationItems([]);
+    setFormData({
+      guests: "2",
+      type: "Lunch",
+      time: "",
+      date: "",
+      fullName: "",
+      email: "",
+      phone: "",
+      hasSpecialRequest: false,
+      specialRequests: "",
+    });
+  };
+
+  const updateFormData = (data: Partial<ReservationFormData>) => {
+    setFormData((prev) => ({ ...prev, ...data }));
   };
 
   const openSidebar = () => setIsSidebarOpen(true);
   const closeSidebar = () => setIsSidebarOpen(false);
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
 
   const itemCount = reservationItems.length;
 
@@ -89,6 +135,11 @@ export const ReservationProvider = ({ children }: { children: ReactNode }) => {
         isSidebarOpen,
         openSidebar,
         closeSidebar,
+        isModalOpen,
+        openModal,
+        closeModal,
+        formData,
+        updateFormData,
       }}
     >
       {children}

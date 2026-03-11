@@ -3,6 +3,7 @@ import Hero from "./components/hero";
 import Location from "./components/location";
 import PopularMenu from "./components/popular-menu";
 import Testimonials from "./components/testimonials";
+import Reservations from "./components/reservations";
 
 const HomeScreen = () => {
   return (
@@ -12,6 +13,7 @@ const HomeScreen = () => {
       <PopularMenu />
       <Testimonials />
       <Location />
+      <Reservations />
     </div>
   );
 };

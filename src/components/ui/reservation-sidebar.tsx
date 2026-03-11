@@ -13,6 +13,7 @@ const ReservationSidebar = () => {
     itemCount,
     isSidebarOpen,
     closeSidebar,
+    openModal,
   } = useReservation();
 
   return (
@@ -101,7 +102,13 @@ const ReservationSidebar = () => {
                 </div>
 
                 <div className="space-y-4">
-                  <button className="w-full bg-gold text-white tracking-[0.3em] font-medium py-4 text-xs uppercase hover:bg-gold/90 transition-all shadow-xl shadow-gold/20">
+                  <button
+                    onClick={() => {
+                      closeSidebar();
+                      openModal();
+                    }}
+                    className="w-full bg-gold text-white tracking-[0.3em] font-medium py-4 text-xs uppercase hover:bg-gold/90 transition-all shadow-xl shadow-gold/20"
+                  >
                     Proceed with Reservation
                   </button>
                   <button
