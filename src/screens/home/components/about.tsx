@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import { motion } from "motion/react";
+import { fadeUp } from "../../../lib/animations";
 
 const About = () => {
   return (
@@ -84,9 +85,3 @@ const images = [
   { src: "/painting.png", alt: "Interior decor", aspect: "aspect-[4/3]" },
 ];
 
-const fadeUp = {
-  initial: { opacity: 0, y: 30 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true },
-  transition: { duration: 0.8, ease: [0.25, 0.1, 0.25, 1] as const },
-};

@@ -7,6 +7,7 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import foodMenuData from "../../../data/food-menu.json";
 import drinksMenuData from "../../../data/drinks-menu.json";
+import { fadeUpView } from "../../../lib/animations";
 
 const PopularMenu = () => {
   const [activeTab, setActiveTab] = useState("All");
@@ -43,14 +44,14 @@ const PopularMenu = () => {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-12 mb-16 px-4">
           <div className="max-w-2xl">
             <motion.h2
-              {...fadeUp(0.2)}
+              {...fadeUpView(0.2)}
               className="text-5xl md:text-7xl font-serif text-onyx-black mb-6"
             >
               Our <span className="font-kaushan md:mt-4 italic">Signature</span>{" "}
               Menu
             </motion.h2>
             <motion.p
-              {...fadeUp(0.35)}
+              {...fadeUpView(0.35)}
               className="text-sm text-charcoal-grey font-sans tracking-wide leading-relaxed max-w-lg"
             >
               Exceptional ingredients met with culinary craftsmanship. We curate
@@ -59,7 +60,7 @@ const PopularMenu = () => {
             </motion.p>
           </div>
 
-          <motion.div {...fadeUp(0.5)} className="flex items-center gap-4">
+          <motion.div {...fadeUpView(0.5)} className="flex items-center gap-4">
             <Link
               href="/menu"
               className="group flex items-center gap-2 text-xs uppercase tracking-[0.25em] text-onyx-black font-medium hover:text-gold transition-colors duration-300"
@@ -75,7 +76,7 @@ const PopularMenu = () => {
 
         {/* Categories Tab Selector */}
         <motion.div
-          {...fadeUp(0.6)}
+          {...fadeUpView(0.6)}
           className="flex flex-wrap gap-2 mb-12 px-4"
         >
           {categories.map((cat, idx) => (
@@ -155,10 +156,3 @@ const SIGNATURE_ITEMS = [
   },
 ];
 
-const fadeUp = (delay: number) =>
-  ({
-    initial: { opacity: 0, y: 30 },
-    whileInView: { opacity: 1, y: 0 },
-    viewport: { once: true },
-    transition: { duration: 0.8, ease: "easeOut", delay },
-  }) as const;
