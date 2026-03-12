@@ -38,16 +38,16 @@ const Hero = () => {
       </AnimatePresence>
 
       {/* Cinematic gradient overlay */}
-      <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/40 to-black/20" />
+      <div className="absolute inset-0 bg-linear-to-t from-black/95 via-black/70 to-black/40" />
 
       {/* Hero content — left-weighted layout */}
-      <div className="absolute bottom-12 left-0 right-0 container mx-auto px-6 md:px-0">
+      <div className="absolute bottom-24 md:bottom-12 left-0 right-0 container mx-auto px-6 lg:px-6">
         {/* Left: Brand + tagline */}
         <div className="max-w-2xl">
           {/* Main heading */}
           <motion.h1
             {...fadeUpAnimate(0.3)}
-            className="text-4xl md:text-5xl lg:text-7xl font-medium text-white leading-[1.1] tracking-tight mb-6"
+            className="text-4xl font-medium text-white leading-[1.1] tracking-tight mb-6 md:text-5xl lg:text-6xl 2xl:text-7xl"
           >
             Refined Flavours,
             <br />

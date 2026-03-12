@@ -66,7 +66,7 @@ export default function Navbar() {
           </Link>
         </div>
 
-        <ul className="hidden md:flex items-center gap-10">
+        <ul className="hidden lg:flex items-center gap-10">
           {navLinks.map((link) => (
             <li
               key={link.name}
@@ -111,7 +111,7 @@ export default function Navbar() {
           <button
             onClick={openSidebar}
             className={cn(
-              "relative text-[11px] uppercase tracking-[0.25em] font-medium border px-8 py-3.5 transition-all duration-500 hidden md:flex items-center gap-2",
+              "relative text-[11px] uppercase tracking-[0.25em] font-medium border px-8 py-3.5 transition-all duration-500 hidden lg:flex items-center gap-2",
               showDarkText
                 ? "text-gold border-gold hover:bg-gold hover:text-white"
                 : "text-white border-white hover:bg-white hover:text-onyx-black",
@@ -135,7 +135,7 @@ export default function Navbar() {
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className={cn(
-              "md:hidden p-2 transition-colors relative z-50",
+              "lg:hidden p-2 transition-colors relative z-50",
               mobileMenuOpen || showDarkText ? "text-onyx-black" : "text-white",
             )}
           >
@@ -155,7 +155,7 @@ export default function Navbar() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-ghost-cream z-40 md:hidden flex flex-col"
+            className="fixed inset-0 bg-ghost-cream z-40 lg:hidden flex flex-col"
           >
             {/* Scrollable Content Area */}
             <div className="flex-1 overflow-y-auto px-8 pt-32 pb-12 flex flex-col items-center">

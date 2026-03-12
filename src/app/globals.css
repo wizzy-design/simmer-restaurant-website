@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@source "../../src";
 
 :root {
   --background: #ffffff;
@@ -10,13 +11,27 @@
 }
 
 @theme {
+  /* Standard Breakpoints */
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+
+  /* Custom Colors */
   --color-ghost-cream: var(--ghost-cream);
   --color-onyx-black: var(--onyx-black);
   --color-gold: var(--gold);
   --color-charcoal-grey: var(--charcoal-grey);
-  --font-serif: "var(--font-playfair)", serif;
-  --font-sans: "var(--font-inter)", sans-serif;
-  --font-kaushan: "var(--font-kaushan)", cursive;
+
+  /* Fonts */
+  --font-playfair: var(--font-playfair), serif;
+  --font-inter: var(--font-inter), sans-serif;
+  --font-kaushan: var(--font-kaushan), cursive;
+
+  /* Font Aliases */
+  --font-serif: var(--font-playfair);
+  --font-sans: var(--font-inter);
 }
 
 body {
