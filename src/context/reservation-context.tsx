@@ -40,6 +40,8 @@ interface ReservationContextType {
   isModalOpen: boolean;
   openModal: () => void;
   closeModal: () => void;
+  isMobileMenuOpen: boolean;
+  setIsMobileMenuOpen: (isOpen: boolean) => void;
   formData: ReservationFormData;
   updateFormData: (data: Partial<ReservationFormData>) => void;
 }
@@ -52,6 +54,7 @@ export const ReservationProvider = ({ children }: { children: ReactNode }) => {
   const [reservationItems, setReservationItems] = useState<MenuItem[]>([]);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [formData, setFormData] = useState<ReservationFormData>({
     guests: "2",
     type: "Lunch",
@@ -138,6 +141,8 @@ export const ReservationProvider = ({ children }: { children: ReactNode }) => {
         isModalOpen,
         openModal,
         closeModal,
+        isMobileMenuOpen,
+        setIsMobileMenuOpen,
         formData,
         updateFormData,
       }}

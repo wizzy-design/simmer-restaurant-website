@@ -47,7 +47,7 @@ const Hero = () => {
           {/* Main heading */}
           <motion.h1
             {...fadeUpAnimate(0.3)}
-            className="text-4xl font-medium text-white leading-[1.1] tracking-tight mb-6 md:text-5xl lg:text-6xl 2xl:text-7xl"
+            className="text-5xl font-medium text-white leading-[1.1] tracking-tight mb-6 md:text-6xl"
           >
             Refined Flavours,
             <br />

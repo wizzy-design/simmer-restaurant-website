@@ -2,21 +2,21 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Menu as MenuIcon, X, ChevronDown } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/src/lib/utils";
 import { useReservation } from "../../context/reservation-context";
-import { FaBurger, FaFacebook, FaInstagram, FaXTwitter } from "react-icons/fa6";
+import { FaFacebook, FaInstagram, FaXTwitter } from "react-icons/fa6";
 import { MdOutlineRestaurantMenu } from "react-icons/md";
 import { HiOutlineMenuAlt3 } from "react-icons/hi";
 import { restaurantConfig } from "../../config/restaurant";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { itemCount, openSidebar, isMobileMenuOpen, setIsMobileMenuOpen } =
+    useReservation();
   const pathname = usePathname();
-  const { itemCount, openSidebar } = useReservation();
   const [expandedLink, setExpandedLink] = useState<string | null>(null);
 
   // Force dark text on menu page or other potential light-background pages
@@ -34,7 +34,7 @@ export default function Navbar() {
 
   // Lock scroll when mobile menu is open
   useEffect(() => {
-    if (mobileMenuOpen) {
+    if (isMobileMenuOpen) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "unset";
@@ -42,120 +42,129 @@ export default function Navbar() {
     return () => {
       document.body.style.overflow = "unset";
     };
-  }, [mobileMenuOpen]);
+  }, [isMobileMenuOpen]);
 
   return (
-    <nav
-      className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-500 py-4",
-        isScrolled
-          ? "bg-ghost-cream/90 backdrop-blur-md shadow-sm border-b border-gold/30"
-          : "bg-transparent",
-      )}
-    >
-      <div className="flex items-center justify-between container mx-auto px-6">
-        <div>
-          <Link
-            href="/"
-            className={cn(
-              "text-3xl font-semibold font-kaushan transition-colors duration-500 relative z-50",
-              mobileMenuOpen || showDarkText ? "text-gold" : "text-white",
-            )}
-          >
-            Simm3r
-          </Link>
-        </div>
-
-        <ul className="hidden lg:flex items-center gap-10">
-          {navLinks.map((link) => (
-            <li
-              key={link.name}
+    <>
+      <nav
+        className={cn(
+          "fixed top-0 left-0 right-0 z-70 transition-all duration-500 py-4",
+          isScrolled || isMobileMenuOpen
+            ? "bg-ghost-cream backdrop-blur-md shadow-sm border-b border-gold/30"
+            : "bg-transparent",
+        )}
+      >
+        <div className="flex items-center justify-between container mx-auto px-6">
+          <div>
+            <Link
+              href="/"
               className={cn(
-                "group relative text-[11px] uppercase tracking-[0.25em] font-medium transition-colors",
-                showDarkText ? "text-onyx-black" : "text-white",
+                "text-3xl font-semibold font-kaushan transition-colors duration-500 relative z-70",
+                isMobileMenuOpen
+                  ? "text-onyx-black"
+                  : showDarkText
+                    ? "text-gold"
+                    : "text-white",
               )}
             >
-              <Link
-                href={link.href}
+              Simm3r
+            </Link>
+          </div>
+
+          <ul className="hidden lg:flex items-center gap-10">
+            {navLinks.map((link) => (
+              <li
+                key={link.name}
                 className={cn(
-                  "py-4 inline-flex items-center gap-1 transition-all duration-300 relative",
-                  showDarkText ? "hover:text-gold" : "hover:opacity-70",
+                  "group relative text-[11px] uppercase tracking-[0.25em] font-medium transition-colors",
+                  showDarkText ? "text-onyx-black" : "text-white",
                 )}
               >
-                {link.name}
+                <Link
+                  href={link.href}
+                  className={cn(
+                    "py-4 inline-flex items-center gap-1 transition-all duration-300 relative",
+                    showDarkText ? "hover:text-gold" : "hover:opacity-70",
+                  )}
+                >
+                  {link.name}
+                  {link.dropdown && (
+                    <ChevronDown className="w-3 h-3 group-hover:rotate-180 transition-transform duration-300" />
+                  )}
+                </Link>
+
                 {link.dropdown && (
-                  <ChevronDown className="w-3 h-3 group-hover:rotate-180 transition-transform duration-300" />
-                )}
-              </Link>
-
-              {link.dropdown && (
-                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 text-left">
-                  <div className="bg-white rounded-2xl shadow-xl shadow-onyx-black/10 border border-gray-100 py-3 w-64 flex flex-col">
-                    {link.dropdown.map((drop) => (
-                      <Link
-                        key={drop.name}
-                        href={drop.href}
-                        className="w-full px-6 py-2.5 text-onyx-black/80 hover:bg-gold/10 hover:text-gold hover:pl-8 transition-all duration-300 block"
-                      >
-                        {drop.name}
-                      </Link>
-                    ))}
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 text-left">
+                    <div className="bg-white rounded-2xl shadow-xl shadow-onyx-black/10 border border-gray-100 py-3 w-64 flex flex-col">
+                      {link.dropdown.map((drop) => (
+                        <Link
+                          key={drop.name}
+                          href={drop.href}
+                          className="w-full px-6 py-2.5 text-onyx-black/80 hover:bg-gold/10 hover:text-gold hover:pl-8 transition-all duration-300 block"
+                        >
+                          {drop.name}
+                        </Link>
+                      ))}
+                    </div>
                   </div>
-                </div>
-              )}
-            </li>
-          ))}
-        </ul>
-
-        <div className="flex items-center gap-4">
-          <button
-            onClick={openSidebar}
-            className={cn(
-              "relative text-[11px] uppercase tracking-[0.25em] font-medium border px-8 py-3.5 transition-all duration-500 hidden lg:flex items-center gap-2",
-              showDarkText
-                ? "text-gold border-gold hover:bg-gold hover:text-white"
-                : "text-white border-white hover:bg-white hover:text-onyx-black",
-            )}
-          >
-            Reservations
-            {itemCount > 0 && (
-              <span
-                className={cn(
-                  "absolute -top-2 -right-2 size-5 flex items-center justify-center text-[9px] font-bold rounded-full",
-                  showDarkText
-                    ? "bg-onyx-black text-white"
-                    : "bg-white text-onyx-black",
                 )}
-              >
-                {itemCount}
-              </span>
-            )}
-          </button>
+              </li>
+            ))}
+          </ul>
 
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className={cn(
-              "lg:hidden p-2 transition-colors relative z-50",
-              mobileMenuOpen || showDarkText ? "text-onyx-black" : "text-white",
-            )}
-          >
-            {mobileMenuOpen ? (
-              <MdOutlineRestaurantMenu size={28} />
-            ) : (
-              <HiOutlineMenuAlt3 size={28} />
-            )}
-          </button>
+          <div className="flex items-center gap-4">
+            <button
+              onClick={openSidebar}
+              className={cn(
+                "relative text-[11px] uppercase tracking-[0.25em] font-medium border px-8 py-3.5 transition-all duration-500 hidden lg:flex items-center gap-2",
+                showDarkText
+                  ? "text-gold border-gold hover:bg-gold hover:text-white"
+                  : "text-white border-white hover:bg-white hover:text-onyx-black",
+              )}
+            >
+              Reservations
+              {itemCount > 0 && (
+                <span
+                  className={cn(
+                    "absolute -top-2 -right-2 size-5 flex items-center justify-center text-[9px] font-bold rounded-full",
+                    showDarkText
+                      ? "bg-onyx-black text-white"
+                      : "bg-white text-onyx-black",
+                  )}
+                >
+                  {itemCount}
+                </span>
+              )}
+            </button>
+
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className={cn(
+                "lg:hidden p-2 transition-colors relative z-70",
+                isMobileMenuOpen || showDarkText
+                  ? "text-onyx-black"
+                  : "text-white",
+              )}
+            >
+              {isMobileMenuOpen ? (
+                <MdOutlineRestaurantMenu size={28} />
+              ) : (
+                <HiOutlineMenuAlt3 size={28} />
+              )}
+            </button>
+          </div>
         </div>
-      </div>
+      </nav>
 
       {/* Mobile Menu Overlay — Full Screen Immersive Experience */}
       <AnimatePresence>
-        {mobileMenuOpen && (
+        {isMobileMenuOpen && (
           <motion.div
+            key="mobile-menu"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-ghost-cream z-40 lg:hidden flex flex-col"
+            className="fixed inset-0 bg-[#f9f8f4] z-60 lg:hidden flex flex-col"
           >
             {/* Scrollable Content Area */}
             <div className="flex-1 overflow-y-auto px-8 pt-32 pb-12 flex flex-col items-center">
@@ -206,7 +215,7 @@ export default function Navbar() {
                           ) : (
                             <Link
                               href={link.href}
-                              onClick={() => setMobileMenuOpen(false)}
+                              onClick={() => setIsMobileMenuOpen(false)}
                               className="text-4xl font-kaushan italic text-onyx-black hover:text-gold transition-colors"
                             >
                               {link.name}
@@ -228,7 +237,7 @@ export default function Navbar() {
                                 <Link
                                   key={drop.name}
                                   href={drop.href}
-                                  onClick={() => setMobileMenuOpen(false)}
+                                  onClick={() => setIsMobileMenuOpen(false)}
                                   className="p-4 border border-gold/10 bg-white/50 rounded-xl flex items-center justify-center text-center text-[10px] uppercase tracking-widest text-onyx-black/70 hover:bg-gold/5 hover:text-gold transition-all font-sans font-bold leading-tight"
                                 >
                                   {drop.name}
@@ -251,14 +260,14 @@ export default function Navbar() {
                 >
                   <button
                     onClick={() => {
-                      setMobileMenuOpen(false);
+                      setIsMobileMenuOpen(false);
                       openSidebar();
                     }}
                     className="w-full text-[11px] uppercase tracking-[0.3em] text-white bg-gold px-12 py-5 hover:bg-onyx-black transition-all relative font-bold"
                   >
                     Manage Reservations
                     {itemCount > 0 && (
-                      <span className="absolute -top-2 -right-2 bg-onyx-black text-white w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold border-2 border-ghost-cream scale-110">
+                      <span className="absolute -top-2 -right-2 bg-white shadow-md text-onyx-black w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold border-2 border-ghost-cream scale-110">
                         {itemCount}
                       </span>
                     )}
@@ -310,7 +319,7 @@ export default function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
-    </nav>
+    </>
   );
 }
 
