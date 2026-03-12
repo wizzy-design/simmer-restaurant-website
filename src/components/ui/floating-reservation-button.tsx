@@ -3,18 +3,22 @@
 import { ShoppingBasket } from "lucide-react";
 import { useReservation } from "../../context/reservation-context";
 import { motion, AnimatePresence } from "motion/react";
+import { cn } from "../../lib/utils";
 
 const FloatingReservationButton = () => {
-  const { itemCount, openSidebar } = useReservation();
+  const { itemCount, openSidebar, isMobileMenuOpen } = useReservation();
 
   return (
     <AnimatePresence>
-      {itemCount > 0 && (
+      {itemCount > 0 && !isMobileMenuOpen && (
         <motion.div
           initial={{ opacity: 0, scale: 0.5, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.5, y: 20 }}
-          className="fixed bottom-8 right-8 z-50"
+          className={cn(
+            "fixed bottom-8 right-8 z-50",
+            isMobileMenuOpen && "hidden"
+          )}
         >
           <button
             onClick={openSidebar}

@@ -6,7 +6,6 @@ import {
   FaFacebook,
   FaInstagram,
   FaXTwitter,
-  FaYoutube,
 } from "react-icons/fa6";
 import { ArrowUp } from "lucide-react";
 import { restaurantConfig } from "../../config/restaurant";

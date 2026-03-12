@@ -2,22 +2,15 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "motion/react";
+import { Mail, Phone } from "lucide-react";
 import {
-  Facebook,
-  Instagram,
-  Twitter,
-  Linkedin,
-  Mail,
-  Youtube,
-  Phone,
-} from "lucide-react";
-
-const fadeUp = {
-  initial: { opacity: 0, y: 30 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true },
-  transition: { duration: 0.8, ease: [0.25, 0.1, 0.25, 1] as const },
-};
+  FaFacebook,
+  FaInstagram,
+  FaXTwitter,
+  FaLinkedin,
+  FaYoutube,
+} from "react-icons/fa6";
+import { fadeUp } from "../../lib/animations";
 
 const AboutScreen = () => {
   return (
@@ -60,7 +53,7 @@ const AboutScreen = () => {
           className="relative h-[400px] md:h-[600px] w-full rounded-md overflow-hidden shadow-2xl order-1 lg:order-2 border border-white/5 bg-white/5"
         >
           <video
-            src="/about2.mp4"
+            src="/reel2.mp4"
             autoPlay
             loop
             muted
@@ -175,7 +168,7 @@ const AboutScreen = () => {
                   className="flex items-center gap-4 hover:text-white transition-colors group p-2 hover:bg-white/5 rounded-md"
                 >
                   <span className="p-2 border border-white/10 rounded-full group-hover:border-gold/50 transition-colors">
-                    <Instagram className="w-4 h-4 text-gold group-hover:scale-110 transition-transform" />
+                    <FaInstagram className="w-4 h-4 text-gold group-hover:scale-110 transition-transform" />
                   </span>
                   <span className="text-sm font-light">Instagram</span>
                 </a>
@@ -186,7 +179,7 @@ const AboutScreen = () => {
                   className="flex items-center gap-4 hover:text-white transition-colors group p-2 hover:bg-white/5 rounded-md"
                 >
                   <span className="p-2 border border-white/10 rounded-full group-hover:border-gold/50 transition-colors">
-                    <Facebook className="w-4 h-4 text-gold group-hover:scale-110 transition-transform" />
+                    <FaFacebook className="w-4 h-4 text-gold group-hover:scale-110 transition-transform" />
                   </span>
                   <span className="text-sm font-light">Facebook</span>
                 </a>
@@ -197,7 +190,7 @@ const AboutScreen = () => {
                   className="flex items-center gap-4 hover:text-white transition-colors group p-2 hover:bg-white/5 rounded-md"
                 >
                   <span className="p-2 border border-white/10 rounded-full group-hover:border-gold/50 transition-colors">
-                    <Twitter className="w-4 h-4 text-gold group-hover:scale-110 transition-transform" />
+                    <FaXTwitter className="w-4 h-4 text-gold group-hover:scale-110 transition-transform" />
                   </span>
                   <span className="text-sm font-light">Twitter</span>
                 </a>
@@ -208,7 +201,7 @@ const AboutScreen = () => {
                   className="flex items-center gap-4 hover:text-white transition-colors group p-2 hover:bg-white/5 rounded-md"
                 >
                   <span className="p-2 border border-white/10 rounded-full group-hover:border-gold/50 transition-colors">
-                    <Linkedin className="w-4 h-4 text-gold group-hover:scale-110 transition-transform" />
+                    <FaLinkedin className="w-4 h-4 text-gold group-hover:scale-110 transition-transform" />
                   </span>
                   <span className="text-sm font-light">LinkedIn</span>
                 </a>
@@ -218,7 +211,7 @@ const AboutScreen = () => {
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-4 hover:text-white transition-colors group p-2 hover:bg-white/5 rounded-md sm:col-span-2 border border-white/5 bg-black/20 mt-2"
                 >
-                  <Youtube className="w-4 h-4 text-gold group-hover:scale-110 transition-transform" />
+                  <FaYoutube className="w-4 h-4 text-gold group-hover:scale-110 transition-transform" />
                   <span className="text-sm font-medium tracking-wide">
                     Watch on YouTube
                   </span>

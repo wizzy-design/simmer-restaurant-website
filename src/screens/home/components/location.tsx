@@ -3,6 +3,7 @@
 import { motion } from "motion/react";
 import { MapPin, Mail, Phone } from "lucide-react";
 import { restaurantConfig } from "../../../config/restaurant";
+import { fadeUp } from "../../../lib/animations";
 
 const Location = () => {
   const mapQuery = encodeURIComponent(restaurantConfig.contact.address);
@@ -112,9 +113,3 @@ const Location = () => {
 
 export default Location;
 
-const fadeUp = {
-  initial: { opacity: 0, y: 30 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true },
-  transition: { duration: 0.8, ease: [0.25, 0.1, 0.25, 1] as const },
-};

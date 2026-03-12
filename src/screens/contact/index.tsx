@@ -1,14 +1,8 @@
 "use client";
 import React, { useState } from "react";
 import { motion } from "motion/react";
-import { Phone, Mail, MapPin, Map, Navigation, Send } from "lucide-react";
-
-const fadeUp = {
-  initial: { opacity: 0, y: 30 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true },
-  transition: { duration: 0.8, ease: [0.25, 0.1, 0.25, 1] as const },
-};
+import { Phone, Mail, Send } from "lucide-react";
+import { fadeUp } from "../../lib/animations";
 
 const ContactScreen = () => {
   const [formData, setFormData] = useState({
@@ -22,7 +16,7 @@ const ContactScreen = () => {
     "idle" | "success" | "error"
   >("idle");
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.SyntheticEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus("idle");

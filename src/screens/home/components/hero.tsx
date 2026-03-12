@@ -1,54 +1,101 @@
 "use client";
 
-import { MapPinned, Phone } from "lucide-react";
-import Image from "next/image";
-import { motion } from "motion/react";
-import { restaurantConfig } from "../../../config/restaurant";
+import { motion, AnimatePresence } from "motion/react";
+import { useEffect, useState } from "react";
+import { fadeUpAnimate } from "../../../lib/animations";
 
 const Hero = () => {
+  const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % VIDEOS.length);
+    }, 7000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="relative h-screen w-full overflow-hidden">
-      {/* Background Image */}
-      <Image
-        src="/hero2.png"
-        alt="Simm3r Restaurant ambiance"
-        fill
-        className="object-cover"
-        priority
-      />
+      {/* Cross-fading video background */}
+      <AnimatePresence>
+        <motion.div
+          key={VIDEOS[current]}
+          className="absolute inset-0"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.4, ease: "easeInOut" }}
+        >
+          <video
+            src={VIDEOS[current]}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="h-full w-full object-cover"
+          />
+        </motion.div>
+      </AnimatePresence>
 
       {/* Cinematic gradient overlay */}
-      <div className="absolute inset-0 bg-black/50" />
+      <div className="absolute inset-0 bg-linear-to-t from-black/95 via-black/70 to-black/40" />
 
       {/* Hero content — left-weighted layout */}
-      <div className="absolute bottom-12 left-0 right-0 mx-auto container flex items-end justify-between gap-12">
+      <div className="absolute bottom-24 md:bottom-12 left-0 right-0 container mx-auto px-6 lg:px-6">
         {/* Left: Brand + tagline */}
         <div className="max-w-2xl">
           {/* Main heading */}
           <motion.h1
-            {...fadeUp(0.3)}
-            className="text-7xl md:text-8xl font-medium text-white leading-[1.1] tracking-wide mb-4"
+            {...fadeUpAnimate(0.3)}
+            className="text-5xl font-medium text-white leading-[1.1] tracking-tight mb-6 md:text-6xl"
           >
-            <span className="font-kaushan text-white italic">Simm3r</span>
+            Refined Flavours,
             <br />
-            Restaurant
+            <span className="font-kaushan italic font-normal inline-block pr-4">
+              Simm3red
+            </span>{" "}
+            to Perfection
           </motion.h1>
 
           {/* Subtitle */}
           <motion.p
-            {...fadeUp(0.45)}
-            className="text-sm text-[#C4C8C9] font-sans tracking-wide leading-relaxed max-w-md"
+            {...fadeUpAnimate(0.45)}
+            className="text-base text-[#C4C8C9] font-sans tracking-wide leading-relaxed max-w-lg mb-8"
           >
-            The ultimate culinary destination on the plateau.
-            <br />A unique blend of African and international flavours.
+            Born of Plateau soil and Nigeria’s bold Northern spirit, we craft a
+            global culinary experience that transcends borders. Heritage refined
+            with world-class flair.
           </motion.p>
 
           {/* CTA */}
-          <motion.div {...fadeUp(0.6)} className="mt-8">
-            <button className="relative text-xs uppercase tracking-[0.25em] text-white border border-gold bg-gold px-8 py-3.5 overflow-hidden group transition-colors duration-500 hover:text-onyx-black">
+          <motion.div {...fadeUpAnimate(0.6)} className="mt-8">
+            <button
+              className="relative text-xs cursor-pointer uppercase tracking-[0.25em] text-white border border-gold bg-gold px-8 py-3.5 overflow-hidden group transition-colors duration-500 hover:text-onyx-black"
+              id="hero-reserve-button"
+              onClick={() => {
+                document
+                  .getElementById("reservation-section")
+                  ?.scrollIntoView({ behavior: "smooth" });
+              }}
+            >
               <span className="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out" />
               <span className="relative">Reserve Your Table</span>
             </button>
+          </motion.div>
+
+          {/* Slide indicators */}
+          <motion.div {...fadeUpAnimate(0.75)} className="mt-6 flex gap-2">
+            {VIDEOS.map((_, i) => (
+              <button
+                key={i}
+                id={`hero-slide-indicator-${i}`}
+                onClick={() => setCurrent(i)}
+                aria-label={`Go to slide ${i + 1}`}
+                className={`h-[2px] transition-all duration-500 ease-in-out cursor-pointer ${
+                  i === current ? "w-8 bg-gold" : "w-4 bg-white/40"
+                }`}
+              />
+            ))}
           </motion.div>
         </div>
       </div>
@@ -58,21 +105,11 @@ const Hero = () => {
 
 export default Hero;
 
-const fadeUp = (delay: number) => ({
-  initial: { opacity: 0, y: 24 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.9, ease: [0.25, 0.1, 0.25, 1] as const, delay },
-});
-
-const contactInfo = [
-  {
-    icon: <MapPinned size={14} />,
-    text: restaurantConfig.contact.address,
-    href: restaurantConfig.contact.mapUrl,
-  },
-  {
-    icon: <Phone size={14} />,
-    text: restaurantConfig.contact.phone,
-    href: `tel:${restaurantConfig.contact.phoneRaw}`,
-  },
+const VIDEOS = [
+  "/reel1.mp4",
+  "/reel2.mp4",
+  "/reel3.mp4",
+  "/reel4.mp4",
+  "/reel5.mp4",
+  "/reel6.mp4",
 ];
