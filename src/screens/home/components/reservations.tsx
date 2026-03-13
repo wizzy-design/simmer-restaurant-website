@@ -103,7 +103,7 @@ export const Reservations = ({ isModal = false }: { isModal?: boolean }) => {
   };
 
   const formContent = (
-    <div className={isModal ? "" : "p-8 md:p-12"}>
+    <div className={isModal ? "" : "p-6 md:p-12"}>
       {isSuccess ? (
         <div className="text-center py-20 flex flex-col items-center">
           <div className="w-20 h-20 bg-gold/10 rounded-full flex items-center justify-center mb-6">
@@ -344,7 +344,10 @@ export const Reservations = ({ isModal = false }: { isModal?: boolean }) => {
   }
 
   return (
-    <section id="reservation-section" className="relative py-24 lg:py-32 overflow-hidden flex items-center justify-center min-h-screen border-t border-onyx-black/5">
+    <section
+      id="reservation-section"
+      className="relative py-24 overflow-hidden flex items-center justify-center min-h-screen"
+    >
       {/* Background Image / Overlay */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -353,32 +356,29 @@ export const Reservations = ({ isModal = false }: { isModal?: boolean }) => {
           fill
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-onyx-black/70 backdrop-blur-sm" />
+        <div className="absolute inset-0 bg-onyx-black/70 backdrop-blur-xs" />
       </div>
 
       <div className="container relative z-10 mx-auto px-6">
-        <div className="text-center mb-12">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <span className="text-gold text-[10px] uppercase tracking-[0.5em] font-medium block mb-4">
-              Your Table Awaits
-            </span>
-            <h2 className="text-5xl md:text-6xl font-kaushan italic text-white leading-tight">
-              Reservations
-            </h2>
-          </motion.div>
-        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="mb-12 text-center"
+        >
+          <h2 className="text-5xl md:text-6xl font-kaushan italic text-white leading-tight">
+            <span className="font-kaushan! md:mt-4 italic">Reserve</span> your
+            table
+          </h2>
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="w-full max-w-4xl bg-white shadow-2xl mx-auto rounded-xl overflow-hidden relative"
+          className="w-full max-w-4xl bg-white shadow-2xl mx-auto overflow-hidden relative"
         >
           {formContent}
         </motion.div>

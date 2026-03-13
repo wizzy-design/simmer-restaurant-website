@@ -2,11 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import {
-  FaFacebook,
-  FaInstagram,
-  FaXTwitter,
-} from "react-icons/fa6";
+import { FaFacebook, FaInstagram, FaXTwitter } from "react-icons/fa6";
 import { ArrowUp } from "lucide-react";
 import { restaurantConfig } from "../../config/restaurant";
 
@@ -25,7 +21,7 @@ const Footer = () => {
           fill
           className="object-cover brightness-[0.2]"
         />
-        <div className="absolute inset-0 bg-black/8" />
+        <div className="absolute inset-0 bg-black/5" />
       </div>
 
       {/* Decorative Large Text in Background */}
@@ -65,7 +61,6 @@ const Footer = () => {
               <nav>
                 <ul className="flex flex-wrap gap-8 lg:gap-12 text-xs uppercase tracking-[0.2em] text-white/50">
                   {[
-                    { name: "Home", href: "/" },
                     { name: "About", href: "/about" },
                     { name: "Menu", href: "/menu" },
                     { name: "Contact", href: "/contact" },
