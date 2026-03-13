@@ -28,6 +28,18 @@ export const Reservations = ({ isModal = false }: { isModal?: boolean }) => {
 
   const today = new Date().toISOString().split("T")[0];
 
+  // Sync reservation items to the food order textarea whenever they change
+  React.useEffect(() => {
+    if (reservationItems.length > 0) {
+      const itemsList = reservationItems.map((i) => `- ${i.name}`).join("\n");
+      updateFormData({
+        foodOrders: `I'd like to order from the menu:\n${itemsList}`,
+      });
+    } else {
+      updateFormData({ foodOrders: "" });
+    }
+  }, [reservationItems.length]); // Only re-run when item count changes
+
   const handleClose = () => {
     if (isModal) {
       closeModal();
@@ -48,8 +60,8 @@ export const Reservations = ({ isModal = false }: { isModal?: boolean }) => {
 
     // Convert to a clean number string to check length
     const phoneDigitsOnly = phone.replace(/\D/g, "");
-    if (phoneDigitsOnly.length < 11 || phoneDigitsOnly.length > 13) {
-      setPhoneError("Phone number must be between 11 and 13 digits.");
+    if (phoneDigitsOnly.length < 10 || phoneDigitsOnly.length > 13) {
+      setPhoneError("Phone number must be between 10 and 13 digits.");
       return;
     }
 
@@ -250,19 +262,21 @@ export const Reservations = ({ isModal = false }: { isModal?: boolean }) => {
             </div>
 
             {/* Optional context from reservationItems */}
-            {reservationItems.length > 0 && (
-              <div className="space-y-2">
-                <label className="text-[10px] uppercase tracking-widest font-medium text-onyx-black/50">
-                  Food & Drinks order
-                </label>
-                <textarea
-                  name="foodOrders"
-                  rows={3}
-                  className="w-full bg-ghost-cream border border-gray-200 px-5 py-4 rounded-xl focus:outline-hidden focus:border-gold transition-colors text-sm"
-                  defaultValue={`I'd like to order from the menu:\n${reservationItems.map((i) => `- ${i.name}`).join("\n")}`}
-                />
-              </div>
-            )}
+
+            <div className="space-y-2">
+              <label className="text-[10px] uppercase tracking-widest font-medium text-onyx-black/50">
+                Food & Drinks order
+              </label>
+              <textarea
+                name="foodOrders"
+                rows={3}
+                required
+                value={formData.foodOrders}
+                onChange={handleInputChange}
+                className="w-full bg-ghost-cream border border-gray-200 px-5 py-4 rounded-xl focus:outline-hidden focus:border-gold transition-colors text-sm"
+                placeholder="Selected items from the menu will appear here..."
+              />
+            </div>
 
             {/* Special Requests */}
             <div className="space-y-4">
@@ -328,7 +342,7 @@ export const Reservations = ({ isModal = false }: { isModal?: boolean }) => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-gold text-white tracking-[0.3em] font-medium py-4 px-10 text-xs uppercase hover:bg-gold/90 transition-all shadow-xl shadow-gold/20 flex items-center justify-center gap-2"
+                className="w-full bg-gold text-white tracking-[0.3em] font-medium py-4 px-10 text-xs uppercase hover:bg-gold/90 transition-all shadow-xl shadow-gold/20 flex items-center justify-center gap-2 disabled:bg-gold/50 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? "Submitting..." : "Confirm Reservation"}
               </button>
