@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef } from "react";
+import { useRef } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
 import Link from "next/link";
 import { ArrowLeft, Instagram } from "lucide-react";
@@ -56,7 +56,7 @@ const MarqueeRow = ({ text }: { text: string }) => {
   );
 };
 
-const PastrySchoolScreen = () => {
+const CulinarySchoolScreen = () => {
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -71,11 +71,11 @@ const PastrySchoolScreen = () => {
 
       <div className="container mx-auto px-4 md:px-8 max-w-7xl relative z-10 mb-32">
         <Link
-          href="/services"
+          href="/"
           className="inline-flex items-center gap-2 text-[10px] md:text-sm font-medium uppercase tracking-[0.2em] text-[#C4C8C9] hover:text-gold transition-colors mb-20 md:mb-32 group"
         >
           <ArrowLeft className="w-4 h-4 group-hover:-translate-x-2 transition-transform" />{" "}
-          Directory
+          Back to Home
         </Link>
 
         {/* Cinematic Hero */}
@@ -104,7 +104,7 @@ const PastrySchoolScreen = () => {
             <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold uppercase tracking-tighter text-white/10 relative">
               <span className="block translate-x-12">Culinary</span>
               <span className="block text-white">Mastery.</span>
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-gold to-white translate-x-8">
+              <span className="block text-transparent bg-clip-text bg-linear-to-r from-gold to-white translate-x-8">
                 Academy.
               </span>
             </h1>
@@ -190,9 +190,9 @@ const PastrySchoolScreen = () => {
           {[1, 2, 3, 4].map((item, idx) => (
             <div
               key={idx}
-              className="w-full sm:w-[calc(50%-12px)] lg:w-[calc(25%-18px)] aspect-[4/5] rounded-[2rem] overflow-hidden relative group cursor-pointer bg-onyx-black"
+              className="w-full sm:w-[calc(50%-12px)] lg:w-[calc(25%-18px)] aspect-4/5 rounded-4xl overflow-hidden relative group cursor-pointer bg-onyx-black"
             >
-              <div className="absolute inset-0 border border-white/10 rounded-[2rem] group-hover:border-gold/30 transition-colors z-20 pointer-events-none" />
+              <div className="absolute inset-0 border border-white/10 rounded-4xl group-hover:border-gold/30 transition-colors z-20 pointer-events-none" />
               <div className="absolute inset-0 bg-[url('/bg-texture.png')] opacity-30 mix-blend-overlay z-0" />
               <div className="absolute inset-x-0 bottom-0 top-1/2 bg-linear-to-t from-onyx-black to-transparent opacity-80 z-10" />
               <div className="absolute inset-0 flex items-center justify-center p-6 text-center z-10">
@@ -219,4 +219,4 @@ const PastrySchoolScreen = () => {
   );
 };
 
-export default PastrySchoolScreen;
+export default CulinarySchoolScreen;

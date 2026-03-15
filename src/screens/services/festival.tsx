@@ -60,10 +60,10 @@ const FestivalScreen = () => {
 
         <div className="relative z-10 container mx-auto px-4 md:px-8 text-center flex flex-col items-center">
           <Link
-            href="/services"
+            href="/"
             className="absolute top-32 left-8 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#C4C8C9] hover:text-gold transition-colors"
           >
-            <ArrowLeft className="w-4 h-4" /> Services
+            <ArrowLeft className="w-4 h-4" /> Home
           </Link>
 
           <motion.div
