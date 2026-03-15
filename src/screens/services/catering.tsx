@@ -11,39 +11,6 @@ import {
   CalendarDays,
 } from "lucide-react";
 
-const offerings = [
-  {
-    title: "Heartfelt Weddings",
-    desc: "Personalized catering that reflects your style and vision, ensuring every dish delights your guests on your most important day.",
-    icon: Heart,
-  },
-  {
-    title: "Healthy Buffets",
-    desc: "Nutritious and delicious buffet options full of vibrant flavors that cater to various tastes and dietary needs without compromising elegance.",
-    icon: Salad,
-  },
-  {
-    title: "Corporate Events",
-    desc: "Exceptional catering that impresses clients and colleagues alike. Elevate your business meetings and conferences with premium culinary service.",
-    icon: Briefcase,
-  },
-  {
-    title: "Social Gatherings",
-    desc: "Delicious dishes that enhance every party, reunion, birthday, or bridal shower. We take care of the details so you can celebrate.",
-    icon: Users,
-  },
-  {
-    title: "Themed Events",
-    desc: "Creative themed catering meticulously tailored to match your event’s specific atmosphere and stylistic vision.",
-    icon: PartyPopper,
-  },
-  {
-    title: "Seasonal Menus",
-    desc: "We celebrate local ingredients and culinary trends, designing fresh, seasonal menus that capture the unique flavors of the time of year.",
-    icon: CalendarDays,
-  },
-];
-
 const CateringScreen = () => {
   return (
     <div className="bg-ghost-cream min-h-screen pt-32 text-onyx-black relative overflow-hidden font-sans">
@@ -84,7 +51,7 @@ const CateringScreen = () => {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.5, delay: 0.2 }}
-            className="w-full lg:w-2/5 h-[60vh] lg:h-[80vh] rounded-4xl overflow-hidden sticky top-32 shadow-2xl"
+            className="w-full lg:w-2/5 h-[60vh] lg:h-[80vh] rounded-xl overflow-hidden sticky top-32 shadow-2xl"
           >
             <Image
               src="/catering-hero.jpg"
@@ -160,3 +127,36 @@ const CateringScreen = () => {
 };
 
 export default CateringScreen;
+
+const offerings = [
+  {
+    title: "Heartfelt Weddings",
+    desc: "Personalized catering that reflects your style and vision, ensuring every dish delights your guests on your most important day.",
+    icon: Heart,
+  },
+  {
+    title: "Healthy Buffets",
+    desc: "Nutritious and delicious buffet options full of vibrant flavors that cater to various tastes and dietary needs without compromising elegance.",
+    icon: Salad,
+  },
+  {
+    title: "Corporate Events",
+    desc: "Exceptional catering that impresses clients and colleagues alike. Elevate your business meetings and conferences with premium culinary service.",
+    icon: Briefcase,
+  },
+  {
+    title: "Social Gatherings",
+    desc: "Delicious dishes that enhance every party, reunion, birthday, or bridal shower. We take care of the details so you can celebrate.",
+    icon: Users,
+  },
+  {
+    title: "Themed Events",
+    desc: "Creative themed catering meticulously tailored to match your event’s specific atmosphere and stylistic vision.",
+    icon: PartyPopper,
+  },
+  {
+    title: "Seasonal Menus",
+    desc: "We celebrate local ingredients and culinary trends, designing fresh, seasonal menus that capture the unique flavors of the time of year.",
+    icon: CalendarDays,
+  },
+];
