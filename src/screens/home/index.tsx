@@ -12,8 +12,8 @@ const HomeScreen = () => {
       <About />
       <PopularMenu />
       <Testimonials />
-      <Location />
       <Reservations />
+      <Location />
     </div>
   );
 };

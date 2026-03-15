@@ -20,7 +20,7 @@ export default function Navbar() {
   const [expandedLink, setExpandedLink] = useState<string | null>(null);
 
   // Force dark text on menu page or other potential light-background pages
-  const isLightPage = pathname === "/menu";
+  const isLightPage = pathname === "/menu" || pathname.includes("/services");
   const showDarkText = isScrolled || isLightPage;
 
   useEffect(() => {
@@ -80,18 +80,27 @@ export default function Navbar() {
                   showDarkText ? "text-onyx-black" : "text-white",
                 )}
               >
-                <Link
-                  href={link.href}
-                  className={cn(
-                    "py-4 inline-flex items-center gap-1 transition-all duration-300 relative",
-                    showDarkText ? "hover:text-gold" : "hover:opacity-70",
-                  )}
-                >
-                  {link.name}
-                  {link.dropdown && (
+                {link.dropdown ? (
+                  <div
+                    className={cn(
+                      "py-4 inline-flex items-center gap-1 transition-all duration-300 relative cursor-pointer",
+                      showDarkText ? "hover:text-gold" : "hover:opacity-70",
+                    )}
+                  >
+                    {link.name}
                     <ChevronDown className="w-3 h-3 group-hover:rotate-180 transition-transform duration-300" />
-                  )}
-                </Link>
+                  </div>
+                ) : (
+                  <Link
+                    href={link.href!}
+                    className={cn(
+                      "py-4 inline-flex items-center gap-1 transition-all duration-300 relative",
+                      showDarkText ? "hover:text-gold" : "hover:opacity-70",
+                    )}
+                  >
+                    {link.name}
+                  </Link>
+                )}
 
                 {link.dropdown && (
                   <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 text-left">
@@ -327,10 +336,9 @@ const navLinks = [
   { name: "Menu", href: "/menu" },
   {
     name: "Services",
-    href: "/services",
     dropdown: [
       { name: "Catering Services", href: "/services/catering-services" },
-      { name: "Pastry School", href: "/services/pastry-school" },
+      { name: "Culinary School", href: "/services/culinary-school" },
       {
         name: "Restaurant Consultancy",
         href: "/services/restaurant-consultancy",

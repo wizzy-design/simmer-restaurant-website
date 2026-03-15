@@ -55,7 +55,7 @@ export async function POST(request: Request) {
     `;
 
     const { data: resendData, error } = await resend.emails.send({
-      from: "Simmer Website <onboarding@resend.dev>",
+      from: "Simmer Restaurant Website <onboarding@resend.dev>",
       to: ["developedbymighty@gmail.com"],
       replyTo: email,
       subject: `New Reservation Request from ${fullName} for ${date}`,

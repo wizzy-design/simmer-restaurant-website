@@ -5,6 +5,7 @@ import {
   useContext,
   useState,
   useEffect,
+  useCallback,
   ReactNode,
 } from "react";
 
@@ -26,6 +27,7 @@ export interface ReservationFormData {
   phone: string;
   hasSpecialRequest: boolean;
   specialRequests: string;
+  foodOrders: string;
 }
 
 interface ReservationContextType {
@@ -56,8 +58,8 @@ export const ReservationProvider = ({ children }: { children: ReactNode }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [formData, setFormData] = useState<ReservationFormData>({
-    guests: "2",
-    type: "Lunch",
+    guests: "",
+    type: "",
     time: "",
     date: "",
     fullName: "",
@@ -65,6 +67,7 @@ export const ReservationProvider = ({ children }: { children: ReactNode }) => {
     phone: "",
     hasSpecialRequest: false,
     specialRequests: "",
+    foodOrders: "",
   });
 
   // Load from localStorage on mount
@@ -87,25 +90,25 @@ export const ReservationProvider = ({ children }: { children: ReactNode }) => {
     );
   }, [reservationItems]);
 
-  const addToReservation = (item: MenuItem) => {
+  const addToReservation = useCallback((item: MenuItem) => {
     setReservationItems((prev) => {
       // Avoid duplicates
       if (prev.some((i) => i.name === item.name)) return prev;
       return [...prev, item];
     });
-  };
+  }, []);
 
-  const removeFromReservation = (itemName: string) => {
+  const removeFromReservation = useCallback((itemName: string) => {
     setReservationItems((prev) =>
       prev.filter((item) => item.name !== itemName),
     );
-  };
+  }, []);
 
-  const clearReservation = () => {
+  const clearReservation = useCallback(() => {
     setReservationItems([]);
     setFormData({
-      guests: "2",
-      type: "Lunch",
+      guests: "",
+      type: "",
       time: "",
       date: "",
       fullName: "",
@@ -113,17 +116,18 @@ export const ReservationProvider = ({ children }: { children: ReactNode }) => {
       phone: "",
       hasSpecialRequest: false,
       specialRequests: "",
+      foodOrders: "",
     });
-  };
+  }, []);
 
-  const updateFormData = (data: Partial<ReservationFormData>) => {
+  const updateFormData = useCallback((data: Partial<ReservationFormData>) => {
     setFormData((prev) => ({ ...prev, ...data }));
-  };
+  }, []);
 
-  const openSidebar = () => setIsSidebarOpen(true);
-  const closeSidebar = () => setIsSidebarOpen(false);
-  const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
+  const openSidebar = useCallback(() => setIsSidebarOpen(true), []);
+  const closeSidebar = useCallback(() => setIsSidebarOpen(false), []);
+  const openModal = useCallback(() => setIsModalOpen(true), []);
+  const closeModal = useCallback(() => setIsModalOpen(false), []);
 
   const itemCount = reservationItems.length;
 

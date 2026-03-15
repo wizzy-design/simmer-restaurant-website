@@ -28,6 +28,18 @@ export const Reservations = ({ isModal = false }: { isModal?: boolean }) => {
 
   const today = new Date().toISOString().split("T")[0];
 
+  // Sync reservation items to the food order textarea whenever they change
+  React.useEffect(() => {
+    if (reservationItems.length > 0) {
+      const itemsList = reservationItems.map((i) => `- ${i.name}`).join("\n");
+      updateFormData({
+        foodOrders: `I'd like to order from the menu:\n${itemsList}`,
+      });
+    } else {
+      updateFormData({ foodOrders: "" });
+    }
+  }, [reservationItems.length]); // Only re-run when item count changes
+
   const handleClose = () => {
     if (isModal) {
       closeModal();
@@ -48,8 +60,8 @@ export const Reservations = ({ isModal = false }: { isModal?: boolean }) => {
 
     // Convert to a clean number string to check length
     const phoneDigitsOnly = phone.replace(/\D/g, "");
-    if (phoneDigitsOnly.length < 11 || phoneDigitsOnly.length > 13) {
-      setPhoneError("Phone number must be between 11 and 13 digits.");
+    if (phoneDigitsOnly.length < 10 || phoneDigitsOnly.length > 13) {
+      setPhoneError("Phone number must be between 10 and 13 digits.");
       return;
     }
 
@@ -103,7 +115,7 @@ export const Reservations = ({ isModal = false }: { isModal?: boolean }) => {
   };
 
   const formContent = (
-    <div className={isModal ? "" : "p-8 md:p-12"}>
+    <div className={isModal ? "" : "p-6 md:p-12"}>
       {isSuccess ? (
         <div className="text-center py-20 flex flex-col items-center">
           <div className="w-20 h-20 bg-gold/10 rounded-full flex items-center justify-center mb-6">
@@ -250,19 +262,21 @@ export const Reservations = ({ isModal = false }: { isModal?: boolean }) => {
             </div>
 
             {/* Optional context from reservationItems */}
-            {reservationItems.length > 0 && (
-              <div className="space-y-2">
-                <label className="text-[10px] uppercase tracking-widest font-medium text-onyx-black/50">
-                  Food & Drinks order
-                </label>
-                <textarea
-                  name="foodOrders"
-                  rows={3}
-                  className="w-full bg-ghost-cream border border-gray-200 px-5 py-4 rounded-xl focus:outline-hidden focus:border-gold transition-colors text-sm"
-                  defaultValue={`I'd like to order from the menu:\n${reservationItems.map((i) => `- ${i.name}`).join("\n")}`}
-                />
-              </div>
-            )}
+
+            <div className="space-y-2">
+              <label className="text-[10px] uppercase tracking-widest font-medium text-onyx-black/50">
+                Food & Drinks order
+              </label>
+              <textarea
+                name="foodOrders"
+                rows={3}
+                required
+                value={formData.foodOrders}
+                onChange={handleInputChange}
+                className="w-full bg-ghost-cream border border-gray-200 px-5 py-4 rounded-xl focus:outline-hidden focus:border-gold transition-colors text-sm"
+                placeholder="Selected items from the menu will appear here..."
+              />
+            </div>
 
             {/* Special Requests */}
             <div className="space-y-4">
@@ -328,7 +342,7 @@ export const Reservations = ({ isModal = false }: { isModal?: boolean }) => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-gold text-white tracking-[0.3em] font-medium py-4 px-10 text-xs uppercase hover:bg-gold/90 transition-all shadow-xl shadow-gold/20 flex items-center justify-center gap-2"
+                className="w-full bg-gold text-white tracking-[0.3em] font-medium py-4 px-10 text-xs uppercase hover:bg-gold/90 transition-all shadow-xl shadow-gold/20 flex items-center justify-center gap-2 disabled:bg-gold/50 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? "Submitting..." : "Confirm Reservation"}
               </button>
@@ -344,41 +358,42 @@ export const Reservations = ({ isModal = false }: { isModal?: boolean }) => {
   }
 
   return (
-    <section id="reservation-section" className="relative py-24 lg:py-32 overflow-hidden flex items-center justify-center min-h-screen border-t border-onyx-black/5">
+    <section
+      id="reservation-section"
+      className="relative py-24 overflow-hidden flex items-center justify-center min-h-screen"
+    >
       {/* Background Image / Overlay */}
       <div className="absolute inset-0 z-0">
         <Image
           src="/dine.png"
           alt="Restaurant Interior"
           fill
+          sizes="100vw"
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-onyx-black/70 backdrop-blur-sm" />
+        <div className="absolute inset-0 bg-onyx-black/70 backdrop-blur-xs" />
       </div>
 
       <div className="container relative z-10 mx-auto px-6">
-        <div className="text-center mb-12">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <span className="text-gold text-[10px] uppercase tracking-[0.5em] font-medium block mb-4">
-              Your Table Awaits
-            </span>
-            <h2 className="text-5xl md:text-6xl font-kaushan italic text-white leading-tight">
-              Reservations
-            </h2>
-          </motion.div>
-        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="mb-12 text-center"
+        >
+          <h2 className="text-5xl md:text-6xl font-kaushan italic text-white leading-tight">
+            <span className="font-kaushan! md:mt-4 italic">Reserve</span> your
+            table
+          </h2>
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="w-full max-w-4xl bg-white shadow-2xl mx-auto rounded-xl overflow-hidden relative"
+          className="w-full max-w-4xl bg-white shadow-2xl mx-auto overflow-hidden relative"
         >
           {formContent}
         </motion.div>

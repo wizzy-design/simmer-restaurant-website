@@ -10,15 +10,12 @@ const Location = () => {
   const mapUrl = `https://www.google.com/maps?q=${mapQuery}&output=embed`;
 
   return (
-    <section className="bg-white py-20 overflow-hidden border-t border-onyx-black/5">
+    <section className="bg-white py-24 overflow-hidden">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
           {/* Left Side: Editorial Info */}
           <div className="lg:col-span-5 space-y-12">
             <motion.div {...fadeUp}>
-              <span className="text-gold text-[10px] uppercase tracking-[0.5em] font-medium block mb-4">
-                Visit Us
-              </span>
               <h2 className="text-5xl md:text-6xl font-kaushan italic text-onyx-black leading-tight">
                 Where to <br /> find us
               </h2>
@@ -112,4 +109,3 @@ const Location = () => {
 };
 
 export default Location;
-

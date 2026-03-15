@@ -54,6 +54,7 @@ const Testimonials = () => {
                     src={item.avatar}
                     alt={item.name}
                     fill
+                    sizes="56px"
                     className="object-cover"
                   />
                 </div>

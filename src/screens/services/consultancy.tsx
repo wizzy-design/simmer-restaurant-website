@@ -11,10 +11,10 @@ const ConsultancyScreen = () => {
       <div className="container mx-auto px-4 md:px-8 max-w-[1400px]">
         <div className="flex justify-between items-center border-b border-onyx-black/20 pb-6 mb-20">
           <Link
-            href="/services"
+            href="/"
             className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-onyx-black hover:opacity-50 transition-opacity"
           >
-            <ArrowLeft className="w-4 h-4" /> Index
+            <ArrowLeft className="w-4 h-4" /> Home
           </Link>
           <span className="text-xs font-mono uppercase tracking-[0.3em] text-onyx-black/40">
             Division 03
@@ -29,7 +29,7 @@ const ConsultancyScreen = () => {
             transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
             className="w-full lg:w-3/5"
           >
-            <h1 className="text-[10vw] lg:text-[7rem] font-medium leading-[0.9] tracking-tighter text-onyx-black uppercase break-words hyphens-auto">
+            <h1 className="text-[10vw] lg:text-[7rem] font-medium leading-[0.9] tracking-tighter text-onyx-black uppercase wrap-break-word hyphens-auto">
               Restaurant
               <br />
               <span
