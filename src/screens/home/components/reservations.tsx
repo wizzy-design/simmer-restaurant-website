@@ -368,6 +368,7 @@ export const Reservations = ({ isModal = false }: { isModal?: boolean }) => {
           src="/dine.png"
           alt="Restaurant Interior"
           fill
+          sizes="100vw"
           className="object-cover"
         />
         <div className="absolute inset-0 bg-onyx-black/70 backdrop-blur-xs" />

@@ -59,15 +59,15 @@ const MenuScreen = () => {
   return (
     <div className="min-h-screen bg-ghost-cream pt-32 pb-24">
       {/* Search & Header */}
-      <div className="container mx-auto px-4 mb-20">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-12 mb-16">
+      <div className="container mx-auto px-4 md:px-6 mb-8 lg:mb-20">
+        <div className="flex flex-col justify-between gap-12 mb-4 lg:flex-row lg:items-end lg:mb-16">
           <div className="max-w-xl">
             <motion.h1
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               className="text-6xl md:text-8xl font-serif text-onyx-black mb-6"
             >
-              The <span className="font-kaushan italic">Simm3r</span> Menu
+              <span className="font-kaushan">Our</span> Menu
             </motion.h1>
             <p className="text-sm text-charcoal-grey font-sans leading-relaxed opacity-70">
               Explore our full culinary collection. Search for your favorite
@@ -76,7 +76,7 @@ const MenuScreen = () => {
             </p>
           </div>
 
-          <div className="relative w-full md:w-80 group">
+          <div className="relative w-full lg:w-80 group">
             <Search
               className="absolute left-4 top-1/2 -translate-y-1/2 text-charcoal-grey/30 group-focus-within:text-gold transition-colors duration-300"
               size={18}
@@ -127,7 +127,7 @@ const MenuScreen = () => {
       </div>
 
       {/* Grid Container */}
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 md:px-6 space-y-18 lg:space-y-32">
         {filteredMenu.map((cat, catIdx) => {
           // Identify items with images to use as visuals for the category
           const featuredImages = cat.items
@@ -137,7 +137,7 @@ const MenuScreen = () => {
           const isEven = catIdx % 2 === 0;
 
           return (
-            <div key={cat.category} className="mb-32">
+            <div key={cat.category}>
               <div className="flex flex-col lg:flex-row gap-16 lg:items-start">
                 {/* Visual Side (Left) */}
                 {!isEven && featuredImages.length > 0 && (
