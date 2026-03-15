@@ -22,9 +22,9 @@ const AboutScreen = () => {
           className="flex flex-col gap-8 order-2 lg:order-1"
         >
           <h1 className="text-5xl md:text-6xl font-kaushan italic text-white leading-[1.1]">
-            A Legacy of <br />
-            <span className="text-gold not-italic font-sans font-light tracking-tight">
-              Passion & Flavor
+            Our{" "}
+            <span className="pl-1 text-gold not-italic font-sans font-light tracking-tight">
+              Story
             </span>
           </h1>
           <div className="flex flex-col gap-6 text-base leading-relaxed font-sans font-light max-w-xl">
@@ -53,7 +53,7 @@ const AboutScreen = () => {
           className="relative h-[400px] md:h-[600px] w-full rounded-md overflow-hidden shadow-2xl order-1 lg:order-2 border border-white/5 bg-white/5"
         >
           <video
-            src="/reel2.mp4"
+            src="/about.mp4"
             autoPlay
             loop
             muted
@@ -71,7 +71,7 @@ const AboutScreen = () => {
           className="relative h-[400px] md:h-[500px] w-full rounded-md overflow-hidden shadow-2xl border border-white/5 bg-white/5"
         >
           <video
-            src="/about.mp4"
+            src="/reel2.mp4"
             autoPlay
             loop
             muted

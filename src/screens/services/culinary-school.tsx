@@ -42,7 +42,7 @@ const CulinarySchoolScreen = () => {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.5, delay: 0.2 }}
-            className="w-full lg:w-2/5 aspect-4/5 lg:h-[80vh] rounded-4xl overflow-hidden sticky top-32 shadow-2xl bg-onyx-black"
+            className="w-full lg:w-2/5 aspect-4/5 lg:h-[80vh] rounded-xl overflow-hidden sticky top-32 shadow-2xl bg-onyx-black"
           >
             <video
               src="/culinary-school-hero.mp4"

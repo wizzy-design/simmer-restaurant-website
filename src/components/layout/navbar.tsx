@@ -339,11 +339,6 @@ const navLinks = [
     dropdown: [
       { name: "Catering Services", href: "/services/catering-services" },
       { name: "Culinary School", href: "/services/culinary-school" },
-      {
-        name: "Restaurant Consultancy",
-        href: "/services/restaurant-consultancy",
-      },
-      { name: "Foodtopia Festival", href: "/services/food-festival" },
     ],
   },
   { name: "About", href: "/about" },
