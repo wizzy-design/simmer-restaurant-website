@@ -1,14 +1,7 @@
 "use client";
 import { motion } from "motion/react";
 import Link from "next/link";
-import {
-  Cookie,
-  Cake,
-  Croissant,
-  GraduationCap,
-  Briefcase,
-  Utensils,
-} from "lucide-react";
+import { FaInstagram } from "react-icons/fa6";
 
 const CulinarySchoolScreen = () => {
   return (
@@ -25,8 +18,8 @@ const CulinarySchoolScreen = () => {
           >
             <h1 className="text-5xl font-kaushan italic leading-[0.9] tracking-tighter text-onyx-black md:text-6xl lg:text-7xl">
               Master the Art of <br className="hidden md:block" />
-              <span className="text-gold not-italic font-sans font-light">
-                Professional Catering.
+              <span className="text-gold font-sans font-light not-italic">
+                Professional Cooking.
               </span>
             </h1>
 
@@ -61,103 +54,163 @@ const CulinarySchoolScreen = () => {
             />
           </motion.div>
         </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:pt-16">
+          {/* Diplomas */}
+          <div className="space-y-8 relative">
+            <h3 className="text-[10px] font-bold uppercase tracking-[0.4em] text-gold opacity-80 mb-10">
+              Diplomas (6 Months)
+            </h3>
+            <div className="space-y-8">
+              {[
+                { n: "Pastry Course", p: "₦850k" },
+                { n: "Cuisine Class", p: "₦750k" },
+                { n: "Restaurant Mgt.", p: "₦300k" },
+              ].map((i) => (
+                <div key={i.n} className="group cursor-default">
+                  <p className="text-base font-medium text-onyx-black group-hover:text-gold transition-colors">
+                    {i.n}
+                  </p>
+                  <p className="font-kaushan text-gold/60 text-xl">{i.p}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Global Cuisine */}
+          <div className="space-y-8 relative">
+            <h3 className="text-[10px] font-bold uppercase tracking-[0.4em] text-gold opacity-80 mb-10">
+              Global Cuisine
+            </h3>
+            <div className="space-y-5">
+              {[
+                { n: "African Cuisine", p: "₦200k" },
+                { n: "Asian Cuisine", p: "₦150k" },
+                { n: "French / Italian", p: "₦150k" },
+                { n: "Middle Eastern", p: "₦150k" },
+                { n: "Cooking Basics", p: "₦120k" },
+                { n: "Breakfast Class", p: "₦135k" },
+              ].map((i) => (
+                <div
+                  key={i.n}
+                  className="flex justify-between items-center text-sm  border-onyx-black/5 pb-2 group"
+                >
+                  <span className="font-light group-hover:pl-2 transition-all">
+                    {i.n}
+                  </span>
+                  <span className="font-medium text-gold">{i.p}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Pastry & Baking */}
+          <div className="space-y-8 relative">
+            <h3 className="text-[10px] font-bold uppercase tracking-[0.4em] text-gold opacity-80 mb-10">
+              Baking & Pastry
+            </h3>
+            <div className="space-y-5">
+              {[
+                { n: "Sourdough/Baguette", p: "₦180k" },
+                { n: "Cakes & Quick Bread", p: "₦150k" },
+                { n: "Cookies", p: "₦150k" },
+                { n: "Bread/Enriched", p: "₦100k" },
+                { n: "Tarts/Pies/Choux", p: "₦100k" },
+                { n: "Working w/ Chocolate", p: "₦250k" },
+              ].map((i) => (
+                <div
+                  key={i.n}
+                  className="flex justify-between items-center text-sm  pb-2 group"
+                >
+                  <span className="font-light group-hover:pl-2 transition-all">
+                    {i.n}
+                  </span>
+                  <span className="font-medium text-gold">{i.p}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Specialties */}
+          <div className="space-y-8 relative">
+            <h3 className="text-[10px] font-bold uppercase tracking-[0.4em] text-gold opacity-80 mb-10">
+              Specialties
+            </h3>
+            <div className="space-y-5">
+              {[
+                { n: "Dessert Class", p: "₦150k" },
+                { n: "Candies & Confections", p: "₦150k" },
+                { n: "Cake Decoration", p: "₦150k" },
+                { n: "Creams & Sauces", p: "₦120k" },
+                { n: "Restaurant Cons.", p: "Quote" },
+              ].map((i) => (
+                <div
+                  key={i.n}
+                  className="flex justify-between items-center text-sm  pb-2 group"
+                >
+                  <span className="font-light group-hover:pl-2 transition-all">
+                    {i.n}
+                  </span>
+                  <span className="font-medium text-gold">{i.p}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
 
-      {/* Curriculum Grid */}
-      <div className="container mx-auto px-4 md:px-8 pb-28 md:pb-40">
-        <div className="mb-16 md:mb-24 flex flex-col lg:flex-row justify-between items-baseline gap-8">
-          <h2 className="text-4xl md:text-6xl font-medium tracking-tighter text-onyx-black">
-            The{" "}
-            <span className="italic font-kaushan text-gold lowercase">
-              Curriculum
-            </span>
-          </h2>
-          <p className="text-lg font-light text-onyx-black/60 text-left lg:max-w-md">
-            A comprehensive journey from technical foundations to creative
-            mastery.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-12">
-          {modules.map((item, idx) => (
-            <motion.div
-              key={item.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, delay: idx * 0.1 }}
-              className="flex items-start gap-6 group"
-            >
-              <div className="size-10 md:size-14 shrink-0 rounded-full bg-white border border-onyx-black/5 flex items-center justify-center shadow-sm group-hover:border-gold/30 group-hover:shadow-md transition-all duration-500">
-                <item.icon
-                  className="size-4 lg:size-6 text-gold group-hover:scale-110 transition-transform"
-                  strokeWidth={1.5}
-                />
-              </div>
-
-              <div className="grow pt-1 md:pt-2 space-y-3">
-                <h3 className="text-lg md:text-xl font-medium text-onyx-black tracking-tight group-hover:text-gold transition-colors">
-                  {item.title}
-                </h3>
-                <p className="text-sm md:text-base font-light leading-relaxed text-onyx-black/60 group-hover:text-onyx-black transition-colors">
-                  {item.desc}
-                </p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Final CTA */}
-        <div className="mt-20 md:mt-40 text-center flex flex-col items-center">
-          <p className="text-xl md:text-3xl lg:text-4xl font-serif text-onyx-black/80 max-w-2xl mx-auto mb-16 leading-relaxed">
-            Ready to Begin Your{" "}
-            <span className="font-kaushan text-gold">Culinary Adventure?</span>
-          </p>
+      {/* Final CTA */}
+      <div className="text-center flex flex-col items-center my-20 lg:my-30">
+        <p className="text-xl md:text-3xl lg:text-4xl font-serif text-onyx-black/80 max-w-2xl mx-auto mb-16 leading-relaxed">
+          Ready to Begin Your{" "}
+          <span className="font-kaushan text-gold">Culinary Adventure?</span>
+        </p>
+        <div className="relative">
+          <div className="absolute inset-0 bg-gold blur-3xl opacity-10 rounded-full" />
           <Link
             href="/contact"
-            className="inline-flex items-center justify-center w-48 h-48 rounded-full bg-onyx-black text-white hover:bg-gold hover:text-white text-sm uppercase tracking-widest font-bold transition-colors duration-500 shadow-xl group"
+            className="relative inline-flex items-center justify-center w-48 h-48 rounded-full bg-onyx-black text-white hover:bg-gold hover:text-white text-sm uppercase tracking-widest font-bold transition-all duration-500 shadow-2xl group overflow-hidden"
           >
-            <span className="group-hover:scale-110 transition-transform duration-500">
+            <span className="relative z-10 group-hover:scale-110 transition-transform">
               Join Now
             </span>
+            <div className="absolute inset-0 bg-linear-to-tr from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
           </Link>
         </div>
+      </div>
+
+      {/* Instagram Connect: Slim Card */}
+      <div className="container mx-auto px-6 mb-20 lg:mb-32">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mx-auto bg-white border border-onyx-black/5 rounded-3xl p-6 md:p-12 flex flex-col md:flex-row items-center justify-between gap-10 shadow-sm"
+        >
+          <div className="flex flex-col md:flex-row items-center md:items-start gap-6 text-center md:text-left">
+            <div className="size-16 rounded-2xl bg-gold/5 flex items-center justify-center shrink-0">
+              <FaInstagram className="text-gold size-8" />
+            </div>
+            <div className="space-y-1">
+              <h3 className="text-xl font-medium text-onyx-black">
+                Connect with us on <span className="text-gold">Instagram</span>
+              </h3>
+              <p className="text-sm text-onyx-black/50 font-light">
+                See the daily life and artistry at the academy.
+              </p>
+            </div>
+          </div>
+          <Link
+            href="https://www.instagram.com/simmerculinary/reels/"
+            target="_blank"
+            className="w-full md:w-auto px-10 py-4 bg-onyx-black text-white text-[10px] uppercase tracking-widest font-bold rounded-full hover:bg-gold transition-all duration-500 text-center shadow-lg hover:shadow-gold/20"
+          >
+            Follow @simmerculinary
+          </Link>
+        </motion.div>
       </div>
     </div>
   );
 };
-
-const modules = [
-  {
-    title: "Artisan Bread Making",
-    desc: "Master the craft of fresh, crusty sourdough and heritage breads using professional fermentation secrets.",
-    icon: Croissant,
-  },
-  {
-    title: "Cookies & Confections",
-    desc: "An exploration of creative decoration and flavor for beautiful, edible art that stands out.",
-    icon: Cookie,
-  },
-  {
-    title: "Classic Cakes & Desserts",
-    desc: "The art of creating stunning celebration cakes and French entremets with flawless finishes.",
-    icon: Cake,
-  },
-  {
-    title: "Candy Handling & Chocolate",
-    desc: "Technical excellence in chocolate tempering and artisan candy making for high-end gifting.",
-    icon: Utensils,
-  },
-  {
-    title: "Advanced Decorating",
-    desc: "Elevate your visual storytelling with modern plating and advanced pastry decoration techniques.",
-    icon: GraduationCap,
-  },
-  {
-    title: "Culinary Business",
-    desc: "Scale your passion into a profitable business with expert insights on costing, scaling, and catering.",
-    icon: Briefcase,
-  },
-];
 
 export default CulinarySchoolScreen;
