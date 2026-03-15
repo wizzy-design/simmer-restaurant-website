@@ -1,222 +1,163 @@
 "use client";
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "motion/react";
+import { motion } from "motion/react";
 import Link from "next/link";
-import { ArrowLeft, Instagram } from "lucide-react";
-
-const modules = [
-  {
-    id: "01",
-    title: "Artisan Bread Making",
-    desc: "Master the craft of baking fresh, crusty bread with satisfying techniques. We break down the fermentation process to its core.",
-  },
-  {
-    id: "02",
-    title: "Cookies & Confections",
-    desc: "Unleash your creativity and decorate stunning bespoke cookies. Learn the precise temperatures required for sugar perfection.",
-  },
-  {
-    id: "03",
-    title: "Classic Cakes & Desserts",
-    desc: "Bake stunning cakes for birthdays, weddings, and special celebrations using classic French entremet structures.",
-  },
-  {
-    id: "04",
-    title: "Candy Handling & Chocolate",
-    desc: "Dive into candy making and learn to temper and mold chocolates into glossy, snapping masterpieces.",
-  },
-  {
-    id: "05",
-    title: "Pies & Advanced Tarts",
-    desc: "Learn the essentials to craft buttery, perfect pie crusts and elegant tarts that resist the dreaded soggy bottom.",
-  },
-  {
-    id: "06",
-    title: "Business & Catering",
-    desc: "Turn your passion into profit with our pastry business modules. Scaling recipes for hundreds effortlessly.",
-  },
-];
-
-const MarqueeRow = ({ text }: { text: string }) => {
-  return (
-    <div className="flex w-[200%] overflow-hidden bg-gold py-4 -rotate-2 select-none z-20 relative mix-blend-difference">
-      <motion.div
-        animate={{ x: ["0%", "-50%"] }}
-        transition={{ repeat: Infinity, ease: "linear", duration: 15 }}
-        className="flex whitespace-nowrap"
-      >
-        <span className="text-xl md:text-3xl font-sans font-bold uppercase tracking-widest text-onyx-black px-4">
-          {text}
-        </span>
-        <span className="text-xl md:text-3xl font-sans font-bold uppercase tracking-widest text-onyx-black px-4">
-          {text}
-        </span>
-      </motion.div>
-    </div>
-  );
-};
+import {
+  Cookie,
+  Cake,
+  Croissant,
+  GraduationCap,
+  Briefcase,
+  Utensils,
+} from "lucide-react";
 
 const CulinarySchoolScreen = () => {
-  const containerRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"],
-  });
-  const yImage = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
-
   return (
-    <div className="bg-onyx-black min-h-screen pt-32 text-white relative overflow-hidden font-sans">
-      {/* Background Decor */}
-      <div className="absolute top-20 right-0 w-[800px] h-[800px] bg-white/5 blur-[150px] rounded-full pointer-events-none -translate-y-1/2 translate-x-1/2" />
+    <div className="bg-ghost-cream min-h-screen pt-32 text-onyx-black relative overflow-hidden font-sans">
+      <div className="container mx-auto px-6">
+        {/* Hero Section: Editorial Split */}
+        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-24 mb-32">
+          {/* Typography */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
+            className="w-full lg:w-3/5 space-y-8"
+          >
+            <h1 className="text-5xl font-kaushan italic leading-[0.9] tracking-tighter text-onyx-black md:text-6xl lg:text-7xl">
+              Master the Art of <br className="hidden md:block" />
+              <span className="text-gold not-italic font-sans font-light">
+                Professional Catering.
+              </span>
+            </h1>
 
-      <div className="container mx-auto px-4 md:px-8 max-w-7xl relative z-10 mb-32">
-        <Link
-          href="/"
-          className="inline-flex items-center gap-2 text-[10px] md:text-sm font-medium uppercase tracking-[0.2em] text-[#C4C8C9] hover:text-gold transition-colors mb-20 md:mb-32 group"
-        >
-          <ArrowLeft className="w-4 h-4 group-hover:-translate-x-2 transition-transform" />{" "}
-          Back to Home
-        </Link>
+            <p className="text-sm md:text-base font-light text-onyx-black/70 max-w-xl leading-relaxed pl-4 lg:pl-6 border-l-[1.5px] border-gold/40">
+              Transform your culinary dreams into reality. Join Simmer Culinary
+              Academy for an immersive 3-month journey into the world of
+              professional cuisine and pastry, guided by expert mentors.
+            </p>
 
-        {/* Cinematic Hero */}
-        <div className="flex flex-col-reverse lg:flex-row items-center gap-16 lg:gap-24 mb-16">
+            <Link
+              href="/contact"
+              className="relative inline-block text-xs cursor-pointer uppercase tracking-[0.25em] text-white border border-gold bg-gold px-8 py-3.5 overflow-hidden group transition-colors duration-500 hover:bg-gold/70"
+            >
+              <span className="relative">Enroll Now</span>
+            </Link>
+          </motion.div>
+
+          {/* Media Frame */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.5, ease: "easeOut" }}
-            className="w-full lg:w-1/2 relative h-[50vh] lg:h-[75vh] rounded-[3rem] overflow-hidden"
+            transition={{ duration: 1.5, delay: 0.2 }}
+            className="w-full lg:w-2/5 aspect-4/5 lg:h-[80vh] rounded-4xl overflow-hidden sticky top-32 shadow-2xl bg-onyx-black"
           >
-            <div className="absolute inset-0 bg-[url('/dessert.png')] bg-cover bg-center transition-transform hover:scale-110 duration-[2s]" />
-            <div className="absolute inset-0 bg-onyx-black/30" />
-            <div className="absolute bottom-10 left-10 max-w-xs">
-              <p className="font-kaushan italic text-white text-2xl md:text-4xl leading-tight opacity-90">
-                "Love is the secret ingredient"
-              </p>
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, delay: 0.2 }}
-            className="w-full lg:w-1/2"
-          >
-            <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold uppercase tracking-tighter text-white/10 relative">
-              <span className="block translate-x-12">Culinary</span>
-              <span className="block text-white">Mastery.</span>
-              <span className="block text-transparent bg-clip-text bg-linear-to-r from-gold to-white translate-x-8">
-                Academy.
-              </span>
-            </h1>
-            <p className="text-lg md:text-2xl font-light tracking-wide text-[#C4C8C9] leading-relaxed mt-12 max-w-lg">
-              Welcome to the Simmer Culinary School. Discover your passion in a
-              state-of-the-art kitchen, guided by industry experts dedicated to
-              student success.
-            </p>
+            <video
+              src="/culinary-school-hero.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-full object-cover"
+            />
           </motion.div>
         </div>
       </div>
 
-      <MarqueeRow text="EXPERT INSTRUCTORS • 5-STAR REVIEWS • 100% SATISFACTION • STUDENT SUCCESS • " />
+      {/* Curriculum Grid */}
+      <div className="container mx-auto px-4 md:px-8 pb-28 md:pb-40">
+        <div className="mb-16 md:mb-24 flex flex-col lg:flex-row justify-between items-baseline gap-8">
+          <h2 className="text-4xl md:text-6xl font-medium tracking-tighter text-onyx-black">
+            The{" "}
+            <span className="italic font-kaushan text-gold lowercase">
+              Curriculum
+            </span>
+          </h2>
+          <p className="text-lg font-light text-onyx-black/60 text-left lg:max-w-md">
+            A comprehensive journey from technical foundations to creative
+            mastery.
+          </p>
+        </div>
 
-      {/* Modules List: Staggered Architecture */}
-      <div
-        ref={containerRef}
-        className="container mx-auto px-4 md:px-8 max-w-7xl mt-40"
-      >
-        <h2 className="text-5xl md:text-7xl font-sans tracking-tight text-white mb-20 uppercase font-bold text-center">
-          The{" "}
-          <span className="text-gold italic font-kaushan lowercase">
-            Curriculum
-          </span>
-        </h2>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-24">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-12">
           {modules.map((item, idx) => (
             <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 50 }}
+              key={item.title}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.8, delay: (idx % 2) * 0.2 }}
-              className={`flex gap-6 group cursor-pointer ${idx % 2 === 1 ? "md:mt-32" : ""}`}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, delay: idx * 0.1 }}
+              className="flex items-start gap-6 group"
             >
-              <div className="text-6xl md:text-8xl font-kaushan italic text-white/10 group-hover:text-gold transition-colors duration-500">
-                {item.id}
+              <div className="size-10 md:size-14 shrink-0 rounded-full bg-white border border-onyx-black/5 flex items-center justify-center shadow-sm group-hover:border-gold/30 group-hover:shadow-md transition-all duration-500">
+                <item.icon
+                  className="size-4 lg:size-6 text-gold group-hover:scale-110 transition-transform"
+                  strokeWidth={1.5}
+                />
               </div>
-              <div className="pt-4">
-                <h3 className="text-2xl md:text-4xl font-sans font-medium text-white mb-4 group-hover:-translate-y-1 transition-transform">
+
+              <div className="grow pt-1 md:pt-2 space-y-3">
+                <h3 className="text-lg md:text-xl font-medium text-onyx-black tracking-tight group-hover:text-gold transition-colors">
                   {item.title}
                 </h3>
-                <p className="text-[#C4C8C9] text-base md:text-lg font-light leading-relaxed">
+                <p className="text-sm md:text-base font-light leading-relaxed text-onyx-black/60 group-hover:text-onyx-black transition-colors">
                   {item.desc}
                 </p>
               </div>
             </motion.div>
           ))}
         </div>
-      </div>
 
-      {/* Dynamic IG Feed Section */}
-      <div className="mt-40 mb-20 border-t border-white/10 bg-white/5 py-32 rounded-[4rem] mx-4 md:mx-8 px-4 md:px-8">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1 }}
-          className="text-center mb-16"
-        >
-          <a
-            href="https://www.instagram.com/simmerculinary/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex flex-col items-center gap-4 text-white hover:text-gold transition-colors mb-8 group"
-          >
-            <Instagram
-              className="w-12 h-12 group-hover:scale-125 transition-transform duration-500"
-              strokeWidth={1.5}
-            />
-            <h2 className="text-4xl md:text-5xl tracking-tighter uppercase font-bold">
-              @simmerculinary
-            </h2>
-          </a>
-          <p className="text-[#C4C8C9] text-xl font-light max-w-xl mx-auto">
-            Join our community. See our students in action, get sneak peeks, and
-            draw daily dessert inspiration.
+        {/* Final CTA */}
+        <div className="mt-20 md:mt-40 text-center flex flex-col items-center">
+          <p className="text-xl md:text-3xl lg:text-4xl font-serif text-onyx-black/80 max-w-2xl mx-auto mb-16 leading-relaxed">
+            Ready to Begin Your{" "}
+            <span className="font-kaushan text-gold">Culinary Adventure?</span>
           </p>
-        </motion.div>
-
-        <div className="flex flex-wrap justify-center gap-6 max-w-6xl mx-auto">
-          {[1, 2, 3, 4].map((item, idx) => (
-            <div
-              key={idx}
-              className="w-full sm:w-[calc(50%-12px)] lg:w-[calc(25%-18px)] aspect-4/5 rounded-4xl overflow-hidden relative group cursor-pointer bg-onyx-black"
-            >
-              <div className="absolute inset-0 border border-white/10 rounded-4xl group-hover:border-gold/30 transition-colors z-20 pointer-events-none" />
-              <div className="absolute inset-0 bg-[url('/bg-texture.png')] opacity-30 mix-blend-overlay z-0" />
-              <div className="absolute inset-x-0 bottom-0 top-1/2 bg-linear-to-t from-onyx-black to-transparent opacity-80 z-10" />
-              <div className="absolute inset-0 flex items-center justify-center p-6 text-center z-10">
-                <span className="text-white/20 font-bold text-2xl uppercase tracking-widest group-hover:text-gold/80 transition-colors group-hover:scale-110 duration-500">
-                  Post {item}
-                </span>
-              </div>
-            </div>
-          ))}
+          <Link
+            href="/contact"
+            className="inline-flex items-center justify-center w-48 h-48 rounded-full bg-onyx-black text-white hover:bg-gold hover:text-white text-sm uppercase tracking-widest font-bold transition-colors duration-500 shadow-xl group"
+          >
+            <span className="group-hover:scale-110 transition-transform duration-500">
+              Join Now
+            </span>
+          </Link>
         </div>
-      </div>
-
-      <div className="py-24 text-center">
-        <Link
-          href="/contact"
-          className="group relative inline-flex border border-white/20 rounded-full px-12 py-6 items-center gap-6 hover:border-gold/50 hover:bg-gold transition-colors duration-500"
-        >
-          <span className="text-sm font-medium uppercase tracking-[0.2em] text-white group-hover:text-onyx-black transition-colors">
-            Enroll Today
-          </span>
-        </Link>
       </div>
     </div>
   );
 };
+
+const modules = [
+  {
+    title: "Artisan Bread Making",
+    desc: "Master the craft of fresh, crusty sourdough and heritage breads using professional fermentation secrets.",
+    icon: Croissant,
+  },
+  {
+    title: "Cookies & Confections",
+    desc: "An exploration of creative decoration and flavor for beautiful, edible art that stands out.",
+    icon: Cookie,
+  },
+  {
+    title: "Classic Cakes & Desserts",
+    desc: "The art of creating stunning celebration cakes and French entremets with flawless finishes.",
+    icon: Cake,
+  },
+  {
+    title: "Candy Handling & Chocolate",
+    desc: "Technical excellence in chocolate tempering and artisan candy making for high-end gifting.",
+    icon: Utensils,
+  },
+  {
+    title: "Advanced Decorating",
+    desc: "Elevate your visual storytelling with modern plating and advanced pastry decoration techniques.",
+    icon: GraduationCap,
+  },
+  {
+    title: "Culinary Business",
+    desc: "Scale your passion into a profitable business with expert insights on costing, scaling, and catering.",
+    icon: Briefcase,
+  },
+];
 
 export default CulinarySchoolScreen;

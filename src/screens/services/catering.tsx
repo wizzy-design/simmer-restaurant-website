@@ -10,7 +10,6 @@ import {
   PartyPopper,
   CalendarDays,
 } from "lucide-react";
-import { fadeUpAnimate } from "@/src/lib/animations";
 
 const offerings = [
   {
