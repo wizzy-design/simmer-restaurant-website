@@ -106,10 +106,10 @@ const Hero = () => {
 export default Hero;
 
 const VIDEOS = [
-  "/reel1.mp4",
-  "/reel2.mp4",
-  "/reel3.mp4",
-  "/reel4.mp4",
-  "/reel5.mp4",
-  "/reel6.mp4",
+  "https://res.cloudinary.com/dvjslohdt/video/upload/simmer-restaurant/reel1.mp4",
+  "https://res.cloudinary.com/dvjslohdt/video/upload/simmer-restaurant/reel2.mp4",
+  "https://res.cloudinary.com/dvjslohdt/video/upload/simmer-restaurant/reel3.mp4",
+  "https://res.cloudinary.com/dvjslohdt/video/upload/simmer-restaurant/reel4.mp4",
+  "https://res.cloudinary.com/dvjslohdt/video/upload/simmer-restaurant/reel5.mp4",
+  "https://res.cloudinary.com/dvjslohdt/video/upload/simmer-restaurant/reel6.mp4",
 ];

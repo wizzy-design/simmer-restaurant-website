@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
+import { CldImage } from "next-cloudinary";
 import { FaFacebook, FaInstagram, FaXTwitter } from "react-icons/fa6";
 import { ArrowUp } from "lucide-react";
 import { restaurantConfig } from "../../config/restaurant";
@@ -15,11 +15,13 @@ const Footer = () => {
     <footer className="w-full relative overflow-hidden text-white">
       {/* Background Image & Overlay */}
       <div className="absolute inset-0 z-0">
-        <Image
-          src="/footer.png"
+        <CldImage
+          src="simmer-restaurant/footer"
           alt="Simmer background"
           fill
           className="object-cover brightness-[0.2]"
+          crop="fill"
+          gravity="auto"
         />
         <div className="absolute inset-0 bg-black/5" />
       </div>

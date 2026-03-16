@@ -45,7 +45,7 @@ const CulinarySchoolScreen = () => {
             className="w-full lg:w-2/5 aspect-4/5 lg:h-[80vh] rounded-xl overflow-hidden sticky top-32 shadow-2xl bg-onyx-black"
           >
             <video
-              src="/culinary-school-hero.mp4"
+              src="https://res.cloudinary.com/dvjslohdt/video/upload/simmer-restaurant/culinary-school-hero.mp4"
               autoPlay
               loop
               muted

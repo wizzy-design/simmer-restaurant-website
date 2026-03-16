@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "motion/react";
 import Link from "next/link";
-import Image from "next/image";
+import { CldImage } from "next-cloudinary";
 import {
   Heart,
   Salad,
@@ -53,12 +53,14 @@ const CateringScreen = () => {
             transition={{ duration: 1.5, delay: 0.2 }}
             className="w-full lg:w-2/5 h-[60vh] lg:h-[80vh] rounded-xl overflow-hidden sticky top-32 shadow-2xl"
           >
-            <Image
-              src="/catering-hero.jpg"
+            <CldImage
+              src="simmer-restaurant/catering-hero"
               alt="Catering services hero"
               fill
               className="object-cover"
-              priority
+              preload
+              crop="fill"
+              gravity="auto"
             />
           </motion.div>
         </div>

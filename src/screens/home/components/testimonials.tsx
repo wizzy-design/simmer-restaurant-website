@@ -2,7 +2,7 @@
 import { motion } from "motion/react";
 import { Quote } from "lucide-react";
 import Marquee from "react-fast-marquee";
-import Image from "next/image";
+import { CldImage } from "next-cloudinary";
 import { MdOutlineStar } from "react-icons/md";
 import { cn } from "@/src/lib/utils";
 
@@ -50,12 +50,14 @@ const Testimonials = () => {
               {/* Card Header: Avatar & Info */}
               <div className="flex items-center gap-4 mb-8 shrink-0">
                 <div className="relative size-14 rounded-full border-2 border-gold/30 ring-4 ring-gold/5">
-                  <Image
+                  <CldImage
                     src={item.avatar}
                     alt={item.name}
                     fill
                     sizes="56px"
                     className="object-cover"
+                    crop="thumb"
+                    gravity="faces"
                   />
                 </div>
                 <div>
@@ -123,37 +125,34 @@ const ReviewAndRating = ({ className }: { className?: string }) => {
   );
 };
 
-const googleLink =
-  "https://www.google.com/search?sca_esv=c575d2bf7ecd87ab&sxsrf=ANbL-n7LbRLUyCLXIys9oyKdqoP0129H-A:1773334630383&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qOa7LSlsad5BxQMJk25bMsYBOL3A_ciAvS23BAkCdPmswreCUdQnCJXODxvy4YwtfFW3PnTxdGWn60d5WlYsYAuY4CU8_EwRKbFEtgYUtC_ZE30d51w%3D%3D&q=Simmer+restaurant+Reviews&sa=X&ved=2ahUKEwjh0dil6pqTAxUoW0EAHT8zFnMQ0bkNegQIJBAH&biw=1377&bih=677&dpr=1.39";
-
 const testimonials = [
   {
     name: "Victor Benante",
-    avatar: "/victor.png",
+    avatar: "simmer-restaurant/victor",
     text: "I call this place 'Jos special'. They serve genuine, authentic dishes made with care and rich in tradition. Each meal is crafted to capture the true essence of Nigerian heritage.",
     spent: "₦4,000–6,000",
   },
   {
     name: "Monica Binjin",
-    avatar: "/monica.png",
+    avatar: "simmer-restaurant/monica",
     text: "The waiters are amazingly courteous and the ambience is fabulous. You’d get the worth of your money here. I highly recommend. ✅ timeliness ✅ service.",
     spent: "₦14,000–16,000",
   },
   {
     name: "Abdulazeez Damilola",
-    avatar: "/abdul.png",
+    avatar: "simmer-restaurant/abdul",
     text: "I had a great time at the restaurant, the food was nice, excellent taste and the delivery was swift. The ambience feels like something out of a moonlight experience.",
     spent: "₦4,000–6,000",
   },
   {
     name: "Moses Christabel",
-    avatar: "/moses.png",
+    avatar: "simmer-restaurant/moses",
     text: "They are so welcoming and they complement everyone nicely which made my friends and I smile. They are exceptionally neat and organized. I love it here!",
     spent: "₦16,000–18,000",
   },
   {
     name: "Lady Anonymous",
-    avatar: "/lady.png",
+    avatar: "simmer-restaurant/lady",
     text: "This has to be the best restaurant I have ever experienced in this city. From the ambience to the food and customer service. Everything was amazing and I highly recommend.",
     spent: "₦20,000+",
   },

@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import Image from "next/image";
+import { CldImage } from "next-cloudinary";
 import { motion } from "motion/react";
 import { Mail, Phone } from "lucide-react";
 import {
@@ -53,7 +53,7 @@ const AboutScreen = () => {
           className="relative h-[400px] md:h-[600px] w-full rounded-md overflow-hidden shadow-2xl order-1 lg:order-2 border border-white/5 bg-white/5"
         >
           <video
-            src="/about.mp4"
+            src="https://res.cloudinary.com/dvjslohdt/video/upload/simmer-restaurant/about.mp4"
             autoPlay
             loop
             muted
@@ -71,7 +71,7 @@ const AboutScreen = () => {
           className="relative h-[400px] md:h-[500px] w-full rounded-md overflow-hidden shadow-2xl border border-white/5 bg-white/5"
         >
           <video
-            src="/reel2.mp4"
+            src="https://res.cloudinary.com/dvjslohdt/video/upload/simmer-restaurant/reel2.mp4"
             autoPlay
             loop
             muted
@@ -128,11 +128,13 @@ const AboutScreen = () => {
             className="lg:col-span-5 flex flex-col items-center max-w-md mx-auto lg:max-w-none w-full"
           >
             <div className="relative aspect-[4/5] w-full rounded-md overflow-hidden shadow-2xl border border-white/5 group bg-white/5">
-              <Image
-                src="/chef.png"
+              <CldImage
+                src="simmer-restaurant/chef"
                 alt="Chef Jemimah Bayei"
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
+                crop="fill"
+                gravity="faces"
               />
               <div className="absolute inset-0 bg-linear-to-t from-black/50 via-transparent to-transparent opacity-60" />
             </div>

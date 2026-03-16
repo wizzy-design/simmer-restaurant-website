@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-import Image from "next/image";
+import { CldImage } from "next-cloudinary";
 import React, { useState } from "react";
 import { useReservation } from "../../../context/reservation-context";
 
@@ -364,12 +364,15 @@ export const Reservations = ({ isModal = false }: { isModal?: boolean }) => {
     >
       {/* Background Image / Overlay */}
       <div className="absolute inset-0 z-0">
-        <Image
-          src="/dine.png"
+        <CldImage
+          src="simmer-restaurant/dine"
           alt="Restaurant Interior"
           fill
           sizes="100vw"
           className="object-cover"
+          crop="fill"
+          gravity="auto"
+          preload
         />
         <div className="absolute inset-0 bg-onyx-black/70 backdrop-blur-xs" />
       </div>

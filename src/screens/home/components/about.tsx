@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-import Image from "next/image";
+import { CldImage } from "next-cloudinary";
 import { motion } from "motion/react";
 import { fadeUp } from "../../../lib/animations";
 import { cn } from "../../../lib/utils";
@@ -80,12 +80,14 @@ const About = () => {
                   "lg:break-inside-avoid"
                 )}
               >
-                <Image
+                <CldImage
                   src={img.src}
                   alt={img.alt}
                   fill
                   sizes="(max-width: 768px) 80vw, (max-width: 1024px) 50vw, 33vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  crop="fill"
+                  gravity="auto"
                 />
                 <div className="absolute inset-0 bg-linear-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
               </motion.div>
@@ -158,10 +160,30 @@ const About = () => {
 export default About;
 
 const images = [
-  { src: "/cafe.png", alt: "Cafe ambiance", aspect: "aspect-[4/5]" },
-  { src: "/desk.png", alt: "Reception desk", aspect: "aspect-[5/4]" },
-  { src: "/dine.png", alt: "Dining area", aspect: "aspect-square" },
-  { src: "/mural.png", alt: "Artistic mural", aspect: "aspect-[3/4]" },
-  { src: "/outside.png", alt: "Exterior view", aspect: "aspect-[16/16]" },
-  { src: "/painting.png", alt: "Interior decor", aspect: "aspect-[4/3]" },
+  {
+    src: "simmer-restaurant/cafe",
+    alt: "Cafe ambiance",
+    aspect: "aspect-[4/5]",
+  },
+  {
+    src: "simmer-restaurant/desk",
+    alt: "Reception desk",
+    aspect: "aspect-[5/4]",
+  },
+  { src: "simmer-restaurant/dine", alt: "Dining area", aspect: "aspect-square" },
+  {
+    src: "simmer-restaurant/mural",
+    alt: "Artistic mural",
+    aspect: "aspect-[3/4]",
+  },
+  {
+    src: "simmer-restaurant/outside",
+    alt: "Exterior view",
+    aspect: "aspect-[16/16]",
+  },
+  {
+    src: "simmer-restaurant/painting",
+    alt: "Interior decor",
+    aspect: "aspect-[4/3]",
+  },
 ];

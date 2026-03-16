@@ -349,10 +349,10 @@ const RulesScreen = () => {
           {/* Buffet Video */}
           <motion.div
             {...fadeUp}
-            className="lg:col-span-6 relative aspect-video md:aspect-[4/3] w-full rounded-md overflow-hidden shadow-2xl border border-white/5 bg-white/5"
+            className="lg:col-span-6 relative aspect-video md:aspect-4/3 w-full rounded-md overflow-hidden shadow-2xl border border-white/5 bg-white/5"
           >
             <video
-              src="/buffet.mp4"
+              src="https://res.cloudinary.com/dvjslohdt/video/upload/simmer-restaurant/buffet.mp4"
               autoPlay
               loop
               muted
