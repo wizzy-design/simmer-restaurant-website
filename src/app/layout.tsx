@@ -101,7 +101,9 @@ export default function RootLayout({
         <link
           rel="preload"
           as="image"
-          href="https://res.cloudinary.com/dvjslohdt/video/upload/f_auto,q_auto,so_0/simmer-restaurant/reel1.jpg"
+          href="https://res.cloudinary.com/dvjslohdt/image/upload/f_auto,q_auto,w_828/simmer-restaurant/hero"
+          imageSrcSet="https://res.cloudinary.com/dvjslohdt/image/upload/f_auto,q_auto,w_640/simmer-restaurant/hero 640w, https://res.cloudinary.com/dvjslohdt/image/upload/f_auto,q_auto,w_828/simmer-restaurant/hero 828w, https://res.cloudinary.com/dvjslohdt/image/upload/f_auto,q_auto,w_1200/simmer-restaurant/hero 1200w"
+          imageSizes="100vw"
         />
       </head>
       <body
