@@ -101,7 +101,7 @@ export default function RootLayout({
         <link
           rel="preload"
           as="image"
-          href="https://res.cloudinary.com/dvjslohdt/video/upload/simmer-restaurant/reel1.jpg"
+          href="https://res.cloudinary.com/dvjslohdt/video/upload/f_auto,q_auto,so_0/simmer-restaurant/reel1.jpg"
         />
       </head>
       <body
