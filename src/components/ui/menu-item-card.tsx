@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { CldImage } from "next-cloudinary";
 import { motion } from "motion/react";
 import { Plus, Check, ShoppingBasket } from "lucide-react";
 import { useReservation, MenuItem } from "../../context/reservation-context";
@@ -65,12 +65,18 @@ const MenuItemCard = ({ item, variant = "compact" }: MenuItemCardProps) => {
     <motion.div className="group bg-white overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-charcoal-grey/5">
       <div className="relative aspect-square overflow-hidden">
         {item.image ? (
-          <Image
-            src={item.image}
+          <CldImage
+            src={
+              item.image.startsWith("/")
+                ? `simmer-restaurant/${item.image.split(".")[0].substring(1)}`
+                : item.image
+            }
             alt={item.name}
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             className="object-cover transition-transform duration-700 group-hover:scale-110"
+            crop="fill"
+            gravity="auto"
           />
         ) : (
           <div className="w-full h-full bg-ghost-cream flex items-center justify-center">

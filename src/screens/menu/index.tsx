@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from "react";
 import MenuItemCard from "../../components/ui/menu-item-card";
+import { CldImage } from "next-cloudinary";
 import { motion, AnimatePresence } from "motion/react";
 import { Search } from "lucide-react";
 import foodMenuData from "../../data/food-menu.json";
@@ -146,10 +147,19 @@ const MenuScreen = () => {
                       <div className="absolute -inset-4 bg-gold/5 blur-3xl rounded-full" />
                       {featuredImages.length === 1 ? (
                         <div className="relative aspect-square rounded-full overflow-hidden shadow-2xl border-8 border-white group">
-                          <img
-                            src={featuredImages[0]}
+                          <CldImage
+                            src={
+                              featuredImages[0].startsWith("/")
+                                ? `simmer-restaurant/${featuredImages[0]
+                                    .split(".")[0]
+                                    .substring(1)}`
+                                : featuredImages[0]
+                            }
                             alt=""
+                            fill
                             className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                            crop="fill"
+                            gravity="auto"
                           />
                           <div className="absolute inset-0 bg-onyx-black/5 group-hover:bg-transparent transition-colors" />
                         </div>
@@ -165,10 +175,19 @@ const MenuScreen = () => {
                                   : "aspect-square rounded-full translate-x-4",
                               )}
                             >
-                              <img
-                                src={img}
+                              <CldImage
+                                src={
+                                  img.startsWith("/")
+                                    ? `simmer-restaurant/${img
+                                        .split(".")[0]
+                                        .substring(1)}`
+                                    : img
+                                }
                                 alt=""
+                                fill
                                 className="w-full h-full object-cover"
+                                crop="fill"
+                                gravity="auto"
                               />
                               <div className="absolute inset-0 bg-onyx-black/5" />
                             </div>
@@ -211,20 +230,38 @@ const MenuScreen = () => {
                       <div className="absolute -inset-4 bg-gold/5 blur-3xl rounded-full" />
                       {featuredImages[0] && (
                         <div className="relative aspect-square rounded-full overflow-hidden shadow-2xl border-8 border-white group">
-                          <img
-                            src={featuredImages[0]}
+                          <CldImage
+                            src={
+                              featuredImages[0].startsWith("/")
+                                ? `simmer-restaurant/${featuredImages[0]
+                                    .split(".")[0]
+                                    .substring(1)}`
+                                : featuredImages[0]
+                            }
                             alt=""
+                            fill
                             className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                            crop="fill"
+                            gravity="auto"
                           />
                           <div className="absolute inset-0 bg-onyx-black/10 group-hover:bg-transparent transition-colors" />
                         </div>
                       )}
                       {featuredImages[1] && (
                         <div className="absolute -bottom-12 -left-12 w-48 h-48 rounded-4xl overflow-hidden shadow-2xl border-4 border-white rotate-6 hidden xl:block">
-                          <img
-                            src={featuredImages[1]}
+                          <CldImage
+                            src={
+                              featuredImages[1].startsWith("/")
+                                ? `simmer-restaurant/${featuredImages[1]
+                                    .split(".")[0]
+                                    .substring(1)}`
+                                : featuredImages[1]
+                            }
                             alt=""
+                            fill
                             className="w-full h-full object-cover"
+                            crop="fill"
+                            gravity="auto"
                           />
                         </div>
                       )}

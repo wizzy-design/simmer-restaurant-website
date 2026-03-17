@@ -3,7 +3,7 @@
 import { motion, AnimatePresence } from "motion/react";
 import { ShoppingBasket, X, Trash2, CalendarCheck } from "lucide-react";
 import { useReservation } from "../../context/reservation-context";
-import Image from "next/image";
+import { CldImage } from "next-cloudinary";
 
 const ReservationSidebar = () => {
   const {
@@ -64,11 +64,19 @@ const ReservationSidebar = () => {
                     <div key={item.name} className="flex gap-4 group">
                       <div className="relative w-20 h-20 bg-ghost-cream shrink-0">
                         {item.image && (
-                          <Image
-                            src={item.image}
+                          <CldImage
+                            src={
+                              item.image.startsWith("/")
+                                ? `simmer-restaurant/${item.image
+                                    .split(".")[0]
+                                    .substring(1)}`
+                                : item.image
+                            }
                             alt={item.name}
                             fill
                             className="object-cover"
+                            crop="fill"
+                            gravity="auto"
                           />
                         )}
                       </div>
