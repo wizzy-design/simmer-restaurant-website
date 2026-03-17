@@ -14,17 +14,20 @@ import OrganizationSchema from "@/components/seo/organization-schema";
 const playfair = Playfair_Display({
   variable: "--font-playfair",
   subsets: ["latin"],
+  display: "swap",
 });
 
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
+  display: "swap",
 });
 
 const kaushan = Kaushan_Script({
   variable: "--font-kaushan",
   subsets: ["latin"],
   weight: "400",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -94,6 +97,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link
+          rel="preload"
+          as="image"
+          href="https://res.cloudinary.com/dvjslohdt/video/upload/simmer-restaurant/reel1.jpg"
+        />
+      </head>
       <body
         className={`${playfair.variable} ${inter.variable} ${kaushan.variable} antialiased relative`}
       >

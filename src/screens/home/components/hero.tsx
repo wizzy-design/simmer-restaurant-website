@@ -28,11 +28,13 @@ const Hero = () => {
         >
           <video
             src={VIDEOS[current]}
+            poster={VIDEOS[current].replace(".mp4", ".jpg")}
             autoPlay
             loop
             muted
             playsInline
             className="h-full w-full object-cover"
+            title="Simmer Restaurant Atmosphere"
           />
         </motion.div>
       </AnimatePresence>

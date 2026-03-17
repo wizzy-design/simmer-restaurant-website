@@ -99,6 +99,7 @@ const Location = () => {
               }}
               allowFullScreen
               loading="lazy"
+              title="Simmer Restaurant Location on Google Maps"
               className="grayscale hover:grayscale-0 transition-all duration-1000"
             />
           </motion.div>

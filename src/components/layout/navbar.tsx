@@ -148,6 +148,7 @@ export default function Navbar() {
 
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
               className={cn(
                 "lg:hidden p-2 transition-colors relative z-70",
                 isMobileMenuOpen || showDarkText
@@ -298,14 +299,17 @@ export default function Navbar() {
               <div className="flex gap-4">
                 {[
                   {
+                    name: "Facebook",
                     icon: <FaFacebook size={14} />,
                     href: restaurantConfig.socials.facebook,
                   },
                   {
+                    name: "Instagram",
                     icon: <FaInstagram size={14} />,
                     href: restaurantConfig.socials.instagram,
                   },
                   {
+                    name: "Twitter",
                     icon: <FaXTwitter size={14} />,
                     href: restaurantConfig.socials.twitter,
                   },
@@ -315,6 +319,7 @@ export default function Navbar() {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label={`Follow us on ${social.name}`}
                     className="w-10 h-10 rounded-full border border-gold/30 flex items-center justify-center text-gold hover:bg-gold hover:text-white transition-all duration-500"
                   >
                     {social.icon}
