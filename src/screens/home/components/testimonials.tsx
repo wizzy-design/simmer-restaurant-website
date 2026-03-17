@@ -4,7 +4,7 @@ import { Quote } from "lucide-react";
 import Marquee from "react-fast-marquee";
 import { CldImage } from "next-cloudinary";
 import { MdOutlineStar } from "react-icons/md";
-import { cn } from "@/src/lib/utils";
+import { cn } from "@/lib/utils";
 
 const Testimonials = () => {
   return (
