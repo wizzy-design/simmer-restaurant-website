@@ -3,14 +3,15 @@
 import { motion, AnimatePresence } from "motion/react";
 import { useEffect, useState } from "react";
 import { fadeUpAnimate } from "../../../lib/animations";
-import { CldImage } from "next-cloudinary";
+
+// Cloudinary base for first-frame static images
+const CLD_BASE = "https://res.cloudinary.com/dvjslohdt";
+const LCP_IMAGE = `${CLD_BASE}/image/upload/f_auto,q_auto,w_828/simmer-restaurant/hero`;
 
 const Hero = () => {
   const [current, setCurrent] = useState(0);
-  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    setIsMobile(window.innerWidth < 768);
     const interval = setInterval(() => {
       setCurrent((prev) => (prev + 1) % VIDEOS.length);
     }, 7000);
@@ -23,49 +24,50 @@ const Hero = () => {
 
   return (
     <div className="relative h-screen w-full overflow-hidden">
-      {/* Background Layer (LCP) */}
-      <div className="absolute inset-0 z-0">
-        <CldImage
-          src={`simmer-restaurant/reel${current + 1}`}
-          alt="Simmer Restaurant Background"
-          fill
-          preload
-          className="object-cover"
-          crop="fill"
-          gravity="auto"
-        />
-      </div>
+      {/* ── LCP Element: native <img> — fetched before JS runs ── */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={LCP_IMAGE}
+        srcSet={`
+          ${CLD_BASE}/image/upload/f_auto,q_auto,w_640/simmer-restaurant/hero 640w,
+          ${CLD_BASE}/image/upload/f_auto,q_auto,w_828/simmer-restaurant/hero 828w,
+          ${CLD_BASE}/image/upload/f_auto,q_auto,w_1200/simmer-restaurant/hero 1200w
+        `}
+        sizes="100vw"
+        alt="Simmer Restaurant — Refined dining in Jos"
+        fetchPriority="high"
+        decoding="async"
+        className="absolute inset-0 w-full h-full object-cover z-0"
+      />
 
-      {/* Cross-fading video background (Desktop only) */}
-      {!isMobile && (
-        <AnimatePresence>
-          <motion.div
-            key={VIDEOS[current]}
-            className="absolute inset-0 z-10"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.8, ease: "easeInOut" }}
-          >
-            <video
-              src={VIDEOS[current]}
-              poster={currentPoster}
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="h-full w-full object-cover"
-              title="Simmer Restaurant Atmosphere"
-            />
-          </motion.div>
-        </AnimatePresence>
-      )}
+      {/* Cross-fading video background — all devices */}
+      <AnimatePresence>
+        <motion.div
+          key={VIDEOS[current]}
+          className="absolute inset-0 z-10"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.8, ease: "easeInOut" }}
+        >
+          <video
+            src={VIDEOS[current]}
+            poster={currentPoster}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="h-full w-full object-cover"
+            title="Simmer Restaurant Atmosphere"
+          />
+        </motion.div>
+      </AnimatePresence>
 
       {/* Cinematic gradient overlay */}
       <div className="absolute inset-0 bg-linear-to-t from-black/95 via-black/70 to-black/40 z-20" />
 
       {/* Hero content — left-weighted layout */}
-      <div className="absolute bottom-24 md:bottom-12 left-0 right-0 container mx-auto px-6 lg:px-6">
+      <div className="absolute bottom-24 md:bottom-12 left-0 right-0 container mx-auto px-6 lg:px-6 z-30">
         {/* Left: Brand + tagline */}
         <div className="max-w-2xl">
           {/* Main heading */}
@@ -86,7 +88,7 @@ const Hero = () => {
             {...fadeUpAnimate(0.45)}
             className="text-base text-[#C4C8C9] font-sans tracking-wide leading-relaxed max-w-lg mb-8"
           >
-            Born of Plateau soil and Nigeria’s bold Northern spirit, we craft a
+            Born of Plateau soil and Nigeria's bold Northern spirit, we craft a
             global culinary experience that transcends borders. Heritage refined
             with world-class flair.
           </motion.p>
