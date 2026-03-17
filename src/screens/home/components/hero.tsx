@@ -3,44 +3,66 @@
 import { motion, AnimatePresence } from "motion/react";
 import { useEffect, useState } from "react";
 import { fadeUpAnimate } from "../../../lib/animations";
+import { CldImage } from "next-cloudinary";
 
 const Hero = () => {
   const [current, setCurrent] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    setIsMobile(window.innerWidth < 768);
     const interval = setInterval(() => {
       setCurrent((prev) => (prev + 1) % VIDEOS.length);
     }, 7000);
     return () => clearInterval(interval);
   }, []);
 
+  const currentPoster = VIDEOS[current]
+    .replace(".mp4", ".jpg")
+    .replace("/upload/", "/upload/f_auto,q_auto,so_0/");
+
   return (
     <div className="relative h-screen w-full overflow-hidden">
-      {/* Cross-fading video background */}
-      <AnimatePresence>
-        <motion.div
-          key={VIDEOS[current]}
-          className="absolute inset-0"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.4, ease: "easeInOut" }}
-        >
-          <video
-            src={VIDEOS[current]}
-            poster={VIDEOS[current].replace(".mp4", ".jpg")}
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="h-full w-full object-cover"
-            title="Simmer Restaurant Atmosphere"
-          />
-        </motion.div>
-      </AnimatePresence>
+      {/* Background Layer (LCP) */}
+      <div className="absolute inset-0 z-0">
+        <CldImage
+          src={`simmer-restaurant/reel${current + 1}`}
+          alt="Simmer Restaurant Background"
+          fill
+          preload
+          className="object-cover"
+          crop="fill"
+          gravity="auto"
+        />
+      </div>
+
+      {/* Cross-fading video background (Desktop only) */}
+      {!isMobile && (
+        <AnimatePresence>
+          <motion.div
+            key={VIDEOS[current]}
+            className="absolute inset-0 z-10"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.8, ease: "easeInOut" }}
+          >
+            <video
+              src={VIDEOS[current]}
+              poster={currentPoster}
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="h-full w-full object-cover"
+              title="Simmer Restaurant Atmosphere"
+            />
+          </motion.div>
+        </AnimatePresence>
+      )}
 
       {/* Cinematic gradient overlay */}
-      <div className="absolute inset-0 bg-linear-to-t from-black/95 via-black/70 to-black/40" />
+      <div className="absolute inset-0 bg-linear-to-t from-black/95 via-black/70 to-black/40 z-20" />
 
       {/* Hero content — left-weighted layout */}
       <div className="absolute bottom-24 md:bottom-12 left-0 right-0 container mx-auto px-6 lg:px-6">
@@ -93,10 +115,16 @@ const Hero = () => {
                 id={`hero-slide-indicator-${i}`}
                 onClick={() => setCurrent(i)}
                 aria-label={`Go to slide ${i + 1}`}
-                className={`h-[2px] transition-all duration-500 ease-in-out cursor-pointer ${
-                  i === current ? "w-8 bg-gold" : "w-4 bg-white/40"
-                }`}
-              />
+                className="h-10 px-1 flex items-center cursor-pointer group"
+              >
+                <div
+                  className={`h-[2px] transition-all duration-500 ease-in-out ${
+                    i === current
+                      ? "w-8 bg-gold"
+                      : "w-4 bg-white/40 group-hover:bg-white/60"
+                  }`}
+                />
+              </button>
             ))}
           </motion.div>
         </div>

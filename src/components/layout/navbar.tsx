@@ -150,7 +150,7 @@ export default function Navbar() {
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
               className={cn(
-                "lg:hidden p-2 transition-colors relative z-70",
+                "lg:hidden p-3 transition-colors relative z-70",
                 isMobileMenuOpen || showDarkText
                   ? "text-onyx-black"
                   : "text-white",

@@ -41,7 +41,7 @@ const ReservationSidebar = () => {
               </h2>
               <button
                 onClick={closeSidebar}
-                className="p-2 hover:bg-ghost-cream transition-colors"
+                className="p-4 -mr-4 hover:bg-ghost-cream transition-colors"
                 aria-label="Close sidebar"
               >
                 <X size={20} />
