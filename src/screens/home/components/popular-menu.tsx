@@ -83,6 +83,8 @@ const PopularMenu = () => {
             <button
               key={cat}
               onClick={() => setActiveTab(cat)}
+              aria-pressed={activeTab === cat}
+              aria-label={`View ${cat} menu items`}
               className={`px-6 py-2.5 text-[10px] uppercase font-medium tracking-[0.2em] transition-all duration-300 ${
                 activeTab === cat
                   ? "bg-onyx-black text-white"

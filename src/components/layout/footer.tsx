@@ -19,6 +19,7 @@ const Footer = () => {
           src="simmer-restaurant/footer"
           alt="Simmer background"
           fill
+          sizes="100vw"
           className="object-cover brightness-[0.2]"
           crop="fill"
           gravity="auto"
@@ -86,14 +87,17 @@ const Footer = () => {
                   <div className="flex gap-4">
                     {[
                       {
+                        name: "Facebook",
                         icon: <FaFacebook size={14} />,
                         href: restaurantConfig.socials.facebook,
                       },
                       {
+                        name: "Instagram",
                         icon: <FaInstagram size={14} />,
                         href: restaurantConfig.socials.instagram,
                       },
                       {
+                        name: "Twitter",
                         icon: <FaXTwitter size={14} />,
                         href: restaurantConfig.socials.twitter,
                       },
@@ -103,6 +107,7 @@ const Footer = () => {
                         href={social.href}
                         target="_blank"
                         rel="noopener noreferrer"
+                        aria-label={`Follow us on ${social.name}`}
                         className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-black hover:bg-gold hover:text-white transition-all duration-500"
                       >
                         {social.icon}

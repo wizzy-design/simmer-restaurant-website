@@ -42,6 +42,7 @@ const ReservationSidebar = () => {
               <button
                 onClick={closeSidebar}
                 className="p-2 hover:bg-ghost-cream transition-colors"
+                aria-label="Close sidebar"
               >
                 <X size={20} />
               </button>
@@ -74,6 +75,7 @@ const ReservationSidebar = () => {
                             }
                             alt={item.name}
                             fill
+                            sizes="80px"
                             className="object-cover"
                             crop="fill"
                             gravity="auto"
