@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { ChevronDown } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { cn } from "@/src/lib/utils";
+import { cn } from "@/lib/utils";
 import { useReservation } from "../../context/reservation-context";
 import { FaFacebook, FaInstagram, FaXTwitter } from "react-icons/fa6";
 import { MdOutlineRestaurantMenu } from "react-icons/md";
