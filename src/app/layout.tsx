@@ -109,21 +109,21 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* Preconnect to critical external origins to eliminate connection setup latency */}
+        {/* Preconnect to the two heaviest external origins */}
         <link rel="preconnect" href="https://res.cloudinary.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        {/* Preload the LCP hero image — matches the srcSet in hero.tsx exactly */}
+        {/* Preload the LCP image — must match the srcSet in hero.tsx exactly to avoid a double-fetch */}
         <link
           rel="preload"
           as="image"
           href="https://res.cloudinary.com/dvjslohdt/video/upload/f_auto,q_auto,so_0,w_828,c_fill,g_auto/simmer-restaurant/reel1.jpg"
           fetchPriority="high"
-          imageSrcSet="
-             https://res.cloudinary.com/dvjslohdt/video/upload/f_auto,q_auto,so_0,w_640,c_fill,g_auto/simmer-restaurant/reel1.jpg 640w,
-             https://res.cloudinary.com/dvjslohdt/video/upload/f_auto,q_auto,so_0,w_828,c_fill,g_auto/simmer-restaurant/reel1.jpg 828w,
-             https://res.cloudinary.com/dvjslohdt/video/upload/f_auto,q_auto,so_0,w_1080,c_fill,g_auto/simmer-restaurant/reel1.jpg 1080w,
-             https://res.cloudinary.com/dvjslohdt/video/upload/f_auto,q_auto,so_0,w_1920,c_fill,g_auto/simmer-restaurant/reel1.jpg 1920w
-            "
+          imageSrcSet={[
+            "https://res.cloudinary.com/dvjslohdt/video/upload/f_auto,q_auto,so_0,w_640,c_fill,g_auto/simmer-restaurant/reel1.jpg 640w",
+            "https://res.cloudinary.com/dvjslohdt/video/upload/f_auto,q_auto,so_0,w_828,c_fill,g_auto/simmer-restaurant/reel1.jpg 828w",
+            "https://res.cloudinary.com/dvjslohdt/video/upload/f_auto,q_auto,so_0,w_1080,c_fill,g_auto/simmer-restaurant/reel1.jpg 1080w",
+            "https://res.cloudinary.com/dvjslohdt/video/upload/f_auto,q_auto,so_0,w_1920,c_fill,g_auto/simmer-restaurant/reel1.jpg 1920w",
+          ].join(", ")}
           imageSizes="100vw"
         />
       </head>
