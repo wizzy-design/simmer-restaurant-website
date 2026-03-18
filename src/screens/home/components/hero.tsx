@@ -36,7 +36,7 @@ const Hero = () => {
     .replace("/upload/", "/upload/f_auto,q_auto,so_0/");
 
   return (
-    <div className="relative h-screen w-full overflow-hidden">
+    <div className="relative h-screen min-h-[760px] w-full overflow-hidden">
       {/*
        * FIX 2 — Next.js <Image priority> replaces the bare <img>.
        * `priority` automatically:
@@ -86,7 +86,7 @@ const Hero = () => {
       <div className="absolute inset-0 bg-linear-to-t from-black/95 via-black/70 to-black/40 z-20" />
 
       {/* Hero content — left-weighted layout */}
-      <div className="absolute bottom-24 md:bottom-12 left-0 right-0 container mx-auto px-6 lg:px-6 z-30">
+      <div className="absolute bottom-24 md:bottom-2 left-0 right-0 container mx-auto px-6 lg:px-6 z-30">
         {/* Left: Brand + tagline */}
         <div className="max-w-2xl">
           {/* Main heading */}
