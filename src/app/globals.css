@@ -57,3 +57,41 @@ h4,
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
+
+/* ─── Hero CSS animations (replaces motion/react in hero.tsx) ──────────────── */
+
+/* Shared fade-up keyframe for hero content elements */
+@keyframes hero-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fade-in keyframe for the video container cross-fade */
+@keyframes hero-video-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Base class — elements start invisible; `forwards` holds the final state */
+.hero-animate {
+  opacity: 0;
+  transform: translateY(24px);
+  animation: hero-fade-up 0.5s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+}
+
+/* Staggered delay utilities */
+.hero-delay-1 { animation-delay: 0.3s; }
+.hero-delay-2 { animation-delay: 0.45s; }
+.hero-delay-3 { animation-delay: 0.6s; }
+.hero-delay-4 { animation-delay: 0.75s; }
+
+/* Video cross-fade — compositor-thread opacity, no JS cost */
+.hero-video-enter {
+  animation: hero-video-in 0.8s ease-in-out both;
+}
