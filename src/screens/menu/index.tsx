@@ -3,6 +3,7 @@
 import { useState, useMemo } from "react";
 import MenuItemCard from "../../components/ui/menu-item-card";
 import { CldImage } from "next-cloudinary";
+import Image from "next/image";
 import { motion, AnimatePresence } from "motion/react";
 import { Search } from "lucide-react";
 import foodMenuData from "../../data/food-menu.json";
@@ -147,19 +148,10 @@ const MenuScreen = () => {
                       <div className="absolute -inset-4 bg-gold/5 blur-3xl rounded-full" />
                       {featuredImages.length === 1 ? (
                         <div className="relative aspect-square rounded-full overflow-hidden shadow-2xl border-8 border-white group">
-                          <CldImage
-                            src={
-                              featuredImages[0].startsWith("/")
-                                ? `simmer-restaurant/${featuredImages[0]
-                                    .split(".")[0]
-                                    .substring(1)}`
-                                : featuredImages[0]
-                            }
+                          <SmartImage
+                            src={featuredImages[0]}
                             alt=""
-                            fill
                             className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
-                            crop="fill"
-                            gravity="auto"
                           />
                           <div className="absolute inset-0 bg-onyx-black/5 group-hover:bg-transparent transition-colors" />
                         </div>
@@ -175,19 +167,10 @@ const MenuScreen = () => {
                                   : "aspect-square rounded-full translate-x-4",
                               )}
                             >
-                              <CldImage
-                                src={
-                                  img.startsWith("/")
-                                    ? `simmer-restaurant/${img
-                                        .split(".")[0]
-                                        .substring(1)}`
-                                    : img
-                                }
+                              <SmartImage
+                                src={img}
                                 alt=""
-                                fill
                                 className="w-full h-full object-cover"
-                                crop="fill"
-                                gravity="auto"
                               />
                               <div className="absolute inset-0 bg-onyx-black/5" />
                             </div>
@@ -230,38 +213,20 @@ const MenuScreen = () => {
                       <div className="absolute -inset-4 bg-gold/5 blur-3xl rounded-full" />
                       {featuredImages[0] && (
                         <div className="relative aspect-square rounded-full overflow-hidden shadow-2xl border-8 border-white group">
-                          <CldImage
-                            src={
-                              featuredImages[0].startsWith("/")
-                                ? `simmer-restaurant/${featuredImages[0]
-                                    .split(".")[0]
-                                    .substring(1)}`
-                                : featuredImages[0]
-                            }
+                          <SmartImage
+                            src={featuredImages[0]}
                             alt=""
-                            fill
                             className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
-                            crop="fill"
-                            gravity="auto"
                           />
                           <div className="absolute inset-0 bg-onyx-black/10 group-hover:bg-transparent transition-colors" />
                         </div>
                       )}
                       {featuredImages[1] && (
                         <div className="absolute -bottom-12 -left-12 w-48 h-48 rounded-4xl overflow-hidden shadow-2xl border-4 border-white rotate-6 hidden xl:block">
-                          <CldImage
-                            src={
-                              featuredImages[1].startsWith("/")
-                                ? `simmer-restaurant/${featuredImages[1]
-                                    .split(".")[0]
-                                    .substring(1)}`
-                                : featuredImages[1]
-                            }
+                          <SmartImage
+                            src={featuredImages[1]}
                             alt=""
-                            fill
                             className="w-full h-full object-cover"
-                            crop="fill"
-                            gravity="auto"
                           />
                         </div>
                       )}
@@ -286,3 +251,49 @@ const MenuScreen = () => {
 };
 
 export default MenuScreen;
+
+// Resolves a Cloudinary public-ID shorthand (local /food.png or raw public ID)
+// and returns the correct src string for CldImage.
+const toCldSrc = (src: string) =>
+  src.startsWith("/")
+    ? `simmer-restaurant/${src.split(".")[0].substring(1)}`
+    : src;
+
+// Renders the right image component depending on the URL scheme:
+//   Unsplash / external http → next/image  (optimizer-friendly)
+//   Cloudinary / local path  → CldImage    (transformation pipeline)
+const SmartImage = ({
+  src,
+  alt,
+  className,
+}: {
+  src: string;
+  alt: string;
+  className?: string;
+}) => {
+  const isExternal =
+    src.startsWith("http") && !src.includes("res.cloudinary.com");
+
+  if (isExternal) {
+    return (
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        className={className}
+        sizes="(max-width: 1024px) 50vw, 40vw"
+      />
+    );
+  }
+  return (
+    <CldImage
+      src={toCldSrc(src)}
+      alt={alt}
+      fill
+      className={className}
+      crop="fill"
+      gravity="auto"
+      sizes="(max-width: 1024px) 50vw, 40vw"
+    />
+  );
+};
