@@ -402,11 +402,11 @@ export const Reservations = ({ isModal = false }: { isModal?: boolean }) => {
           src="simmer-restaurant/dine"
           alt="Restaurant Interior"
           fill
-          sizes="100vw"
+          sizes="(max-width: 768px) 100vw, 100vw"
           className="object-cover"
           crop="fill"
           gravity="auto"
-          preload
+          quality={60}
         />
         <div className="absolute inset-0 bg-onyx-black/70 backdrop-blur-xs" />
       </div>

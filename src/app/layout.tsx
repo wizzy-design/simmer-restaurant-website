@@ -109,6 +109,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* Preconnect to critical external origins to eliminate connection setup latency */}
+        <link rel="preconnect" href="https://res.cloudinary.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* Preload the LCP hero image — matches the srcSet in hero.tsx exactly */}
         <link
           rel="preload"
           as="image"
@@ -117,7 +121,8 @@ export default function RootLayout({
           imageSrcSet="
              https://res.cloudinary.com/dvjslohdt/image/upload/f_auto,q_auto,w_640/simmer-restaurant/hero 640w,
              https://res.cloudinary.com/dvjslohdt/image/upload/f_auto,q_auto,w_828/simmer-restaurant/hero 828w,
-             https://res.cloudinary.com/dvjslohdt/image/upload/f_auto,q_auto,w_1200/simmer-restaurant/hero 1200w
+             https://res.cloudinary.com/dvjslohdt/image/upload/f_auto,q_auto,w_1080/simmer-restaurant/hero 1080w,
+             https://res.cloudinary.com/dvjslohdt/image/upload/f_auto,q_auto,w_1920/simmer-restaurant/hero 1920w
             "
           imageSizes="100vw"
         />

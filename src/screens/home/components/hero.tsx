@@ -2,12 +2,18 @@
 
 import { motion, AnimatePresence } from "motion/react";
 import { useEffect, useState } from "react";
-import Image from "next/image";
 import { fadeUpAnimate } from "../../../lib/animations";
 
 // Cloudinary base
 const CLD_BASE = "https://res.cloudinary.com/dvjslohdt";
-const LCP_IMAGE = `${CLD_BASE}/image/upload/f_auto,q_auto,w_828/simmer-restaurant/hero`;
+// LCP image — served directly from Cloudinary (no /_next/image proxy hop)
+const LCP_SRC = `${CLD_BASE}/image/upload/f_auto,q_auto,w_828/simmer-restaurant/hero`;
+const LCP_SRCSET = [
+  `${CLD_BASE}/image/upload/f_auto,q_auto,w_640/simmer-restaurant/hero 640w`,
+  `${CLD_BASE}/image/upload/f_auto,q_auto,w_828/simmer-restaurant/hero 828w`,
+  `${CLD_BASE}/image/upload/f_auto,q_auto,w_1080/simmer-restaurant/hero 1080w`,
+  `${CLD_BASE}/image/upload/f_auto,q_auto,w_1920/simmer-restaurant/hero 1920w`,
+].join(", ");
 
 const Hero = () => {
   const [current, setCurrent] = useState(0);
@@ -38,21 +44,21 @@ const Hero = () => {
   return (
     <div className="relative h-screen min-h-[760px] w-full overflow-hidden">
       {/*
-       * FIX 2 — Next.js <Image priority> replaces the bare <img>.
-       * `priority` automatically:
-       *   • sets fetchPriority="high" on the element
-       *   • injects <link rel="preload"> into <head> at SSR time
-       *   • disables lazy loading
-       * Combined with the manual <link> in layout.tsx this gives the
-       * browser the earliest possible signal to fetch the hero image.
+       * LCP IMAGE — plain <img> bypasses the /_next/image proxy entirely.
+       * Cloudinary already delivers f_auto + q_auto; a second optimise pass
+       * from Next.js adds ~2.7 s of "element render delay" for zero quality
+       * benefit. fetchpriority="high" + the <link rel="preload"> in layout.tsx
+       * give the browser the earliest possible signal.
        */}
-      <Image
-        src={LCP_IMAGE}
-        alt="Simmer Restaurant — Refined dining in Jos"
-        fill
-        priority
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={LCP_SRC}
+        srcSet={LCP_SRCSET}
         sizes="100vw"
-        className="object-cover z-0"
+        alt="Simmer Restaurant — Refined dining in Jos"
+        fetchPriority="high"
+        decoding="async"
+        className="absolute inset-0 h-full w-full object-cover z-0"
       />
 
       {/* FIX 3 — Video is withheld for 1 500 ms so the LCP image paints first */}
