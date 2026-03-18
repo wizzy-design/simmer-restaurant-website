@@ -38,7 +38,7 @@ export const Reservations = ({ isModal = false }: { isModal?: boolean }) => {
     } else {
       updateFormData({ foodOrders: "" });
     }
-  }, [reservationItems.length]); // Only re-run when item count changes
+  }, [reservationItems.length, updateFormData]); // Only re-run when item count changes
 
   const handleClose = () => {
     if (isModal) {
@@ -139,216 +139,250 @@ export const Reservations = ({ isModal = false }: { isModal?: boolean }) => {
           )}
         </div>
       ) : (
-        <>
-          <form onSubmit={handleSubmit} className="space-y-6">
-            {/* Top Row: Quick Details */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 border-b border-gray-100 pb-6">
-              <div className="space-y-2">
-                <label className="text-[10px] uppercase tracking-widest font-medium text-onyx-black/50">
-                  Guests *
-                </label>
-                <select
-                  name="guests"
-                  required
-                  value={formData.guests}
-                  onChange={handleInputChange}
-                  className="w-full h-[40px] bg-ghost-cream border border-gray-200 px-4 rounded-lg focus:outline-hidden focus:border-gold transition-colors text-sm appearance-none"
-                >
-                  {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, "10+"].map((num) => (
-                    <option key={num} value={num}>
-                      {num} {num === 1 ? "Guest" : "Guests"}
-                    </option>
-                  ))}
-                </select>
-              </div>
-              <div className="space-y-2">
-                <label className="text-[10px] uppercase tracking-widest font-medium text-onyx-black/50">
-                  Type *
-                </label>
-                <select
-                  name="type"
-                  required
-                  value={formData.type}
-                  onChange={handleInputChange}
-                  className="w-full h-[40px] bg-ghost-cream border border-gray-200 px-4 rounded-lg focus:outline-hidden focus:border-gold transition-colors text-sm appearance-none"
-                >
-                  <option value="Lunch">Lunch</option>
-                  <option value="Dinner">Dinner</option>
-                  <option value="Event">Event</option>
-                </select>
-              </div>
-              <div className="space-y-2">
-                <label className="text-[10px] uppercase tracking-widest font-medium text-onyx-black/50">
-                  Time *
-                </label>
-                <input
-                  name="time"
-                  required
-                  type="time"
-                  value={formData.time}
-                  onChange={handleInputChange}
-                  className="w-full h-[40px] bg-ghost-cream border border-gray-200 px-4 rounded-lg focus:outline-hidden focus:border-gold transition-colors text-sm"
-                />
-              </div>
-              <div className="space-y-2">
-                <label className="text-[10px] uppercase tracking-widest font-medium text-onyx-black/50">
-                  Date *
-                </label>
-                <input
-                  name="date"
-                  required
-                  type="date"
-                  min={today}
-                  value={formData.date}
-                  onChange={handleInputChange}
-                  className="w-full h-[40px] bg-ghost-cream border border-gray-200 px-4 rounded-lg focus:outline-hidden focus:border-gold transition-colors text-sm"
-                />
-              </div>
-            </div>
-
-            {/* Name and Contact details */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="space-y-2">
-                <label className="text-[10px] uppercase tracking-widest font-medium text-onyx-black/50">
-                  Full Name *
-                </label>
-                <input
-                  name="fullName"
-                  required
-                  type="text"
-                  value={formData.fullName}
-                  onChange={handleInputChange}
-                  className="w-full h-[40px] bg-ghost-cream border border-gray-200 px-4 rounded-lg focus:outline-hidden focus:border-gold transition-colors text-sm"
-                  placeholder="Enter your full name"
-                />
-              </div>
-
-              <div className="space-y-2">
-                <label className="text-[10px] uppercase tracking-widest font-medium text-onyx-black/50">
-                  Email *
-                </label>
-                <input
-                  name="email"
-                  required
-                  type="email"
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  className="w-full h-[40px] bg-ghost-cream border border-gray-200 px-4 rounded-lg focus:outline-hidden focus:border-gold transition-colors text-sm"
-                  placeholder="Email"
-                />
-              </div>
-              <div className="space-y-2">
-                <label className="text-[10px] uppercase tracking-widest font-medium text-onyx-black/50">
-                  Phone Number *
-                </label>
-                <div className="flex">
-                  <div className="h-[40px] bg-ghost-cream border border-r-0 border-gray-200 px-4 rounded-l-lg flex items-center justify-center text-sm font-medium border-solid text-nowrap">
-                    🇳🇬 +234
-                  </div>
-                  <input
-                    name="phone"
-                    required
-                    type="number"
-                    value={formData.phone}
-                    onChange={handleInputChange}
-                    className="w-full h-[40px] bg-ghost-cream border border-gray-200 px-4 rounded-r-lg focus:outline-hidden focus:border-gold transition-colors text-sm"
-                    placeholder="Phone"
-                  />
-                </div>
-                {phoneError && (
-                  <p className="text-red-500 text-xs mt-1">{phoneError}</p>
-                )}
-              </div>
-            </div>
-
-            {/* Optional context from reservationItems */}
-
+        <form onSubmit={handleSubmit} className="space-y-6">
+          {/* Top Row: Quick Details */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 border-b border-gray-100 pb-6">
             <div className="space-y-2">
-              <label className="text-[10px] uppercase tracking-widest font-medium text-onyx-black/50">
-                Food & Drinks order
+              <label
+                htmlFor="guests-select"
+                className="text-[10px] uppercase tracking-widest font-medium text-onyx-black/50"
+              >
+                Guests *
               </label>
-              <textarea
-                name="foodOrders"
-                rows={3}
+              <select
+                id="guests-select"
+                name="guests"
                 required
-                value={formData.foodOrders}
+                value={formData.guests}
                 onChange={handleInputChange}
-                className="w-full bg-ghost-cream border border-gray-200 px-5 py-4 rounded-xl focus:outline-hidden focus:border-gold transition-colors text-sm"
-                placeholder="Selected items from the menu will appear here..."
+                className="w-full h-[40px] bg-ghost-cream border border-gray-200 px-4 rounded-lg focus:outline-hidden focus:border-gold transition-colors text-sm appearance-none"
+              >
+                {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, "10+"].map((num) => (
+                  <option key={num} value={num}>
+                    {num} {num === 1 ? "Guest" : "Guests"}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div className="space-y-2">
+              <label
+                htmlFor="type-select"
+                className="text-[10px] uppercase tracking-widest font-medium text-onyx-black/50"
+              >
+                Type *
+              </label>
+              <select
+                id="type-select"
+                name="type"
+                required
+                value={formData.type}
+                onChange={handleInputChange}
+                className="w-full h-[40px] bg-ghost-cream border border-gray-200 px-4 rounded-lg focus:outline-hidden focus:border-gold transition-colors text-sm appearance-none"
+              >
+                <option value="Lunch">Lunch</option>
+                <option value="Dinner">Dinner</option>
+                <option value="Event">Event</option>
+              </select>
+            </div>
+            <div className="space-y-2">
+              <label
+                htmlFor="time-input"
+                className="text-[10px] uppercase tracking-widest font-medium text-onyx-black/50"
+              >
+                Time *
+              </label>
+              <input
+                id="time-input"
+                name="time"
+                required
+                type="time"
+                value={formData.time}
+                onChange={handleInputChange}
+                className="w-full h-[40px] bg-ghost-cream border border-gray-200 px-4 rounded-lg focus:outline-hidden focus:border-gold transition-colors text-sm"
+              />
+            </div>
+            <div className="space-y-2">
+              <label
+                htmlFor="date-input"
+                className="text-[10px] uppercase tracking-widest font-medium text-onyx-black/50"
+              >
+                Date *
+              </label>
+              <input
+                id="date-input"
+                name="date"
+                required
+                type="date"
+                min={today}
+                value={formData.date}
+                onChange={handleInputChange}
+                className="w-full h-[40px] bg-ghost-cream border border-gray-200 px-4 rounded-lg focus:outline-hidden focus:border-gold transition-colors text-sm"
+              />
+            </div>
+          </div>
+
+          {/* Name and Contact details */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="space-y-2">
+              <label
+                htmlFor="fullName-input"
+                className="text-[10px] uppercase tracking-widest font-medium text-onyx-black/50"
+              >
+                Full Name *
+              </label>
+              <input
+                id="fullName-input"
+                name="fullName"
+                required
+                type="text"
+                value={formData.fullName}
+                onChange={handleInputChange}
+                className="w-full h-[40px] bg-ghost-cream border border-gray-200 px-4 rounded-lg focus:outline-hidden focus:border-gold transition-colors text-sm"
+                placeholder="Enter your full name"
               />
             </div>
 
-            {/* Special Requests */}
-            <div className="space-y-4">
-              <label className="flex items-center gap-3 cursor-pointer group w-fit">
-                <div className="relative flex items-center justify-center">
-                  <input
-                    type="checkbox"
-                    checked={formData.hasSpecialRequest}
-                    onChange={(e) =>
-                      updateFormData({ hasSpecialRequest: e.target.checked })
-                    }
-                    className="peer appearance-none w-5 h-5 border border-gray-300 rounded-md checked:bg-gold checked:border-gold transition-colors cursor-pointer"
-                  />
-                  <svg
-                    className="absolute w-3 h-3 text-white opacity-0 peer-checked:opacity-100 pointer-events-none"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth="3"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M5 13l4 4L19 7"
-                    />
-                  </svg>
-                </div>
-                <span className="text-[10px] uppercase tracking-widest font-medium text-onyx-black/60 group-hover:text-onyx-black transition-colors md:mt-0.5">
-                  Is there any special request? (Allergies, etc)
-                </span>
-              </label>
-
-              {formData.hasSpecialRequest && (
-                <motion.div
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="space-y-2"
-                >
-                  <textarea
-                    name="specialRequests"
-                    rows={4}
-                    value={formData.specialRequests}
-                    onChange={handleInputChange}
-                    className="w-full bg-ghost-cream border border-gray-200 px-5 py-4 rounded-xl focus:outline-hidden focus:border-gold transition-colors text-sm"
-                    placeholder="Dietary requirements, decorations..."
-                  />
-                </motion.div>
-              )}
-            </div>
-
-            <div
-              className={`pt-6 flex ${isModal ? "justify-end gap-4 border-t border-gray-100" : "justify-center"}`}
-            >
-              {isModal && (
-                <button
-                  type="button"
-                  onClick={handleClose}
-                  className="px-8 py-4 font-bold tracking-widest text-xs uppercase text-onyx-black/50 hover:text-onyx-black transition-colors"
-                >
-                  Cancel
-                </button>
-              )}
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full bg-gold text-white tracking-[0.3em] font-medium py-4 px-10 text-xs uppercase hover:bg-gold/90 transition-all shadow-xl shadow-gold/20 flex items-center justify-center gap-2 disabled:bg-gold/50 disabled:cursor-not-allowed"
+            <div className="space-y-2">
+              <label
+                htmlFor="email-input"
+                className="text-[10px] uppercase tracking-widest font-medium text-onyx-black/50"
               >
-                {isSubmitting ? "Submitting..." : "Confirm Reservation"}
-              </button>
+                Email *
+              </label>
+              <input
+                id="email-input"
+                name="email"
+                required
+                type="email"
+                value={formData.email}
+                onChange={handleInputChange}
+                className="w-full h-[40px] bg-ghost-cream border border-gray-200 px-4 rounded-lg focus:outline-hidden focus:border-gold transition-colors text-sm"
+                placeholder="Email"
+              />
             </div>
-          </form>
-        </>
+            <div className="space-y-2">
+              <label
+                htmlFor="phone-input"
+                className="text-[10px] uppercase tracking-widest font-medium text-onyx-black/50"
+              >
+                Phone Number *
+              </label>
+              <div className="flex">
+                <div className="h-[40px] bg-ghost-cream border border-r-0 border-gray-200 px-4 rounded-l-lg flex items-center justify-center text-sm font-medium border-solid text-nowrap">
+                  🇳🇬 +234
+                </div>
+                <input
+                  id="phone-input"
+                  name="phone"
+                  required
+                  type="number"
+                  value={formData.phone}
+                  onChange={handleInputChange}
+                  className="w-full h-[40px] bg-ghost-cream border border-gray-200 px-4 rounded-r-lg focus:outline-hidden focus:border-gold transition-colors text-sm"
+                  placeholder="Phone"
+                />
+              </div>
+              {phoneError && (
+                <p className="text-red-500 text-xs mt-1">{phoneError}</p>
+              )}
+            </div>
+          </div>
+
+          {/* Optional context from reservationItems */}
+
+          <div className="space-y-2">
+            <label
+              htmlFor="foodOrders-textarea"
+              className="text-[10px] uppercase tracking-widest font-medium text-onyx-black/50"
+            >
+              Food & Drinks order
+            </label>
+            <textarea
+              id="foodOrders-textarea"
+              name="foodOrders"
+              rows={3}
+              required
+              value={formData.foodOrders}
+              onChange={handleInputChange}
+              className="w-full bg-ghost-cream border border-gray-200 px-5 py-4 rounded-xl focus:outline-hidden focus:border-gold transition-colors text-sm"
+              placeholder="Selected items from the menu will appear here..."
+            />
+          </div>
+
+          {/* Special Requests */}
+          <div className="space-y-4">
+            <label className="flex items-center gap-3 cursor-pointer group w-fit">
+              <div className="relative flex items-center justify-center">
+                <input
+                  type="checkbox"
+                  checked={formData.hasSpecialRequest}
+                  onChange={(e) =>
+                    updateFormData({ hasSpecialRequest: e.target.checked })
+                  }
+                  className="peer appearance-none w-5 h-5 border border-gray-300 rounded-md checked:bg-gold checked:border-gold transition-colors cursor-pointer"
+                />
+                <svg
+                  className="absolute w-3 h-3 text-white opacity-0 peer-checked:opacity-100 pointer-events-none"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth="3"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+              </div>
+              <span className="text-[10px] uppercase tracking-widest font-medium text-onyx-black/60 group-hover:text-onyx-black transition-colors md:mt-0.5">
+                Is there any special request? (Allergies, etc)
+              </span>
+            </label>
+
+            {formData.hasSpecialRequest && (
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="space-y-2"
+              >
+                <label htmlFor="specialRequests-textarea" className="sr-only">
+                  Special Requests Details
+                </label>
+                <textarea
+                  id="specialRequests-textarea"
+                  name="specialRequests"
+                  rows={4}
+                  value={formData.specialRequests}
+                  onChange={handleInputChange}
+                  className="w-full bg-ghost-cream border border-gray-200 px-5 py-4 rounded-xl focus:outline-hidden focus:border-gold transition-colors text-sm"
+                  placeholder="Dietary requirements, decorations..."
+                />
+              </motion.div>
+            )}
+          </div>
+
+          <div
+            className={`pt-6 flex ${isModal ? "justify-end gap-4 border-t border-gray-100" : "justify-center"}`}
+          >
+            {isModal && (
+              <button
+                type="button"
+                onClick={handleClose}
+                className="px-8 py-4 font-bold tracking-widest text-xs uppercase text-onyx-black/50 hover:text-onyx-black transition-colors"
+              >
+                Cancel
+              </button>
+            )}
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="w-full bg-gold text-white tracking-[0.3em] font-medium py-4 px-10 text-xs uppercase hover:bg-gold/90 transition-all shadow-xl shadow-gold/20 flex items-center justify-center gap-2 disabled:bg-gold/50 disabled:cursor-not-allowed"
+            >
+              {isSubmitting ? "Submitting..." : "Confirm Reservation"}
+            </button>
+          </div>
+        </form>
       )}
     </div>
   );

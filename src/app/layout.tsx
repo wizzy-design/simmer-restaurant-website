@@ -33,10 +33,19 @@ const kaushan = Kaushan_Script({
 export const metadata: Metadata = {
   title: {
     default: "Simm3r Restaurant & Café | Exquisite & Serene Dining in Jos",
-    template: "%s | Simm3r Restaurant & Café"
+    template: "%s | Simm3r Restaurant & Café",
   },
-  description: "Experience the finest high-end dining in Jos, Plateau State. Simm3r offers a serene sanctuary for exquisite cuisine, lounging, and reading. Best restaurant for catering and culinary excellence.",
-  keywords: ["Simm3r Restaurant", "Jos Dining", "Plateau State Restaurant", "High-end cafe Jos", "Catering services Jos", "Culinary school Nigeria", "Best restaurant in Jos"],
+  description:
+    "Experience the finest high-end dining in Jos, Plateau State. Simm3r offers a serene sanctuary for exquisite cuisine, lounging, and reading. Best restaurant for catering and culinary excellence.",
+  keywords: [
+    "Simm3r Restaurant",
+    "Jos Dining",
+    "Plateau State Restaurant",
+    "High-end cafe Jos",
+    "Catering services Jos",
+    "Culinary school Nigeria",
+    "Best restaurant in Jos",
+  ],
   authors: [{ name: "Simm3r Team" }],
   creator: "Simm3r Restaurant",
   publisher: "Simm3r Restaurant",
@@ -47,30 +56,32 @@ export const metadata: Metadata = {
   },
   metadataBase: new URL(restaurantConfig.baseUrl),
   alternates: {
-    canonical: '/',
+    canonical: "/",
   },
   openGraph: {
     title: "Simm3r Restaurant & Café | Exquisite & Serene Dining in Jos",
-    description: "A high-end sanctuary for dining, lounging, and reading in Jos. Experience exquisite culinary delights.",
+    description:
+      "A high-end sanctuary for dining, lounging, and reading in Jos. Experience exquisite culinary delights.",
     url: restaurantConfig.baseUrl,
-    siteName: 'Simm3r Restaurant & Café',
+    siteName: "Simm3r Restaurant & Café",
     images: [
       {
         url: restaurantConfig.seoImages.home,
         width: 1200,
         height: 630,
-        alt: 'Simm3r Restaurant Hero Image',
+        alt: "Simm3r Restaurant Hero Image",
       },
     ],
-    locale: 'en_US',
-    type: 'website',
+    locale: "en_US",
+    type: "website",
   },
   twitter: {
-    card: 'summary_large_image',
-    title: 'Simm3r Restaurant & Café | Exquisite & Serene',
-    description: 'A high-end sanctuary for dining, lounging, and reading in Jos.',
+    card: "summary_large_image",
+    title: "Simm3r Restaurant & Café | Exquisite & Serene",
+    description:
+      "A high-end sanctuary for dining, lounging, and reading in Jos.",
     images: [restaurantConfig.seoImages.home],
-    creator: '@simmerbysnb',
+    creator: "@simmerbysnb",
   },
   robots: {
     index: true,
@@ -78,15 +89,15 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
     },
   },
   icons: {
-    icon: '/favicon.ico',
-    shortcut: '/favicon.ico',
-    apple: '/favicon.ico',
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/favicon.ico",
   },
 };
 
@@ -102,7 +113,12 @@ export default function RootLayout({
           rel="preload"
           as="image"
           href="https://res.cloudinary.com/dvjslohdt/image/upload/f_auto,q_auto,w_828/simmer-restaurant/hero"
-          imageSrcSet="https://res.cloudinary.com/dvjslohdt/image/upload/f_auto,q_auto,w_640/simmer-restaurant/hero 640w, https://res.cloudinary.com/dvjslohdt/image/upload/f_auto,q_auto,w_828/simmer-restaurant/hero 828w, https://res.cloudinary.com/dvjslohdt/image/upload/f_auto,q_auto,w_1200/simmer-restaurant/hero 1200w"
+          fetchPriority="high"
+          imageSrcSet="
+             https://res.cloudinary.com/dvjslohdt/image/upload/f_auto,q_auto,w_640/simmer-restaurant/hero 640w,
+             https://res.cloudinary.com/dvjslohdt/image/upload/f_auto,q_auto,w_828/simmer-restaurant/hero 828w,
+             https://res.cloudinary.com/dvjslohdt/image/upload/f_auto,q_auto,w_1200/simmer-restaurant/hero 1200w
+            "
           imageSizes="100vw"
         />
       </head>

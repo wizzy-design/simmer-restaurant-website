@@ -2,21 +2,34 @@
 
 import { motion, AnimatePresence } from "motion/react";
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { fadeUpAnimate } from "../../../lib/animations";
 
-// Cloudinary base for first-frame static images
+// Cloudinary base
 const CLD_BASE = "https://res.cloudinary.com/dvjslohdt";
 const LCP_IMAGE = `${CLD_BASE}/image/upload/f_auto,q_auto,w_828/simmer-restaurant/hero`;
 
 const Hero = () => {
   const [current, setCurrent] = useState(0);
 
+  // FIX 1 — Don't mount video until after LCP image has had time to paint.
+  // 1 500 ms gives the browser a full render cycle to commit the <Image> as
+  // the LCP element before the video takes over z-index 10.
+  const [videoReady, setVideoReady] = useState(false);
+
   useEffect(() => {
+    const lcpGrace = setTimeout(() => setVideoReady(true), 1500);
+    return () => clearTimeout(lcpGrace);
+  }, []);
+
+  // Slide rotation — only starts after video is mounted
+  useEffect(() => {
+    if (!videoReady) return;
     const interval = setInterval(() => {
       setCurrent((prev) => (prev + 1) % VIDEOS.length);
     }, 7000);
     return () => clearInterval(interval);
-  }, []);
+  }, [videoReady]);
 
   const currentPoster = VIDEOS[current]
     .replace(".mp4", ".jpg")
@@ -24,44 +37,50 @@ const Hero = () => {
 
   return (
     <div className="relative h-screen w-full overflow-hidden">
-      {/* ── LCP Element: native <img> — fetched before JS runs ── */}
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
+      {/*
+       * FIX 2 — Next.js <Image priority> replaces the bare <img>.
+       * `priority` automatically:
+       *   • sets fetchPriority="high" on the element
+       *   • injects <link rel="preload"> into <head> at SSR time
+       *   • disables lazy loading
+       * Combined with the manual <link> in layout.tsx this gives the
+       * browser the earliest possible signal to fetch the hero image.
+       */}
+      <Image
         src={LCP_IMAGE}
-        srcSet={`
-          ${CLD_BASE}/image/upload/f_auto,q_auto,w_640/simmer-restaurant/hero 640w,
-          ${CLD_BASE}/image/upload/f_auto,q_auto,w_828/simmer-restaurant/hero 828w,
-          ${CLD_BASE}/image/upload/f_auto,q_auto,w_1200/simmer-restaurant/hero 1200w
-        `}
-        sizes="100vw"
         alt="Simmer Restaurant — Refined dining in Jos"
-        fetchPriority="high"
-        decoding="async"
-        className="absolute inset-0 w-full h-full object-cover z-0"
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover z-0"
       />
 
-      {/* Cross-fading video background — all devices */}
-      <AnimatePresence>
-        <motion.div
-          key={VIDEOS[current]}
-          className="absolute inset-0 z-10"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.8, ease: "easeInOut" }}
-        >
-          <video
-            src={VIDEOS[current]}
-            poster={currentPoster}
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="h-full w-full object-cover"
-            title="Simmer Restaurant Atmosphere"
-          />
-        </motion.div>
-      </AnimatePresence>
+      {/* FIX 3 — Video is withheld for 1 500 ms so the LCP image paints first */}
+      {videoReady && (
+        <AnimatePresence>
+          <motion.div
+            key={VIDEOS[current]}
+            className="absolute inset-0 z-10"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.8, ease: "easeInOut" }}
+          >
+            <video
+              src={VIDEOS[current]}
+              poster={currentPoster}
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="h-full w-full object-cover"
+              title="Simmer Restaurant Atmosphere"
+            >
+              <track kind="captions" />
+            </video>
+          </motion.div>
+        </AnimatePresence>
+      )}
 
       {/* Cinematic gradient overlay */}
       <div className="absolute inset-0 bg-linear-to-t from-black/95 via-black/70 to-black/40 z-20" />

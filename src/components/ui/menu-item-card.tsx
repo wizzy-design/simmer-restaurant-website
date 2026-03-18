@@ -41,6 +41,7 @@ const MenuItemCard = ({ item, variant = "compact" }: MenuItemCardProps) => {
             </span>
             <button
               onClick={handleToggle}
+              aria-label={isAdded ? `Remove ${item.name} from reservation` : `Add ${item.name} to reservation`}
               className={cn(
                 "w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 cursor-pointer",
                 isAdded
@@ -53,7 +54,7 @@ const MenuItemCard = ({ item, variant = "compact" }: MenuItemCardProps) => {
           </div>
         </div>
         {item.description && (
-          <p className="text-[11px] text-charcoal-grey/50 font-sans leading-relaxed max-w-[85%] italic">
+          <p className="text-[11px] text-charcoal-grey/60 font-sans leading-relaxed max-w-[85%] italic">
             {item.description}
           </p>
         )}
@@ -99,6 +100,7 @@ const MenuItemCard = ({ item, variant = "compact" }: MenuItemCardProps) => {
         <div className="absolute bottom-4 right-4 transition-all duration-300">
           <button
             onClick={handleToggle}
+            aria-label={isAdded ? `Remove ${item.name} from reservation` : `Add ${item.name} to reservation`}
             className={cn(
               "w-12 h-12 rounded-full cursor-pointer flex items-center justify-center shadow-2xl transition-all",
               isAdded
@@ -115,7 +117,7 @@ const MenuItemCard = ({ item, variant = "compact" }: MenuItemCardProps) => {
         <h3 className="text-sm font-sans font-bold text-onyx-black truncate group-hover:text-gold transition-colors">
           {item.name}
         </h3>
-        <p className="text-[10px] text-charcoal-grey/60 mt-1 uppercase tracking-wider font-medium">
+        <p className="text-[10px] text-onyx-black/80 mt-1 uppercase tracking-wider font-bold">
           Chef's Choice
         </p>
       </div>

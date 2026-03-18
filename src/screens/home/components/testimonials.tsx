@@ -61,9 +61,9 @@ const Testimonials = () => {
                   />
                 </div>
                 <div>
-                  <h4 className="font-serif! text-lg text-gold flex items-center gap-2">
+                  <h3 className="font-serif! text-lg text-gold flex items-center gap-2">
                     {item.name}
-                  </h4>
+                  </h3>
                   <div className="flex text-gold gap-0.5 mt-0.5">
                     {[...Array(5)].map((_, i) => (
                       <MdOutlineStar key={i} className="w-3 h-3 fill-gold" />
@@ -104,7 +104,7 @@ const ReviewAndRating = ({ className }: { className?: string }) => {
               <MdOutlineStar key={i} className="size-2.5 fill-gold" />
             ))}
           </div>
-          <span className="text-[9px] uppercase tracking-widest text-white/30 font-bold">
+          <span className="text-[9px] uppercase tracking-widest text-white/80 font-bold">
             Rating
           </span>
         </div>
@@ -113,10 +113,10 @@ const ReviewAndRating = ({ className }: { className?: string }) => {
       <div className="flex items-center gap-3 md:border-l md:border-white/10 md:pl-6">
         <span className="text-3xl font-serif text-gold">77+</span>
         <div className="flex flex-col">
-          <span className="text-[9px] uppercase tracking-widest text-white/30 font-bold leading-tight">
+          <span className="text-[9px] uppercase tracking-widest text-white/80 font-bold leading-tight">
             Verified
           </span>
-          <span className="text-[9px] uppercase tracking-widest text-white/30 font-bold leading-tight">
+          <span className="text-[9px] uppercase tracking-widest text-white/80 font-bold leading-tight">
             Reviews
           </span>
         </div>
