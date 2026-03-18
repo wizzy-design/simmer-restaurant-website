@@ -9,11 +9,7 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
-        hostname: "www.allnigerianrecipes.com",
-      },
-      {
-        protocol: "https",
-        hostname: "allnigerianrecipes.com",
+        hostname: "res.cloudinary.com",
       },
     ],
   },
