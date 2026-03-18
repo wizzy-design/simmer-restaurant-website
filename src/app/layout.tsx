@@ -116,13 +116,13 @@ export default function RootLayout({
         <link
           rel="preload"
           as="image"
-          href="https://res.cloudinary.com/dvjslohdt/image/upload/f_auto,q_auto,w_828/simmer-restaurant/hero"
+          href="https://res.cloudinary.com/dvjslohdt/video/upload/f_auto,q_auto,so_0,w_828,c_fill,g_auto/simmer-restaurant/reel1.jpg"
           fetchPriority="high"
           imageSrcSet="
-             https://res.cloudinary.com/dvjslohdt/image/upload/f_auto,q_auto,w_640/simmer-restaurant/hero 640w,
-             https://res.cloudinary.com/dvjslohdt/image/upload/f_auto,q_auto,w_828/simmer-restaurant/hero 828w,
-             https://res.cloudinary.com/dvjslohdt/image/upload/f_auto,q_auto,w_1080/simmer-restaurant/hero 1080w,
-             https://res.cloudinary.com/dvjslohdt/image/upload/f_auto,q_auto,w_1920/simmer-restaurant/hero 1920w
+             https://res.cloudinary.com/dvjslohdt/video/upload/f_auto,q_auto,so_0,w_640,c_fill,g_auto/simmer-restaurant/reel1.jpg 640w,
+             https://res.cloudinary.com/dvjslohdt/video/upload/f_auto,q_auto,so_0,w_828,c_fill,g_auto/simmer-restaurant/reel1.jpg 828w,
+             https://res.cloudinary.com/dvjslohdt/video/upload/f_auto,q_auto,so_0,w_1080,c_fill,g_auto/simmer-restaurant/reel1.jpg 1080w,
+             https://res.cloudinary.com/dvjslohdt/video/upload/f_auto,q_auto,so_0,w_1920,c_fill,g_auto/simmer-restaurant/reel1.jpg 1920w
             "
           imageSizes="100vw"
         />
