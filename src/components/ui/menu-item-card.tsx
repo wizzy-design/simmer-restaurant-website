@@ -1,11 +1,9 @@
 "use client";
 
-import { CldImage } from "next-cloudinary";
-import Image from "next/image";
+import SmartImage from "./smart-image";
 import { motion } from "motion/react";
 import { Plus, Check, ShoppingBasket } from "lucide-react";
 import { useReservation, MenuItem } from "../../context/reservation-context";
-import { useState } from "react";
 import { cn } from "../../lib/utils";
 
 interface MenuItemCardProps {
@@ -67,44 +65,27 @@ const MenuItemCard = ({ item, variant = "compact" }: MenuItemCardProps) => {
     );
   }
 
-  const imageType = getImageType(item.image);
 
   const sharedImgClasses =
     "object-cover transition-transform duration-700 group-hover:scale-110";
 
   const renderImage = () => {
-    if (imageType === "external") {
+    if (!item.image) {
       return (
-        <Image
-          src={item.image!}
-          alt={item.name}
-          fill
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          className={sharedImgClasses}
-        />
+        <div className="w-full h-full bg-ghost-cream flex items-center justify-center">
+          <span className="text-2xl text-onyx-black/5 font-kaushan">Simm3r</span>
+        </div>
       );
     }
-    if (imageType === "local" || imageType === "cloudinary") {
-      return (
-        <CldImage
-          src={
-            imageType === "local"
-              ? `simmer-restaurant/${item.image!.split(".")[0].substring(1)}`
-              : item.image!
-          }
-          alt={item.name}
-          fill
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          className={sharedImgClasses}
-          crop="fill"
-          gravity="auto"
-        />
-      );
-    }
+
     return (
-      <div className="w-full h-full bg-ghost-cream flex items-center justify-center">
-        <span className="text-2xl text-onyx-black/5 font-kaushan">Simm3r</span>
-      </div>
+      <SmartImage
+        src={item.image}
+        alt={item.name}
+        fill
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        className={sharedImgClasses}
+      />
     );
   };
 
@@ -157,17 +138,4 @@ const MenuItemCard = ({ item, variant = "compact" }: MenuItemCardProps) => {
 
 export default MenuItemCard;
 
-// Returns the image "type" so the correct renderer is used:
-//   "cloudinary" — public ID or res.cloudinary.com URL  → CldImage
-//   "external"   — any other absolute URL (Unsplash etc) → next/image
-//   "local"      — relative path starting with /         → CldImage (existing mapping)
-//   "none"       — falsy                                  → placeholder
-type ImageType = "cloudinary" | "external" | "local" | "none";
 
-const getImageType = (src?: string): ImageType => {
-  if (!src) return "none";
-  if (src.startsWith("/")) return "local";
-  if (src.includes("res.cloudinary.com") || !src.startsWith("http"))
-    return "cloudinary";
-  return "external";
-};

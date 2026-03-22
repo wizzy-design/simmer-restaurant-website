@@ -2,7 +2,7 @@
 import { motion } from "motion/react";
 import { Quote } from "lucide-react";
 import Marquee from "react-fast-marquee";
-import { CldImage } from "next-cloudinary";
+import SmartImage from "../../../components/ui/smart-image";
 import { MdOutlineStar } from "react-icons/md";
 import { cn } from "@/lib/utils";
 
@@ -50,14 +50,13 @@ const Testimonials = () => {
               {/* Card Header: Avatar & Info */}
               <div className="flex items-center gap-4 mb-8 shrink-0">
                 <div className="relative size-14 rounded-full border-2 border-gold/30 ring-4 ring-gold/5">
-                  <CldImage
+                  <SmartImage
                     src={item.avatar}
                     alt={item.name}
                     fill
                     sizes="56px"
                     className="object-cover"
-                    crop="thumb"
-                    gravity="faces"
+                    cldProps={{ crop: "thumb", gravity: "faces" }}
                   />
                 </div>
                 <div>
