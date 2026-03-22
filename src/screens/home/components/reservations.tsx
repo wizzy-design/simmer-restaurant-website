@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-import { CldImage } from "next-cloudinary";
+import SmartImage from "../../../components/ui/smart-image";
 import React, { useState } from "react";
 import { useReservation } from "../../../context/reservation-context";
 
@@ -398,15 +398,13 @@ export const Reservations = ({ isModal = false }: { isModal?: boolean }) => {
     >
       {/* Background Image / Overlay */}
       <div className="absolute inset-0 z-0">
-        <CldImage
+        <SmartImage
           src="simmer-restaurant/dine"
           alt="Restaurant Interior"
           fill
           sizes="(max-width: 768px) 100vw, 100vw"
           className="object-cover"
-          crop="fill"
-          gravity="auto"
-          quality={60}
+          cldProps={{ quality: 60 }}
         />
         <div className="absolute inset-0 bg-onyx-black/70 backdrop-blur-xs" />
       </div>

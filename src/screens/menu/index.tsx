@@ -2,14 +2,13 @@
 
 import { useState, useMemo } from "react";
 import MenuItemCard from "../../components/ui/menu-item-card";
-import { CldImage } from "next-cloudinary";
-import Image from "next/image";
 import { motion, AnimatePresence } from "motion/react";
 import { Search } from "lucide-react";
 import foodMenuData from "../../data/food-menu.json";
 import drinksMenuData from "../../data/drinks-menu.json";
 import { MenuItem } from "../../context/reservation-context";
 import { cn } from "../../lib/utils";
+import SmartImage from "../../components/ui/smart-image";
 
 interface MenuCategory {
   category: string;
@@ -151,6 +150,7 @@ const MenuScreen = () => {
                           <SmartImage
                             src={featuredImages[0]}
                             alt=""
+                            fill
                             className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                           />
                           <div className="absolute inset-0 bg-onyx-black/5 group-hover:bg-transparent transition-colors" />
@@ -170,6 +170,7 @@ const MenuScreen = () => {
                               <SmartImage
                                 src={img}
                                 alt=""
+                                fill
                                 className="w-full h-full object-cover"
                               />
                               <div className="absolute inset-0 bg-onyx-black/5" />
@@ -216,6 +217,7 @@ const MenuScreen = () => {
                           <SmartImage
                             src={featuredImages[0]}
                             alt=""
+                            fill
                             className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                           />
                           <div className="absolute inset-0 bg-onyx-black/10 group-hover:bg-transparent transition-colors" />
@@ -226,6 +228,7 @@ const MenuScreen = () => {
                           <SmartImage
                             src={featuredImages[1]}
                             alt=""
+                            fill
                             className="w-full h-full object-cover"
                           />
                         </div>
@@ -252,48 +255,4 @@ const MenuScreen = () => {
 
 export default MenuScreen;
 
-// Resolves a Cloudinary public-ID shorthand (local /food.png or raw public ID)
-// and returns the correct src string for CldImage.
-const toCldSrc = (src: string) =>
-  src.startsWith("/")
-    ? `simmer-restaurant/${src.split(".")[0].substring(1)}`
-    : src;
 
-// Renders the right image component depending on the URL scheme:
-//   Unsplash / external http → next/image  (optimizer-friendly)
-//   Cloudinary / local path  → CldImage    (transformation pipeline)
-const SmartImage = ({
-  src,
-  alt,
-  className,
-}: {
-  src: string;
-  alt: string;
-  className?: string;
-}) => {
-  const isExternal =
-    src.startsWith("http") && !src.includes("res.cloudinary.com");
-
-  if (isExternal) {
-    return (
-      <Image
-        src={src}
-        alt={alt}
-        fill
-        className={className}
-        sizes="(max-width: 1024px) 50vw, 40vw"
-      />
-    );
-  }
-  return (
-    <CldImage
-      src={toCldSrc(src)}
-      alt={alt}
-      fill
-      className={className}
-      crop="fill"
-      gravity="auto"
-      sizes="(max-width: 1024px) 50vw, 40vw"
-    />
-  );
-};

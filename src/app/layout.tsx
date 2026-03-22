@@ -8,6 +8,7 @@ import ReservationSidebar from "@/components/ui/reservation-sidebar";
 import ReservationModal from "@/components/ui/reservation-modal";
 import FloatingReservationButton from "@/components/ui/floating-reservation-button";
 import { restaurantConfig } from "@/config/restaurant";
+import { Analytics } from "@vercel/analytics/next";
 import RestaurantSchema from "@/components/seo/restaurant-schema";
 import OrganizationSchema from "@/components/seo/organization-schema";
 
@@ -109,9 +110,18 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <Analytics />
         {/* Preconnect to the two heaviest external origins */}
-        <link rel="preconnect" href="https://res.cloudinary.com" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          rel="preconnect"
+          href="https://res.cloudinary.com"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
         {/* Preload the LCP image — must match the srcSet in hero.tsx exactly to avoid a double-fetch */}
         <link
           rel="preload"

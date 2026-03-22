@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-import { CldImage } from "next-cloudinary";
+import SmartImage from "../../../components/ui/smart-image";
 import { motion } from "motion/react";
 import { fadeUp } from "../../../lib/animations";
 import { cn } from "../../../lib/utils";
@@ -80,14 +80,12 @@ const About = () => {
                   "lg:break-inside-avoid"
                 )}
               >
-                <CldImage
+                <SmartImage
                   src={img.src}
                   alt={img.alt}
                   fill
                   sizes="(max-width: 768px) 80vw, (max-width: 1024px) 50vw, 33vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
-                  crop="fill"
-                  gravity="auto"
                 />
                 <div className="absolute inset-0 bg-linear-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
               </motion.div>
