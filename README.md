@@ -87,7 +87,7 @@ This project is built with recruiters and clients in mind, showcasing best pract
 
 ## 📸 Preview
 
-![Simm3r Restaurant Hero Preview](https://res.cloudinary.com/dvjslohdt/image/upload/simmer-restaurant/hero)
+![Simm3r Restaurant Hero Preview](https://res.cloudinary.com/dvjslohdt/image/upload/v1774285197/1_qc2g8f.png)
 
 ---
 
